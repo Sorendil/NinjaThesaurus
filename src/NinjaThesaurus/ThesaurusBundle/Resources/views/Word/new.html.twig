@@ -1,0 +1,16 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Création d'un nouveau mot - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <h1>Création d'un nouveau mot</h1>
+
+    {{ form(form) }}
+
+    <h2>Actions</h2>
+    
+    <ul class="list-inline">
+        <li><a href="{{ path('word') }}"><span class="btn btn-primary">Revenir à la liste</span></a></li>
+    </ul>
+</ul>
+{% endblock %}
