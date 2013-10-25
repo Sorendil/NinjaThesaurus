@@ -17,4 +17,5 @@ Que vous ayez Eclipse ou pas, il faut configurer votre IDE pour avoir 4 espaces 
 ### Tuto d'installation de composer.phar
 
 Se placer a la racine du projet
+
 http://www.evoluation.com/blog/2012/06/installer-et-utiliser-composer-en-php/
