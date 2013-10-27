@@ -2,7 +2,7 @@
 
 {% use 'form_div_layout.html.twig' with button_attributes as base_button_attributes %}
 {% block button_attributes %}
-    class="btn" {{ block('base_button_attributes') }}
+    class="btn {% if label == 'Supprimer' %}btn-danger{% else %}btn-primary{% endif %}" {{ block('base_button_attributes') }}
 {% endblock %}
 
 {# Just add class="form-group" #}
@@ -15,7 +15,7 @@
     </div>
 {% endspaceless %}
 {% endblock form_row %}
-
+v
 {# Just add class="form-control" #}
 {% block form_widget_simple %}
 {% spaceless %}
