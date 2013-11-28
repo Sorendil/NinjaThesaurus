@@ -18,11 +18,6 @@ class Descripteur
     echo "Descripteur modifier $libelle <br />";
   }
 
-  public function getLibelle ()
-  {
-    return $this->libelle;
-  }
-
   public function getId ()
   {
     return $this->id;
