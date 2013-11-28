@@ -1,4 +1,0 @@
-ninja_thesaurus_thesaurus:
-    resource: "@NinjaThesaurusThesaurusBundle/Resources/config/routing.yml"
-    prefix:   /
-

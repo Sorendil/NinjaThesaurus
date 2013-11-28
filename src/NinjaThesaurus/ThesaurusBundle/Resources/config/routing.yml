@@ -1,7 +1,0 @@
-homepage:
-    pattern:  /
-    defaults: { _controller: NinjaThesaurusThesaurusBundle:Default:index }
-
-ninja_thesaurus_thesaurus_words:
-    resource: "@NinjaThesaurusThesaurusBundle/Resources/config/routing/word.yml"
-    prefix:   /mot
