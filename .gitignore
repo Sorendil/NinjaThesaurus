@@ -1,2 +1,6 @@
 *~
 *.swp
+web/*.swp
+web/*~
+web/*/*.swp
+web/*/*~
