@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# chemin relatif
+RewriteBase /~colin/NinjaThesaurus/
+
+# dossier static
+RewriteRule ^static/.+ - [L]
+
+# routage du site
+RewriteRule ^sdf/(.+)$ index.php?toto=$1 [L]
+
+# cas par défault
+RewriteRule ^.*$ index.php [L]

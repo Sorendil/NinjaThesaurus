@@ -1,0 +1,32 @@
+{# Override https://github.com/symfony/symfony/blob/master/src/Symfony/Bridge/Twig/Resources/views/Form/form_div_layout.html.twig #}
+
+{% use 'form_div_layout.html.twig' with button_attributes as base_button_attributes %}
+{% block button_attributes %}
+    class="btn {% if label == 'Supprimer' %}btn-danger{% else %}btn-primary{% endif %}" {{ block('base_button_attributes') }}
+{% endblock %}
+
+{# Just add class="form-group" #}
+{% block form_row %}
+{% spaceless %}
+    <div class="form-group">
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
+    </div>
+{% endspaceless %}
+{% endblock form_row %}
+v
+{# Just add class="form-control" #}
+{% block form_widget_simple %}
+{% spaceless %}
+    {% set type = type|default('text') %}
+    <input class="form-control" type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+{% endspaceless %}
+{% endblock form_widget_simple %}
+
+{# Just add class="form-control" #}
+{% block textarea_widget %}
+{% spaceless %}
+    <textarea class="form-control" {{ block('widget_attributes') }}>{{ value }}</textarea>
+{% endspaceless %}
+{% endblock textarea_widget %}
