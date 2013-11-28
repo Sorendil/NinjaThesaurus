@@ -1,7 +1,7 @@
 RewriteEngine On
 
 # chemin relatif
-RewriteBase /~colin/NinjaThesaurus/
+RewriteBase /~colin/NinjaThesaurus/web/
 
 # dossier static
 RewriteRule ^static/.+ - [L]
