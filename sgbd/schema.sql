@@ -22,6 +22,7 @@ CREATE OR REPLACE TYPE DNORMAL_REF_NESTED_T AS TABLE OF DNORMAL_REF_T
 CREATE OR REPLACE TYPE DVEDETTE_REF_NESTED_T AS TABLE OF DVEDETTE_REF_T
 /
 
+
 CREATE OR REPLACE TYPE DNORMAL_REF_T AS OBJECT
 (REF_DESC REF DNORMAL_T)
 /
@@ -96,3 +97,6 @@ NESTED TABLE FILS STORE AS DVEDETTE_FILS;
 --drop type dnormal_ref_nested_t force;
 --drop type dvedette_ref_nested_t force;
 --drop type dvedette_t force;
+
+--lister les triggers : select trigger_name from user_triggers;
+--supprimer les triggers : drop trigger <triggername>

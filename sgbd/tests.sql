@@ -32,3 +32,11 @@ select deref(t.ref_desc).libelle from table (select fils from dvedette where lib
 -- sélection des synonymes du descripteur vedette 'chat'
 select deref(t.ref_desc).libelle from table (select synonymes from dvedette d where libelle='Chat') t;
 
+-- suppression de références nulles
+delete from table (select fils from dvedette where libelle='Félin') t where value(t).ref_desc is dangling;
+
+
+
+-- requetes à faire pour supprimer un noeud "chat" de l'arbre (dans une transaction)
+delete from table (select fils from dvedette where libelle='Félin') t where deref(value(t).ref_desc).libelle='Chat';
+...
