@@ -26,7 +26,7 @@ class Descripteur
     {
       $query = oci_parse ($db, 'select * from descripteurs where libelle=:lib');
       oci_bind_by_name ($query, ":lib", $libelle);
-      oci_execute ();
+      oci_execute ($query);
       $n_res = oci_fetch_all ($query, $res);
       if ($n_res == 0)
         throw new NotFoundException();
@@ -35,14 +35,14 @@ class Descripteur
       $query = oci_parse ($db, 'select deref(r).libelle as libelle_desc, deref(r).libelle as libelle_rel, 0 
         from relations r where ref_src=(select ref(d) from descripteur d where libelle=:lib)');
       oci_bind_by_name ($query, ":lib", $libelle);
-      oci_execute ();
+      oci_execute ($query);
       $n_res = oci_fetch_all ($query, $res_sortante);
 
       /* récupération relations entrantes */
       $query = oci_parse ($db, 'select deref(r).libelle as libelle_desc, deref(r).libelle as libelle_rel, 1
         from relations r where ref_dst=(select ref(d) from descripteur d where libelle=:lib)');
       oci_bind_by_name ($query, ":lib", $libelle);
-      oci_execute ();
+      oci_execute ($query);
       $n_res = oci_fetch_all ($query, $res_entrantes);  		
 
       $relations = array_merge ($res_sortantes, $res_entrantes);
