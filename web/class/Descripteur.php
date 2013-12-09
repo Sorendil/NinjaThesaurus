@@ -2,9 +2,9 @@
 
 class Descripteur
 {
-  private $libelle, $vedette, $relations=array();
+  private $libelle, $vedette, $relations=array(), $db;
 
-  public function __construct ($libelle, $vedette=NULL)
+  public function __construct ($db, $libelle, $vedette=NULL)
   {
     if (isset($vedette))
     {
@@ -48,6 +48,7 @@ class Descripteur
       $relations = array_merge ($res_sortantes, $res_entrantes);
     }
 
+    $this->db = $db;
     $this->libelle = $libelle;
     $this->vedette = $vedette;
   }

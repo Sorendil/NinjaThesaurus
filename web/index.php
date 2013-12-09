@@ -25,7 +25,7 @@ if ($adr_libelle)
   else
   {
     try {
-      $desc = new Descripteur ($adr_libelle);
+      $desc = new Descripteur ($db, $adr_libelle);
     }
     catch (NotFoundException $e) {
       die ('descripteur non existant');
