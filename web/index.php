@@ -6,7 +6,7 @@ include './class/Exceptions.php';
 
 $db = Tools::connect_db();
 if (!$db)
-	die;
+	die('connexion sgbd impossible');
 
 $adr_libelle = NULL;
 $adr_methode = NULL;
@@ -24,10 +24,12 @@ if ($adr_libelle)
 	}
 	else
 	{
-		try
+		try {
 			$desc = new Descripteur ($adr_libelle);
-		catch (NotFoundException $e)
-			die;
+		}
+		catch (NotFoundException $e) {
+			die ('descripteur non existant');
+		}
 			
 		echo "<pre>";
 		echo desc->getLibelle();
