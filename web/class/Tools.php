@@ -11,7 +11,7 @@ class Tools
 
   static function connect_db()
   {
-    include './../config_db.php';
+    include './config_db.php';
     return oci_connect ($login, $password, $host);
   }
 
