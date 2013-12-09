@@ -32,8 +32,8 @@ if ($adr_libelle)
 		}
 			
 		echo "<pre>";
-		echo desc->getLibelle();
-		echo desc->getRel();
+		echo $desc->getLibelle();
+		echo $desc->getRel();
 		echo "</pre>";
 	}
 }
