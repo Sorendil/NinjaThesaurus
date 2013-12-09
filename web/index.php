@@ -1,9 +1,12 @@
 <?php
 
 include './class/Descripteur.php';
-include './class/DVedette.php';
-include './class/DNormal.php';
 include './class/Tools.php';
+include './class/Exceptions.php';
+
+$db = Tools::connect_db();
+if (!$db)
+	die;
 
 $adr_libelle = NULL;
 $adr_methode = NULL;
@@ -14,4 +17,23 @@ if (isset ($_GET['libelle']))
 if (isset ($_GET['methode']))
   $adr_methode = $_GET['methode'];
 
-echo $adr_libelle."<br />".$adr_methode;
+if ($adr_libelle)
+{
+	if ($adr_methode)
+	{
+	}
+	else
+	{
+		try
+			$desc = new Descripteur ($adr_libelle);
+		catch (NotFoundException $e)
+			die;
+			
+		echo "<pre>";
+		echo desc->getLibelle();
+		echo desc->getRel();
+		echo "</pre>";
+	}
+}
+
+Tools::disconnect_db($db);
