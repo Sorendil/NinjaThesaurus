@@ -43,6 +43,11 @@ class Descripteur
       oci_execute ($query);
       $n_res = oci_fetch_all ($query, $res_entrantes);  		
 
+      echo '<pre>';
+      print_r($res_entrantes);
+      print_r($res_sortantes);
+      echo '</pre>';
+
       $this->relations = array_merge ($res_sortantes, $res_entrantes);
     }
 
