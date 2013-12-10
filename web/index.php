@@ -31,7 +31,7 @@ if (isset ($_GET['libelle']))
     catch (NotFoundException $e) {
       die ('descripteur non existant');
     }
-    if (isset($_POST['ajoute_rel'] && isset($_POST['rel']) && isset($_POST['libelle']))
+    if (isset($_POST['ajoute_rel']) && isset($_POST['rel']) && isset($_POST['libelle']))
     {
       /* ajout relation */
       if ($desc->addRel(Tools::parse_libelle($_POST['rel']), $_POST['rel']))
