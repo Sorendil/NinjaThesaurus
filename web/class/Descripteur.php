@@ -48,6 +48,7 @@ class Descripteur
       echo '<pre>';
       print_r ($res_sortantes);
       print_r ($res_entrantes);
+      print_r ($relations);
       echo '</pre>';
     }
 
