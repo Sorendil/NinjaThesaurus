@@ -9,7 +9,9 @@ class Descripteur
     if (isset($vedette))
     {
       if (($vedette != 1) && ($vedette != 0))
+      {
         throw new WrongArgsException();
+      }
       else
       {
         $query = oci_parse ($db, 'insert into descripteurs values (:lib,:vedette)');
