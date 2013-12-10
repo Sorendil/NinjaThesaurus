@@ -1,8 +1,5 @@
 <?php
 
-echo '<pre>';
-print_r($_GET);
-echo '</pre>';
 include './class/Descripteur.php';
 include './class/Tools.php';
 include './class/Exceptions.php';
