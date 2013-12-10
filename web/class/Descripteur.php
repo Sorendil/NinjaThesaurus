@@ -8,7 +8,7 @@ class Descripteur
   {
     if (isset($vedette))
     {
-      if (($vedette != 1) || ($vedette != 0))
+      if ($vedette != 1 && $vedette != 0)
         throw new WrongArgsException();
       else
       {
