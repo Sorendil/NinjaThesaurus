@@ -64,16 +64,25 @@ class Descripteur
   public function getRel ()
   {
     /* format du tableau $relations
-     * LIBELLE_DESC | LIBELLE_REL | 0 (sortante) ou 1 (entrante) */
+     * LIBELLE_DESC | LIBELLE_REL | SENS
+     * sens=0 : sortante
+     * sens=1 : entrante
+     * */
     return $this->relations;
   }
 
-  public function addRel ($lib, $rel)
+  public function addRel ($dest_lib, $rel_lib)
   {
-  /* essaye d'ajouter une relation
-  plusieurs erreur : $lib non existante
-           $rel non existante
-           booleans faux
-   */
+    $id_rel = $libelle.$dest_lib.$rel_lib;
+    $query = oci_parse ($db, 'insert into relations values (:id_rel, (select ref(d1) from descripteurs d1 where d1.libelle=:lib1), (select ref(d2) from descripteurs d2 where d2.libelle=:lib2), select ref(r) from types_relations r where r.libelle=:rel))');
+    oci_bind_by_name ($query, ":lib1", $libelle);
+    oci_bind_by_name ($query, ":lib2", $dest_lib);
+    oci_bind_by_name ($query, ":rel", $rel_lib);
+    oci_execute ($query);
+    
+    if (oci_error ($db))
+    {
+      echo 'erreur lors de l\'ajout de la relation';
+    }
   }
 }
