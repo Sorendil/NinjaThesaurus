@@ -43,12 +43,9 @@ class Descripteur
       oci_execute ($query);
       $n_res = oci_fetch_all ($query, $res_entrantes);  		
 
-      echo '<pre>';
-      print_r($res_entrantes);
-      print_r($res_sortantes);
-      echo '</pre>';
-
-      $this->relations = array_merge ($res_sortantes, $res_entrantes);
+      $this->relations['LIBELLE_DESC'] = array_merge ($res_sortantes['LIBELLE_DESC'], $res_entrantes['LIBELLE_DESC']);
+      $this->relations['LIBELLE_REL'] = array_merge ($res_sortantes['LIBELLE_REL'], $res_entrantes['LIBELLE_REL']);
+      $this->relations['SENS'] = array_merge ($res_sortantes['SENS'], $res_entrantes['SENS']);
     }
 
     $this->db = $db;
