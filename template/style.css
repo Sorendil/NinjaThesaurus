@@ -1,0 +1,64 @@
+body {
+background-color: #454136;
+color: #454136;
+}
+
+#global-content {
+position: relative;
+
+background: #e3b342;
+background: -moz-linear-gradient(top,  #e3b342 0%, #f1e188 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e3b342), color-stop(100%,#f1e188));
+background: -webkit-linear-gradient(top,  #e3b342 0%,#f1e188 100%);
+background: -o-linear-gradient(top,  #e3b342 0%,#f1e188 100%);
+background: -ms-linear-gradient(top,  #e3b342 0%,#f1e188 100%);
+background: linear-gradient(to bottom,  #e3b342 0%,#f1e188 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e3b342', endColorstr='#f1e188',GradientType=0 );
+
+}
+
+.menu {
+margin: 50px 0 0 50px;
+}
+
+#logo {
+float: left;
+}
+
+header {
+margin-bottom: 20px;
+}
+
+#animals {
+width: 486px;
+height: 185px;
+position: absolute;
+bottom: 0px;
+left: 40%;
+background: url(images/animals.png) no-repeat;
+z-index: 2;
+}
+
+#trees {
+position: absolute;
+bottom: -12px;
+background: url(images/trees-x.png) repeat-x top left;
+height: 200px;
+width: 100%;
+}
+
+#content {
+margin: 0 auto;
+width: 1200px;
+padding: 20px 0 200px;
+z-index: 3;
+}
+
+footer {
+background: url(images/footer-x.png) repeat-x top;
+color: white;
+padding: 20px 10px 10px;
+position: relative;
+top: -12px;
+
+}
