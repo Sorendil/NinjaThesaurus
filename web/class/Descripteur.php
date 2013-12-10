@@ -73,16 +73,14 @@ class Descripteur
 
   public function addRel ($dest_lib, $rel_lib)
   {
-    $id_rel = $libelle.$dest_lib.$rel_lib;
-    $query = oci_parse ($db, 'insert into relations values (:id_rel, (select ref(d1) from descripteurs d1 where d1.libelle=:lib1), (select ref(d2) from descripteurs d2 where d2.libelle=:lib2), select ref(r) from types_relations r where r.libelle=:rel))');
+    $query = oci_parse ($db, 'insert into relations values ((select ref(d1) from descripteurs d1 where d1.libelle=:lib1), (select ref(d2) from descripteurs d2 where d2.libelle=:lib2), select ref(r) from types_relations r where r.libelle=:rel))');
     oci_bind_by_name ($query, ":lib1", $libelle);
     oci_bind_by_name ($query, ":lib2", $dest_lib);
     oci_bind_by_name ($query, ":rel", $rel_lib);
     oci_execute ($query);
     
     if (oci_error ($db))
-    {
-      echo 'erreur lors de l\'ajout de la relation';
-    }
+      return false;
+    return true;
   }
 }
