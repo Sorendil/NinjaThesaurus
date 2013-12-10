@@ -6,7 +6,6 @@ class Tools
   {
     $lib = strtolower ($lib);
     $lib = str_replace ('_', ' ', $lib);
-    $lib = utf8_decode($lib);
     return $lib;
   }
 
