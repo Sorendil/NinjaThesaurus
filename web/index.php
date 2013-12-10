@@ -44,7 +44,7 @@ if (isset ($_GET['libelle']))
       /* affichage page descripteur */
       echo "<pre>";
       echo $desc->getLibelle();
-      echo $desc->getRel();
+      echo "\n".print_r($desc->getRel());
       echo "</pre>";
     }
   }
