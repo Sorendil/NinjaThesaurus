@@ -1,0 +1,89 @@
+\documentclass[12pt,a4paper]{report}
+\renewcommand{\baselinestretch}{1.5}
+\usepackage[latin1]{inputenc}
+\usepackage[francais]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\title{Projet Base de Données Avancées - Thésaurus}
+\author{J. Deguilhem, M. Denis, S. Gautheron , J. Mitrail, A. Rossi, C. Vidal \\Master 1 Informatique - Université Montpellier 2}
+\usepackage[absolute]{textpos}
+
+\begin{document}
+\maketitle{}
+\tableofcontents{}
+\pagebreak
+
+
+
+\section{Introduction}%Introduction ou Sujet
+Dans le cadre du Master 1 Informatique à l'Université Montpellier 2, nous avons été mené à réaliser un projet de groupe pour le cours de base de données avancées dirigé par Thérèse Libourel.
+	
+Le projet proposé consiste à analyser et implémenter un vocabulaire partagé. Un vocabulaire partagé ou aussi appelé Thésaurus est une liste de termes organisées selon des liens qui les unissent. Les termes sont reliés entre eux par diverses relations comme la synonymie, la généralisation, la spécialisation, l'association...
+	
+Le projet qui nous a été assigné " le thésaurus " est pertinent par rapport au sujet de la base de données parce qu'au final un thésaurus est un outil linguistique qui permet de voir les relations entre des concepts concernant un domaine de connaissance. Ainsi l'une de notre mission est de trouver la structure optimale qui mettra en avant les relations sémantiques et d'équivalence
+
+L'équipe de projet est constitué de six étudiants : Julien Deguilhem, Maïlys Denis, Sébastien Gautheron, Johann Mitrail, Anthony Rossi et Colin Vidal.
+
+Pour le thésaurus, nous avons choisi de travailler sur le thème des animaux. C'est un thème vaste qui permet de créer beaucoup de lien entre tous les animaux, en partant du nom latin de l'animal jusqu'à créer des liens de synonymie, d'espèces, de races, de cousins...
+
+\section{Cahier des charges}%Cahier des charges ou analyse des besoins
+
+Le projet a débuté début novembre 2013 et doit se terminer début janvier 2014.
+
+A l'issue de cette période l'équipe de projet présentera le suivi du projet à travers une soutenance orale et rendra un rapport de projet concis.
+
+\subsection{Fonctionnalités}
+L'application sera un site web ergonomique et simple d'utilisation.
+
+L'application demandée devra permettre à un utilisateur de rechercher un mot dans le thésaurus et pouvoir avoir la liste des termes qui lui sont liés. Il pourra voir les termes synonymes, les généralisations et spécialisations du mot recherché.
+
+Puis, l'utilisateur pourra naviguer de termes en termes grâce à la liste des mots retournés lors de la recherche d'un précédent mot.
+
+De plus, l'utilisateur aura la possibilité d'ajouter, d'éditer ou de supprimer des synonymes, des spécialisations ou des généralisations à un mot. 
+
+\subsection{Fiabilité}
+L'application avertit l'utilisateur dans le cas où le mot recherché n'est pas dans la base de données et après l'ajout, la suppression ou l'édition d'un mot.
+
+Lors d'ajout(de suppression et d'édition) de relations à un mot, l'application est en mesure de refuser si la relation compromet le bon fonctionnement de la base de données.
+ 
+
+
+\section{Gestion de Projet}
+%Diagramme de gantt
+\includegraphics[width=15cm]{thesaurusgantt.png}
+
+Pour le projet, nous avons commencé par analyser le sujet. Nous avons confronter nos différents diagramme de classes et nous avons confronté nos idées durant près d'un mois pour produire le diagramme de classes et de cas d'utilisation.
+
+Une fois l'analyse terminée, nous avons décidé de nous répartir les tâches selon les envies de chacun et les besoins du projet.
+
+Anthony est responsable du site web qui sera donc l'interface de notre thésaurus. Colin prend en charge la mise en place  du serveur et de la base de données  afin de pouvoir entamer le projet. Sébastien  s'occupe des diagrammes de classes et  d'utilisation. Johann et Maïlys sont responsables de tout ce qui est rédaction du rapport, organisation du projet et résumé des réunions.
+
+\section{Conception}
+%Diagramme de classe à insérer
+%Diagramme de cas d'utilisation à insérer
+
+\section{Spécifications}%Spécifications ou choix techniques
+Toute notre infrastructure, serveur web, SGBD a été installé sur une machine virtuelle Unix CentOS.
+
+\subsection{Serveur de gestion de base de données}
+Nous avons décidé d'utiliser le SGBD Oracle car tout d'abord cette base de données est orientée objet mais aussi car nous avons été formés tout au long de notre cursus sur cette base de données.
+
+\subsection{Serveur Web}
+Pour le serveur Web, nous avons utilisé Apache avec PHP5.
+
+\subsection{Serveur de gestion de version}
+Dans le contexte de gestion de projet, nous avons utilisé le serveur GitHub pour centraliser et gérer nos versions du projet afin de faciliter l'ajout, la modification et la suppression de code. 
+
+
+\section{Implémentation}
+
+\section{Conclusion}
+\subsection{Difficultés rencontrées}
+Nous avons rencontré quelques difficultés concernant la phase d'analyse du sujet en particulier l'élaboration du diagramme de classe. Notre premier diagramme de classe était fait en sorte que l'on puisse créer une hiérarchie de mots sous forme d'arbre mais aussi une liste de synonyme. 
+
+Cependant, nous l'avons repensé car l'idée de la génération d'un arbre n'est pas adapté au problème de l'utilisation de ce thésaurus dans toute sorte de domaine (et non pas exclusivement au domaine des animaux).
+
+\subsection{Résultats}
+\end{document}
