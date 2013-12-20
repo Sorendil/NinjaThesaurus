@@ -1,3 +1,23 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Animal Thesaurus</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+	<div id="global-content">
+		<div id="content">
+<!----   ICI LE LE HEADER     --->
+			<header>
+<?php
+include("header.php");
+?>		
+			</header>
+
+<!----   ICI LE LE CORPS DE PAGE     --->
+
 <?php
 
 include './class/Descripteur.php';
@@ -55,8 +75,20 @@ else if (isset ($_POST['libelle']) && isset($_POST['vedette']))
 }
 else
 {
-  /* page par défault accueil */
-  echo 'accueil'; /* HTML TODO */
+include("accueil.php");
 }
 
 Tools::disconnect_db($db);
+?>
+			
+
+
+<!----   ICI LE FOOTER     --->
+	<footer>
+<?php
+include("footer.php");
+?>
+	</footer>
+
+</body>
+</html>
