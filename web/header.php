@@ -3,8 +3,8 @@ echo "<div id=\"logo\">
 			<a href= \"#\"><img src=\"images/logo.png\" /></a>
 		</div>
 		<div id=\"form-recherche\">
-			<form class=\"form-search\" action=\"index.php\">
-				<input type=\"text\" class=\"input-medium search-query\">
+			<form class=\"form-search\" action=\"index.php\" method=\"get\">
+				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
 				<button type=\"submit\" class=\"btn\">Recherche</button>
 			</form>
 		</div>
