@@ -65,16 +65,18 @@ Anthony est responsable du site web qui sera donc l'interface de notre thésaurus
 %Diagramme de cas d'utilisation à insérer
 
 \section{Spécifications}%Spécifications ou choix techniques
-Toute notre infrastructure, serveur web, SGBD a été installé sur une machine virtuelle Unix CentOS.
+Afin de simplifier le développement (l'installation et la configuration d'Oracle n'étant pas triviale), nous avons mis en place une architecture centralisée basée sur une machine virtuelle KVM hébergeant une distribution GNU/Linux CentOS 6.4 sur l'un de nos serveurs personnels.
 
 \subsection{Serveur de gestion de base de données}
-Nous avons décidé d'utiliser le SGBD Oracle car tout d'abord cette base de données est orientée objet mais aussi car nous avons été formés tout au long de notre cursus sur cette base de données.
+Il était nécessaire d'utiliser un SGBD gérant l'objet relationnel pour ce projet. À l'heure actuelle, les deux SGBD éprouvés et supportant cette norme sont Oracle et PostgreSQL. Notre choix s'est porté sur Oracle 11g en raison de notre formation sur ce type de système.
+
+Notons que nous aurions préféré utilisé PostgreSQL en raison de son aspect libre et fortement utilisé en entreprise, mais la complexité d'utilisation d'un tel SGBD que l'on ne maîtrise pas aurait prit un temps disproportionné sur ce projet.
 
 \subsection{Serveur Web}
-Pour le serveur Web, nous avons utilisé Apache avec PHP5.
+Nous avons utilisé Apache 2.2 pour le service web de notre application. Le choix du langage de programmation s'est porté sur PHP (avec le module OCI pour interaction avec le SGBD Oracle), en raison de sa maîtrise par tous les membres du projet.
 
 \subsection{Serveur de gestion de version}
-Dans le contexte de gestion de projet, nous avons utilisé le serveur GitHub pour centraliser et gérer nos versions du projet afin de faciliter l'ajout, la modification et la suppression de code. 
+Dans le contexte de gestion de projet, nous avons utilisé le service fourni par GitHub pour centraliser et gérer nos versions du projet afin de faciliter l'ajout, la modification et la suppression de code. 
 
 
 \section{Implémentation}
