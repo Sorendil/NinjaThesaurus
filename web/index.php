@@ -29,7 +29,10 @@ include './class/Exceptions.php';
 $db = Tools::connect_db();
 
 if (!$db)
-  die('connexion sgbd impossible'); /* HTML TODO */
+	/* HTML TODO */
+	echo '<center><b><font color="red" size="2"> La connexion avec la base de données a échoué. Réessayez ultérieurement. </font></b></center>'; /* HTML TODO */
+	include 'accueil.php';
+	exit();
 
 if (isset ($_GET['libelle']))
 {
@@ -40,7 +43,6 @@ if (isset ($_GET['libelle']))
   catch (NotFoundException $e) {
     echo '<center><b><font color="red" size="2"> D&eacute;sol&eacute;, le descripteur que vous recherchez est inexistant </font></b></center>'; /* HTML TODO */
 	include 'accueil.php';
-	include 'footer.php';
 	exit();
   }
   if (isset($_POST['add']) && isset($_POST['rel']) && isset($_POST['libelle']))
@@ -55,9 +57,16 @@ if (isset ($_GET['libelle']))
   {
     /* affichage page descripteur */
     echo "<pre>";
-    echo $desc->getLibelle();
-    echo "\n".print_r($desc->getRel());
+    echo "<h1>Page du mot ".$desc->getLibelle()."</h1>";
+    //echo "\n".print_r($desc->getRel());
     echo "</pre>";
+	$rel=$desc->getRel();//retourne $desc.$relations
+	foreach($rel as $value){
+		echo $value;
+		foreach($value as $a){
+			echo $a;
+		}
+	}
     /* HTML TODO */
   }
 }
