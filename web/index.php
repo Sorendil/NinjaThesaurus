@@ -98,7 +98,7 @@ if (isset ($_GET['libelle']))
 
 	echo "\n <h3>Sp&eacute;cialisations</h3> \n";
 	for($j=0; $j<count($specialisation); $j++){
-		echo '<a href="cvidal.org:81/'.$relations['LIBELLE_DESC'][$specialisation[$j]].'>'.$relations['LIBELLE_DESC'][$specialisation[$j]]."</a> ";
+		echo '<a href="cvidal.org:81/'.$relations['LIBELLE_DESC'][$specialisation[$j]].'">'.$relations['LIBELLE_DESC'][$specialisation[$j]]."</a> ";
 	}
 
 	echo "\n <h3>G&eacute;n&eacute;ralisations</h3> \n";
