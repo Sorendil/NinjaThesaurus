@@ -64,19 +64,18 @@ if (isset ($_GET['libelle']))
 	
 		/* partie en test */
 	$relations=$desc->getRel();
-	$type_rel=$relations['LIBELLE_REL'];
 	$synonyme=array();
 	$generalisation=array();
 	$specialisation=array();
 	$autre=array();
 
-	for($i=0; $i<count($type_rel); $i++){
+	for($i=0; $i<count($relations['LIBELLE_REL']); $i++){
 
-		if($type_rel=="synonyme"){
+		if($relations['LIBELLE_REL'][$i]=="synonyme"){
 			array_push($synonyme, $i);
 			echo "syn".$i;
 		}
-		else if($type_rel=="est"){
+		else if($relations['LIBELLE_REL'][$i]=="est"){
 			if($relations['SENS'][$i]==0){
 				array_push($specialisation, $i);
 				echo "spe".$i;
