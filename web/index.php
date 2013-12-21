@@ -74,36 +74,40 @@ if (isset ($_GET['libelle']))
 
 		if($type_rel=='synonyme'){
 			array_push($synonyme, $i);
+			echo "syn".$i;
 		}
 		else if($type_rel=='est'){
 			if($relations['SENS'][$i]==0){
 				array_push($specialisation, $i);
+				echo "spe".$i;
 			}
 			else if($relations['SENS'][$i]==1){
 				array_push($generalisation, $i);
+				echo "gen".$i;
 			}
 		}
 		else{
 			array_push($autre, $i);
+			echo "au".$i;
 		}
 	}
 
-	echo "Synonymes";
+	echo "\n Synonymes \n";
 	for($j=0; $j<count($synonyme); $j++){
 		echo $relations['LIBELLE_DESC'][$synonyme[$j]];
 	}
 
-	echo "Spécialisations";
+	echo "\n Spécialisations \n";
 	for($j=0; $j<count($specialisation); $j++){
 		echo $relations['LIBELLE_DESC'][$specialisation[$j]];
 	}
 
-	echo "Spécialisations";
+	echo "\n Généralisations \n";
 	for($j=0; $j<count($generalisation); $j++){
 		echo $relations['LIBELLE_DESC'][$generalisation[$j]];
 	}
 
-	echo "Autres";
+	echo "\n Autres \n";
 	for($j=0; $j<count($autre); $j++){
 		echo $relations['LIBELLE_DESC'][$autre[$j]];
 	}
