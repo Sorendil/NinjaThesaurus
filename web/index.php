@@ -59,8 +59,8 @@ if (isset ($_GET['libelle']))
     /* affichage page descripteur */
     echo "<pre>";
     echo "<h1>Page du mot ".$desc->getLibelle()."</h1>";
-    echo "\n".print_r($desc->getRel());
-    echo "</pre>";
+    echo "\n"
+    
 	
 		/* partie en test */
 	$relations=$desc->getRel();
@@ -91,28 +91,31 @@ if (isset ($_GET['libelle']))
 		}
 	}
 
-	echo "\n Synonymes \n";
+	echo "\n <h2>Synonymes</h2> \n";
 	for($j=0; $j<count($synonyme); $j++){
 		echo $relations['LIBELLE_DESC'][$synonyme[$j]];
 	}
 
-	echo "\n Spécialisations \n";
+	echo "\n <h2>Spécialisations</h2> \n";
 	for($j=0; $j<count($specialisation); $j++){
 		echo $relations['LIBELLE_DESC'][$specialisation[$j]];
 	}
 
-	echo "\n Généralisations \n";
+	echo "\n <h2>Généralisations</h2> \n";
 	for($j=0; $j<count($generalisation); $j++){
 		echo $relations['LIBELLE_DESC'][$generalisation[$j]];
 	}
 
-	echo "\n Autres \n";
+	echo "\n <h2>Autres</h2> \n";
 	for($j=0; $j<count($autre); $j++){
 		echo $relations['LIBELLE_DESC'][$autre[$j]];
 	}
-	/* fin de partie en test */	 
+	/* fin de partie en test */	
+	echo "</pre>";	
     /* HTML TODO */
   }
+ 
+  
 }
 else if (isset($_GET['__ajout']))
 {
