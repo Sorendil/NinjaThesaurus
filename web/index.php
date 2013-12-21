@@ -9,12 +9,20 @@
 <body>
 	<div id="global-content">
 		<div id="content">
-<!----   ICI LE LE HEADER     --->
-			<header>
-<?php
-include("header.php");
-?>		
-			</header>
+<!----   ICI LE HEADER     --->
+	<header>
+		<?php
+		include("header.php");
+		?>		
+	</header>
+			
+<!----   ICI LE FOOTER     --->
+	<footer>
+		<?php
+		include("footer.php");
+		?>
+	</footer>
+
 
 <!----   ICI LE LE CORPS DE PAGE     --->
 
@@ -36,7 +44,9 @@ if (isset ($_GET['libelle']))
     $desc = new Descripteur ($db, $adr_libelle);
   }
   catch (NotFoundException $e) {
-    die ('descripteur non existant'); /* HTML TODO */
+    echo '<font color="red"> Désolé, le descripteur que vous recherchez est inexistant </font>'; /* HTML TODO */
+	include 'accueil.php';
+	exit();
   }
   if (isset($_POST['add']) && isset($_POST['rel']) && isset($_POST['libelle']))
   {
@@ -81,14 +91,6 @@ include("accueil.php");
 Tools::disconnect_db($db);
 ?>
 			
-
-
-<!----   ICI LE FOOTER     --->
-	<footer>
-<?php
-include("footer.php");
-?>
-	</footer>
 
 </body>
 </html>
