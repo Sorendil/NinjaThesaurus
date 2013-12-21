@@ -28,11 +28,12 @@ include './class/Exceptions.php';
 
 $db = Tools::connect_db();
 
-if (!$db)
+if (!$db){
 	/* HTML TODO */
 	echo '<center><b><font color="red" size="2"> La connexion avec la base de données a échoué. Réessayez ultérieurement. </font></b></center>'; /* HTML TODO */
 	include 'accueil.php';
 	exit();
+	}
 
 if (isset ($_GET['libelle']))
 {
@@ -58,7 +59,7 @@ if (isset ($_GET['libelle']))
     /* affichage page descripteur */
     echo "<pre>";
     echo "<h1>Page du mot ".$desc->getLibelle()."</h1>";
-    //echo "\n".print_r($desc->getRel());
+    echo "\n".print_r($desc->getRel());
     echo "</pre>";
 	$rel=$desc->getRel();//retourne $desc.$relations
 	/*foreach($rel as $value){
