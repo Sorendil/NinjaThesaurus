@@ -61,12 +61,12 @@ if (isset ($_GET['libelle']))
     //echo "\n".print_r($desc->getRel());
     echo "</pre>";
 	$rel=$desc->getRel();//retourne $desc.$relations
-	foreach($rel as $value){
+	/*foreach($rel as $value){
 		echo $value;
 		foreach($value as $a){
 			echo $a;
 		}
-	}
+	} */
     /* HTML TODO */
   }
 }
