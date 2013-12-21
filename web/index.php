@@ -72,11 +72,11 @@ if (isset ($_GET['libelle']))
 
 	for($i=0; $i<count($type_rel); $i++){
 
-		if($type_rel=='synonyme'){
+		if($type_rel=="synonyme"){
 			array_push($synonyme, $i);
 			echo "syn".$i;
 		}
-		else if($type_rel=='est'){
+		else if($type_rel=="est"){
 			if($relations['SENS'][$i]==0){
 				array_push($specialisation, $i);
 				echo "spe".$i;
