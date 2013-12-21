@@ -81,6 +81,7 @@ if (isset ($_GET['libelle']))
 			else if($relations[LIBELLE_SENS][$i]==1){
 				array_push($generalisation, $i);
 			}
+		}
 		else{
 			array_push($autre, $i);
 		}
