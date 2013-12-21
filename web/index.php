@@ -88,22 +88,22 @@ if (isset ($_GET['libelle']))
 	}
 
 	echo "Synonymes";
-	for($j; $j<count($synonyme); $j++){
+	for($j=0; $j<count($synonyme); $j++){
 		echo $relations[LIBELLE_DESC][$synonyme[$j]];
 	}
 
 	echo "Spécialisations";
-	for($j; $j<count($specialisation); $j++){
+	for($j=0; $j<count($specialisation); $j++){
 		echo $relations[LIBELLE_DESC][$specialisation[$j]];
 	}
 
 	echo "Spécialisations";
-	for($j; $j<count($generalisation); $j++){
+	for($j=0; $j<count($generalisation); $j++){
 		echo $relations[LIBELLE_DESC][$generalisation[$j]];
 	}
 
 	echo "Autres";
-	for($j; $j<count($autre); $j++){
+	for($j=0; $j<count($autre); $j++){
 		echo $relations[LIBELLE_DESC][$autre[$j]];
 	}
 	/* fin de partie en test */	 
