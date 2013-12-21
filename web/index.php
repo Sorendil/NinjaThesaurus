@@ -59,7 +59,7 @@ if (isset ($_GET['libelle']))
     /* affichage page descripteur */
     echo "<pre>";
     echo "<h1>Page du mot ".$desc->getLibelle()."</h1>";
-    echo "\n"
+    echo "\n";
     
 	
 		/* partie en test */
