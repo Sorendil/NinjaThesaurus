@@ -61,13 +61,51 @@ if (isset ($_GET['libelle']))
     echo "<h1>Page du mot ".$desc->getLibelle()."</h1>";
     echo "\n".print_r($desc->getRel());
     echo "</pre>";
-	$rel=$desc->getRel();//retourne $desc.$relations
-	foreach($rel as $value){
-		echo $value;
-		foreach($value as $a){
-			echo $a;
+	
+		/* partie en test */
+	$type_rel=$relations[LIBELLE_REL];
+	$synonyme=array();
+	$generalisation=array();
+	$specialisation=array();
+	$autre=array();
+
+	for($i=0; $i<count($type_rel); $i++){
+
+		if($type_rel=='synonyme'){
+			array_push($synonyme, $i);
 		}
-	} 
+		else if($type_rel=='est'){
+			if($relations[LIBELLE_SENS][$i]==0){
+				array_push($specialisation, $i);
+			}
+			else if($relations[LIBELLE_SENS][$i]==1){
+				array_push($generalisation, $i);
+			}
+		else{
+			array_push($autre, $i);
+		}
+	}
+
+	echo "Synonymes";
+	for($j; $j<count($synonyme); $j++){
+		echo $relations[LIBELLE_DESC][$synonyme[$j]];
+	}
+
+	echo "Spécialisations";
+	for($j; $j<count($specialisation); $j++){
+		echo $relations[LIBELLE_DESC][$specialisation[$j]];
+	}
+
+	echo "Spécialisations";
+	for($j; $j<count($generalisation); $j++){
+		echo $relations[LIBELLE_DESC][$generalisation[$j]];
+	}
+
+	echo "Autres";
+	for($j; $j<count($autre); $j++){
+		echo $relations[LIBELLE_DESC][$autre[$j]];
+	}
+	/* fin de partie en test */	 
     /* HTML TODO */
   }
 }
