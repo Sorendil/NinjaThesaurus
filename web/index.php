@@ -64,7 +64,7 @@ if (isset ($_GET['libelle']))
 	
 		/* partie en test */
 	$relations=$desc->getRel();
-	$type_rel=$relations[LIBELLE_REL];
+	$type_rel=$relations['LIBELLE_REL'];
 	$synonyme=array();
 	$generalisation=array();
 	$specialisation=array();
@@ -76,10 +76,10 @@ if (isset ($_GET['libelle']))
 			array_push($synonyme, $i);
 		}
 		else if($type_rel=='est'){
-			if($relations[LIBELLE_SENS][$i]==0){
+			if($relations['SENS'][$i]==0){
 				array_push($specialisation, $i);
 			}
-			else if($relations[LIBELLE_SENS][$i]==1){
+			else if($relations['SENS'][$i]==1){
 				array_push($generalisation, $i);
 			}
 		}
@@ -90,22 +90,22 @@ if (isset ($_GET['libelle']))
 
 	echo "Synonymes";
 	for($j=0; $j<count($synonyme); $j++){
-		echo $relations[LIBELLE_DESC][$synonyme[$j]];
+		echo $relations['LIBELLE_DESC'][$synonyme[$j]];
 	}
 
 	echo "Spécialisations";
 	for($j=0; $j<count($specialisation); $j++){
-		echo $relations[LIBELLE_DESC][$specialisation[$j]];
+		echo $relations['LIBELLE_DESC'][$specialisation[$j]];
 	}
 
 	echo "Spécialisations";
 	for($j=0; $j<count($generalisation); $j++){
-		echo $relations[LIBELLE_DESC][$generalisation[$j]];
+		echo $relations['LIBELLE_DESC'][$generalisation[$j]];
 	}
 
 	echo "Autres";
 	for($j=0; $j<count($autre); $j++){
-		echo $relations[LIBELLE_DESC][$autre[$j]];
+		echo $relations['LIBELLE_DESC'][$autre[$j]];
 	}
 	/* fin de partie en test */	 
     /* HTML TODO */
