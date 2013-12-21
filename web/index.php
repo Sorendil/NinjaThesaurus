@@ -73,42 +73,42 @@ if (isset ($_GET['libelle']))
 
 		if($relations['LIBELLE_REL'][$i]=="synonyme"){
 			array_push($synonyme, $i);
-			echo "syn".$i;
+			
 		}
 		else if($relations['LIBELLE_REL'][$i]=="est"){
 			if($relations['SENS'][$i]==0){
 				array_push($specialisation, $i);
-				echo "spe".$i;
+				
 			}
 			else if($relations['SENS'][$i]==1){
 				array_push($generalisation, $i);
-				echo "gen".$i;
+				
 			}
 		}
 		else{
 			array_push($autre, $i);
-			echo "au".$i;
+			
 		}
 	}
 
-	echo "\n <h2>Synonymes</h2> \n";
+	echo "\n <h3>Synonymes</h3> \n";
 	for($j=0; $j<count($synonyme); $j++){
-		echo $relations['LIBELLE_DESC'][$synonyme[$j]];
+		echo $relations['LIBELLE_DESC'][$synonyme[$j]]." ";
 	}
 
-	echo "\n <h2>Spécialisations</h2> \n";
+	echo "\n <h3>Sp&eacute;cialisations</h3> \n";
 	for($j=0; $j<count($specialisation); $j++){
-		echo $relations['LIBELLE_DESC'][$specialisation[$j]];
+		echo $relations['LIBELLE_DESC'][$specialisation[$j]]." ";
 	}
 
-	echo "\n <h2>Généralisations</h2> \n";
+	echo "\n <h3>G&eacute;n&eacute;ralisations</h3> \n";
 	for($j=0; $j<count($generalisation); $j++){
-		echo $relations['LIBELLE_DESC'][$generalisation[$j]];
+		echo $relations['LIBELLE_DESC'][$generalisation[$j]]." ";
 	}
 
-	echo "\n <h2>Autres</h2> \n";
+	echo "\n <h3>Autres</h3> \n";
 	for($j=0; $j<count($autre); $j++){
-		echo $relations['LIBELLE_DESC'][$autre[$j]];
+		echo $relations['LIBELLE_DESC'][$autre[$j]]." ";
 	}
 	/* fin de partie en test */	
 	echo "</pre>";	
