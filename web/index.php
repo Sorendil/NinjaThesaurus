@@ -63,6 +63,7 @@ if (isset ($_GET['libelle']))
     echo "</pre>";
 	
 		/* partie en test */
+	$relations=$desc->getRel();
 	$type_rel=$relations[LIBELLE_REL];
 	$synonyme=array();
 	$generalisation=array();
