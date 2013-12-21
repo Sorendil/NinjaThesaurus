@@ -16,12 +16,6 @@
 		?>		
 	</header>
 			
-<!----   ICI LE FOOTER     --->
-	<footer>
-		<?php
-		include("footer.php");
-		?>
-	</footer>
 
 
 <!----   ICI LE LE CORPS DE PAGE     --->
@@ -44,8 +38,9 @@ if (isset ($_GET['libelle']))
     $desc = new Descripteur ($db, $adr_libelle);
   }
   catch (NotFoundException $e) {
-    echo '<font color="red"> Désolé, le descripteur que vous recherchez est inexistant </font>'; /* HTML TODO */
+    echo '<center><b><font color="red" size="2"> D&eacute;sol&eacute;, le descripteur que vous recherchez est inexistant </font></b></center>'; /* HTML TODO */
 	include 'accueil.php';
+	include 'footer.php';
 	exit();
   }
   if (isset($_POST['add']) && isset($_POST['rel']) && isset($_POST['libelle']))
@@ -91,6 +86,12 @@ include("accueil.php");
 Tools::disconnect_db($db);
 ?>
 			
+<!----   ICI LE FOOTER     --->
+	<footer>
+		<?php
+		include("footer.php");
+		?>
+	</footer>
 
 </body>
 </html>
