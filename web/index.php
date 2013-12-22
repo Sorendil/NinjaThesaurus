@@ -49,7 +49,7 @@ if (isset ($_GET['libelle']))
   if (isset($_POST['add']) && isset($_POST['rel']) && isset($_POST['libelle']))
   {
     /* ajout relation */
-    if ($desc->addRel(Tools::parse_libelle($_POST['rel']), $_POST['rel']))
+    if ($desc->addRel(Tools::parse_libelle($_POST['libelle']), $_POST['rel']))
       die ('relation ajoute'); /* HTML TODO */
     else
       die ('err ajout'); /* HTML TODO */
