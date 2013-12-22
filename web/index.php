@@ -29,8 +29,7 @@ include './class/Exceptions.php';
 $db = Tools::connect_db();
 
 if (!$db){
-	/* HTML TODO */
-	echo '<center><b><font color="red" size="2"> La connexion avec la base de données a échoué. Réessayez ultérieurement. </font></b></center>'; /* HTML TODO */
+	echo '<center><b><font color="red" size="2"> La connexion avec la base de données a échoué. Réessayez ultérieurement. </font></b></center>'; 
 	include 'accueil.php';
 	exit();
 	}
@@ -42,27 +41,42 @@ if (isset ($_GET['libelle']))
     $desc = new Descripteur ($db, $adr_libelle);
   }
   catch (NotFoundException $e) {
-    echo '<center><b><font color="red" size="2"> D&eacute;sol&eacute;, le descripteur que vous recherchez est inexistant </font></b></center>'; /* HTML TODO */
+    echo '<center><b><font color="red" size="2"> D&eacute;sol&eacute;, le descripteur que vous recherchez est inexistant </font></b></center>'; 
 	include 'accueil.php';
 	exit();
   }
   if (isset($_POST['add']) && isset($_POST['rel']) && isset($_POST['libelle']))
   {
     /* ajout relation */
-    if ($desc->addRel(Tools::parse_libelle($_POST['rel']), $_POST['rel']))
-      die ('relation ajoute'); /* HTML TODO */
-    else
-      die ('err ajout'); /* HTML TODO */
+    if ($desc->addRel(Tools::parse_libelle($_POST['rel']), $_POST['rel'])){
+		echo '<center><b><font color="green" size="2"> F&eacute;licitations, votre relation a bien &eacute;t&eacute; ajout&eacute;e &agrave; la base de donn&eacute;es</font></b></center>';
+		exit();
+	}
+    else{
+		echo '<center><b><font color="red" size="2"> Erreur, votre relation n\' a pas pu &ecirc;tre ajout&eacute;e &agrave; la base de donn&eacute;es </font></b></center>'; 
+		exit();
+	}
   }
   else
   {
     /* affichage page descripteur */
     echo "<pre>";
     echo "<h1>Page du mot ".$desc->getLibelle()."</h1>";
+	/*formulaire d'ajout d'une relation au libellé courrant*/
+	/* partie en test */
+	/*echo "	<form class=\"form-search\" action=\"index.php\" method=\"get\">
+				<select name=\"rel\" size=\"2\">
+				<option>est une sp&eacute;cialisation de 
+				<option>est une g&eacute;n&eacute;ralisation de
+				<option>est un synonyme de
+				</select>
+				<input type=\"text\" name=\"rel\" class=\"input-medium search-query\">
+				<button type=\"submit\" class=\"btn\" name=\"add\" >Ajouter</button>
+			</form>"
+			*/
+	/* fin de partie en test */
     echo "\n";
-    
-	
-		/* partie en test */
+  
 	$relations=$desc->getRel();
 	$synonyme=array();
 	$generalisation=array();
@@ -91,27 +105,28 @@ if (isset ($_GET['libelle']))
 		}
 	}
 
-	echo "\n <h3>Synonymes</h3> \n";
+	echo "\n <h3>Synonymes</h3><hr/> \n";
 	for($j=0; $j<count($synonyme); $j++){
 		echo $relations['LIBELLE_DESC'][$synonyme[$j]]." ";
 	}
 
-	echo "\n <h3>Sp&eacute;cialisations</h3> \n";
+	echo "\n <h3>Sp&eacute;cialisations</h3><hr/> \n";
 	for($j=0; $j<count($specialisation); $j++){
 		echo '<a href="cvidal.org:81/'.$relations['LIBELLE_DESC'][$specialisation[$j]].'">'.$relations['LIBELLE_DESC'][$specialisation[$j]]."</a> ";
 	}
 
-	echo "\n <h3>G&eacute;n&eacute;ralisations</h3> \n";
+	echo "\n <h3>G&eacute;n&eacute;ralisations</h3><hr/> \n";
 	for($j=0; $j<count($generalisation); $j++){
 		echo $relations['LIBELLE_DESC'][$generalisation[$j]]." ";
 	}
 
-	echo "\n <h3>Autres</h3> \n";
+	echo "\n <h3>Autres</h3><hr/> \n";
 	for($j=0; $j<count($autre); $j++){
 		echo $relations['LIBELLE_DESC'][$autre[$j]]." ";
 	}
-	/* fin de partie en test */	
+	
 	echo "</pre>";	
+	/* fin affichage page descripteur */
     /* HTML TODO */
   }
  
