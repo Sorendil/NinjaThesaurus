@@ -64,6 +64,7 @@ if (isset ($_GET['libelle']))
   else
   {
     /* affichage page descripteur */
+	echo '<div id="descripteur">';
     echo "<pre>";
     echo "<h1>Page du mot : ".$desc->getLibelle()."</h1>";
 	/*
@@ -147,7 +148,8 @@ if (isset ($_GET['libelle']))
 		echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$autre[$j]].'/">'.$relations['LIBELLE_DESC'][$autre[$j]]."</a> ";
 	}
 	*/
-	echo "</pre>";	
+	echo "</pre>";
+	echo '</div>';
 	/* fin affichage page descripteur */
   }
  
@@ -156,12 +158,14 @@ if (isset ($_GET['libelle']))
 else if (isset($_GET['__ajout']))
 {
   /* formulaire nouveau libelle */
+  echo '<div id="ajout">';
   echo "<h3>Ajoutes un descripteur :</h3>";
   	echo "<form class=\"form-search\" action=\"#\" method=\"post\">
 				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
 				<input type=\"checkbox\" name=\"vedette\" id=\"vedette\" /> <label for=\"vedette\">Coches pour que ce descripteur soit vedette</label>
 				<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
 			</form>";
+			echo '</div>';
   /* HTML TODO */
 }
 else if (isset ($_POST['libelle']) && isset($_POST['vedette']))
@@ -185,7 +189,7 @@ include("accueil.php");
 
 Tools::disconnect_db($db);
 ?>
-			
+		
 <!----   ICI LE FOOTER     --->
 		<?php
 		include("footer.php");
