@@ -157,15 +157,15 @@
 				}
 				else if (isset($_GET['__ajout']))
 				{
-				  /* formulaire nouveau libelle */
-				  echo '<div id="ajout">';
-				  echo "<h3>Ajouter un descripteur :</h3>";
+					/* formulaire nouveau libelle */
+					echo '<div id="ajout">';
+					echo "<h3>Ajouter un descripteur :</h3>";
 					echo "<form class=\"form-search\" action=\"/\" method=\"post\">
-								<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\" />
-								<input type=\"checkbox\" name=\"vedette\" id=\"vedette\" /> <label for=\"vedette\">Cocher pour que ce descripteur soit vedette</label>
-								<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
-							</form>";
-							echo '</div>';
+							<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\" />
+							<input type=\"checkbox\" name=\"vedette\" id=\"vedette\" /> <label for=\"vedette\">Cocher pour que ce descripteur soit vedette</label>
+							<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
+						</form>";
+					echo '</div>';
 				  /* HTML TODO */
 				}
 				else if (isset ($_POST['libelle']))
@@ -199,9 +199,11 @@
 	</div>
 		
 <!----   ICI LE FOOTER     --->
-		<?php
-		include("footer.php");
-		?>
+		<footer>
+		<p>Site r&eacute;alis&eacute; par : Julien Deguilhem - Ma&iuml;lys Denis - S&eacute;bastien Gautheron - Johann Mitrail - Anthony Rossi - Colin Vidal <a href=\"http://www.univ-montp2.fr\"><img src=\"static/images/logo_um2.png\" align=\"right\" width=\"40\" height=\"40\"/></a></br> 
+		Cours de base de donn&eacute;es - professeur : Th&eacute;rese Libourel</br>
+		Projet : Th&eacute;saurus</p>
+		</footer>
 
 </body>
 </html>
