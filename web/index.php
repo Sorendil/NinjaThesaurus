@@ -168,13 +168,13 @@ else if (isset($_GET['__ajout']))
 			echo '</div>';
   /* HTML TODO */
 }
-else if (isset ($_POST['libelle']) && isset($_POST['vedette']))
+else if (isset ($_POST['libelle']))
 {
-  die ("coucou");
+  die ($_POST['libelle']. "....".$_POST['vedette']));
   /* ajout descripteur exec */
   $libelle = Tools::parse_libelle ($_POST['libelle']);
   try {
-    $desc = new Descripteur ($db, $libelle);
+    $desc = new Descripteur ($db, $libelle, $_POST['vedette']);
     die ('descripteur ajoute'); /* HTML TODO */
 	include("accueil.php");
   }
