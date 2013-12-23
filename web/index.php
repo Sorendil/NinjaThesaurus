@@ -162,14 +162,14 @@
 					if (isset($_POST['vedette']))
 					  $vedette=1;
 					$desc = new Descripteur ($db, $libelle, $vedette);
-					die ('descripteur ajoute'); /* HTML TODO */
 					include("accueil.php");
 					include("footer.php");
+					die ('descripteur ajoute'); /* HTML TODO */
 				  }
 				  catch (AlreadyExisting $e) {
-					die ('descripteur deja existant'); /* HTML TODO */
 					include("accueil.php");
 					include("footer.php");
+					die ('descripteur deja existant'); /* HTML TODO */
 				  }
 				}
 				else
