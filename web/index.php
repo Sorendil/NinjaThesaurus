@@ -70,7 +70,8 @@
 					$desc = new Descripteur ($db, $adr_libelle);
 				  }
 				  catch (NotFoundException $e) {
-					echo '<center><b><font color="red" size="2"> D&eacute;sol&eacute;, le descripteur que vous recherchez est inexistant </font></b></center>'; 
+					echo '<center><b><font color="red" size="2"> D&eacute;sol&eacute;, le descripteur que vous recherchez est inexistant </font></b></center>';
+					goto redirection;
 					include ('accueil.php');?>
 					 <div id="animals"></div>
 		             <div id="trees"></div>
@@ -182,6 +183,7 @@
 				 }
 				 else
 				 {
+					 redirection:
 				    include("accueil.php");
 				 }
 
