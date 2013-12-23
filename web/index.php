@@ -31,6 +31,7 @@ $db = Tools::connect_db();
 if (!$db){
 	echo '<center><b><font color="red" size="2"> La connexion avec la base de donn�es a �chou�. R�essayez ult�rieurement. </font></b></center>'; 
 	include 'accueil.php';
+	include("footer.php");
 	exit();
 	}
 
@@ -43,17 +44,20 @@ if (isset ($_GET['libelle']))
   catch (NotFoundException $e) {
     echo '<center><b><font color="red" size="2"> D&eacute;sol&eacute;, le descripteur que vous recherchez est inexistant </font></b></center>'; 
 	include 'accueil.php';
+	include("footer.php");
 	exit();
   }
-  if (isset($_POST['add']) && isset($_POST['rel']) && isset($_POST['libelle']))
+  if (isset($_POST['rel']) && isset($_POST['libelle']))
   {
     /* ajout relation */
     if ($desc->addRel(Tools::parse_libelle($_POST['libelle']), $_POST['rel'])){
 		echo '<center><b><font color="green" size="2"> F&eacute;licitations, votre relation a bien &eacute;t&eacute; ajout&eacute;e &agrave; la base de donn&eacute;es</font></b></center>';
+		include("footer.php");
 		exit();
 	}
     else{
-		echo '<center><b><font color="red" size="2"> Erreur, votre relation n\' a pas pu &ecirc;tre ajout&eacute;e &agrave; la base de donn&eacute;es </font></b></center>'; 
+		echo '<center><b><font color="red" size="2"> Erreur, votre relation n\' a pas pu &ecirc;tre ajout&eacute;e &agrave; la base de donn&eacute;es </font></b></center>';
+		include("footer.php"); 
 		exit();
 	}
   }
@@ -107,7 +111,7 @@ if (isset ($_GET['libelle']))
 	}
 	echo "<form class=\"form-search\" action=\"#\" method=\"post\">
 				<input type=\"hidden\" name=\"rel\" value=\"\" />
-				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\"><button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button><input type=\"checkbox\" value=\"Vedette\" name=\"Vedette\"><label for=\"Vedette\">Vedette?</label>
+				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\"><button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
 			</form>";
 
 /*<!----   affichage spécialisation     --->*/
@@ -117,8 +121,7 @@ if (isset ($_GET['libelle']))
 	}
 	echo "<form class=\"form-search\" action=\"#\" method=\"post\">
 				<input type=\"hidden\" name=\"rel\" value=\"\" />
-				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
-				<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
+				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\"><button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
 			</form>";
 
 /*<!----   affichage généralisation     --->*/
@@ -128,8 +131,7 @@ if (isset ($_GET['libelle']))
 	}
 	echo "<form class=\"form-search\" action=\"#\" method=\"post\">
 				<input type=\"hidden\" name=\"rel\" value=\"\" />
-				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
-				<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
+				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\"><button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
 			</form>";
 
 	
@@ -146,8 +148,8 @@ if (isset ($_GET['libelle']))
 	}
 	*/
 	echo "</pre>";	
+	include("footer.php");
 	/* fin affichage page descripteur */
-    /* HTML TODO */
   }
  
   
@@ -160,7 +162,7 @@ else if (isset($_GET['__ajout']))
 else if (isset ($_POST['libelle']) && isset($_POST['vedette']))
 {
   /* ajout descripteur exec */
-  $libelle = Tools::parse_libelle ($_GET['libelle']);/* attention peuT etre post !*/
+  $libelle = Tools::parse_libelle ($_POST['libelle']);
   try {
     $desc = new Descripteur ($db, $libelle);
     die ('descripteur ajoute'); /* HTML TODO */
@@ -178,11 +180,9 @@ Tools::disconnect_db($db);
 ?>
 			
 <!----   ICI LE FOOTER     --->
-	<footer>
 		<?php
 		include("footer.php");
 		?>
-	</footer>
 
 </body>
 </html>
