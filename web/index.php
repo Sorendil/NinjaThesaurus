@@ -61,7 +61,7 @@ if (isset ($_GET['libelle']))
   {
     /* affichage page descripteur */
     echo "<pre>";
-    echo "<h1>Page du mot ".$desc->getLibelle()."</h1>";
+    echo "<h1>Page du mot : ".$desc->getLibelle()."</h1>";
 	/*
 	echo "<form class=\"form-search\" action=\"#\" method=\"post\">
 				<input type=\"text\" class=\"input-medium search-query\">
@@ -99,6 +99,7 @@ if (isset ($_GET['libelle']))
 			
 		}
 	}
+/*<!----   affichage synonyme     --->*/
 	echo "<h3>Synonymes</h3>";
 	
 		for($j=0; $j<count($synonyme); $j++){
@@ -109,26 +110,28 @@ if (isset ($_GET['libelle']))
 				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\"><button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button><input type=\"checkbox\" value=\"Vedette\" name=\"Vedette\"><label for=\"Vedette\">Vedette?</label>
 			</form>";
 
-
+/*<!----   affichage spécialisation     --->*/
 	echo "<h3>Sp&eacute;cialisations</h3>";
-	echo "<form class=\"form-search\" action=\"#\" method=\"post\">
-				<input type=\"hidden\" name=\"rel\" value=\"\" />
-				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
-				<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
-			</form>";
-	for($j=0; $j<count($specialisation); $j++){
+		for($j=0; $j<count($specialisation); $j++){
 		echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$specialisation[$j]].'/">'.$relations['LIBELLE_DESC'][$specialisation[$j]]."</a> ";
 	}
-
-	echo "<h3>G&eacute;n&eacute;ralisations</h3> ";
 	echo "<form class=\"form-search\" action=\"#\" method=\"post\">
 				<input type=\"hidden\" name=\"rel\" value=\"\" />
 				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
 				<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
 			</form>";
-	for($j=0; $j<count($generalisation); $j++){
+
+/*<!----   affichage généralisation     --->*/
+	echo "<h3>G&eacute;n&eacute;ralisations</h3> ";
+		for($j=0; $j<count($generalisation); $j++){
 		echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$generalisation[$j]].'/">'.$relations['LIBELLE_DESC'][$generalisation[$j]]."</a> ";
 	}
+	echo "<form class=\"form-search\" action=\"#\" method=\"post\">
+				<input type=\"hidden\" name=\"rel\" value=\"\" />
+				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
+				<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
+			</form>";
+
 	
 	/*
 	echo "\n <h3>Autres</h3> ";
