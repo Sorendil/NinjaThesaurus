@@ -164,10 +164,12 @@
 					$desc = new Descripteur ($db, $libelle, $vedette);
 					die ('descripteur ajoute'); /* HTML TODO */
 					include("accueil.php");
+					include("footer.php");
 				  }
 				  catch (AlreadyExisting $e) {
 					die ('descripteur deja existant'); /* HTML TODO */
 					include("accueil.php");
+					include("footer.php");
 				  }
 				}
 				else
