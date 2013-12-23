@@ -83,76 +83,30 @@
 					echo "<h1>Page du mot : ".$desc->getLibelle()."</h1>";
 				  
 					$relations=$desc->getRel();
-					$synonyme=array();
-					$generalisation=array();
-					$specialisation=array();
-					$autre=array();
+					$tab_rel=array();
 
-					for($i=0; $i<count($relations['LIBELLE_REL']); $i++){
-
-						if($relations['LIBELLE_REL'][$i]=="synonyme"){
-							array_push($synonyme, $i);
-							
-						}
-						else if($relations['LIBELLE_REL'][$i]=="est"){
-							if($relations['SENS'][$i]==0){
-								array_push($specialisation, $i);
-								
+					for($i=0; $i<=count($relations['LIBELLE_REL']); $i++){
+						for($j=0; $j<=count($tab_rel); $j++){
+							if(!($relations['LIBELLE_REL'][$i]==$tab_rel[$j])){
+								$tab_rel[$relations['LIBELLE_REL'][$i]]=array();
+								array_push($tab_rel, $relations['LIBELLE_REL'][$i]);
+								array_push($tab_rel[$relations['LIBELLE_REL'][$i]], $i);
 							}
-							else if($relations['SENS'][$i]==1){
-								array_push($generalisation, $i);
+						}								
 								
-							}
-						}
-						else{
-							array_push($autre, $i);
-							
-						}
 					}
-				/*<!----   affichage synonyme     --->*/
-					echo "<h3>Synonymes</h3>";
 					
-						for($j=0; $j<count($synonyme); $j++){
-						echo '<a href="/'.$relations['LIBELLE_DESC'][$synonyme[$j]].'/">'.$relations['LIBELLE_DESC'][$synonyme[$j]]."</a> ";
-					}
-					echo "<form class=\"form-search\" action=\"\" method=\"post\">
-								<input type=\"hidden\" name=\"rel\" value=\"\" />
+					for($i=0; $i<=count($tab_rel); $i++){
+						echo "<h3>".$tab_rel[$i]."</h3>";
+						for($j=0; $j<=count($tab_rel[$j]);$j++){
+							echo '<a href="/'.$relations['LIBELLE_DESC'][tab_rel[$i][$j]].'/">'.$relations['LIBELLE_DESC'][$tab_rel[$i][$j]]."</a> ";//attention affiche juste l'indice pas les mots de libelle_desc
+						}
+						echo '<form class=\"form-search\" action=\"\" method=\"post\">
+								<input type=\"hidden\" name=\"rel\" value=\"'.$tab_rel[$i].'\" />
 								<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\"><button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
-							</form>";
-
-				/*<!----   affichage spécialisation     --->*/
-					echo "<h3>Sp&eacute;cialisations</h3>";
-						for($j=0; $j<count($specialisation); $j++){
-						echo '<a href="/'.$relations['LIBELLE_DESC'][$specialisation[$j]].'/">'.$relations['LIBELLE_DESC'][$specialisation[$j]]."</a> ";
+							</form>';
 					}
-					echo "<form class=\"form-search\" action=\"\" method=\"post\">
-								<input type=\"hidden\" name=\"rel\" value=\"\" />
-								<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\"><button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
-							</form>";
-
-				/*<!----   affichage généralisation     --->*/
-					echo "<h3>G&eacute;n&eacute;ralisations</h3> ";
-						for($j=0; $j<count($generalisation); $j++){
-						echo '<a href="/'.$relations['LIBELLE_DESC'][$generalisation[$j]].'/">'.$relations['LIBELLE_DESC'][$generalisation[$j]]."</a> ";
-					}
-					echo "<form class=\"form-search\" action=\"\" method=\"post\">
-								<input type=\"hidden\" name=\"rel\" value=\"\" />
-								<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\"><button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
-							</form>";
-
 					
-					/*
-					echo "\n <h3>Autres</h3> ";
-					echo "<form class=\"form-search\" action=\"#\" method=\"post\">
-								<input type=\"hidden\" name=\"rel\" value=\"\"/>
-								<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
-								<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
-							</form>";
-					echo "<hr/> \n";
-					for($j=0; $j<count($autre); $j++){
-						echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$autre[$j]].'/">'.$relations['LIBELLE_DESC'][$autre[$j]]."</a> ";
-					}
-					*/
 					echo "</pre>";
 					echo '</div>';
 					/* fin affichage page descripteur */
