@@ -49,14 +49,14 @@ height: 185px;
 position: absolute;
 bottom: 0px;
 left: 40%;
-background: url(images/animals.png) no-repeat;
+background: url(../images/animals.png) no-repeat;
 z-index: 2;
 }
 
 #trees {
 position: absolute;
 bottom: -12px;
-background: url(images/trees-x.png) repeat-x top left;
+background: url(../images/trees-x.png) repeat-x top left;
 height: 200px;
 width: 100%;
 }
@@ -69,7 +69,7 @@ z-index: 3;
 }
 
 footer {
-background: url(images/footer-x.png) repeat-x top;
+background: url(../images/footer-x.png) repeat-x top;
 color: white;
 padding: 20px 10px 10px;
 position: relative;
