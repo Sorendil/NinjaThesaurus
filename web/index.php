@@ -29,7 +29,7 @@ include './class/Exceptions.php';
 $db = Tools::connect_db();
 
 if (!$db){
-	echo '<center><b><font color="red" size="2"> La connexion avec la base de données a échoué. Réessayez ultérieurement. </font></b></center>'; 
+	echo '<center><b><font color="red" size="2"> La connexion avec la base de donnï¿½es a ï¿½chouï¿½. Rï¿½essayez ultï¿½rieurement. </font></b></center>'; 
 	include 'accueil.php';
 	exit();
 	}
@@ -101,14 +101,14 @@ if (isset ($_GET['libelle']))
 	}
 	echo "<h3>Synonymes</h3>";
 	
-	echo "<form class=\"form-search\" action=\"#\" method=\"post\">
-				<input type=\"hidden\" name=\"rel\" value=\"\" />
-				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
-				<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
-			</form>";
-	for($j=0; $j<count($synonyme); $j++){
+		for($j=0; $j<count($synonyme); $j++){
 		echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$synonyme[$j]].'/">'.$relations['LIBELLE_DESC'][$synonyme[$j]]."</a> ";
 	}
+	echo "<form class=\"form-search\" action=\"#\" method=\"post\">
+				<input type=\"hidden\" name=\"rel\" value=\"\" />
+				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\"><button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button><input type=\"checkbox\" value=\"Vedette\" name=\"Vedette\"><label for=\"Vedette\">Vedette?</label>
+			</form>";
+
 
 	echo "<h3>Sp&eacute;cialisations</h3>";
 	echo "<form class=\"form-search\" action=\"#\" method=\"post\">
