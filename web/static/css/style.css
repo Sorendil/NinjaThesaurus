@@ -26,6 +26,10 @@ float: right;
 margin: 50px 150px 0 0;
 }
 
+#ajout{
+float:right;
+}
+
 .menu {
 margin: 50px 0 0 50px;
 }
@@ -76,3 +80,4 @@ position: relative;
 top: -12px;
 
 }
+
