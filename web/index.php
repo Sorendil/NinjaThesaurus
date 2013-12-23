@@ -44,7 +44,7 @@
 				  catch (NotFoundException $e) {
 					echo '<center><b><font color="red" size="2"> D&eacute;sol&eacute;, le descripteur que vous recherchez est inexistant </font></b></center>'; 
 					include 'accueil.php';
-					include("footer.php");
+					//include("footer.php");
 					exit();
 				  }
 				  if (isset($_POST['rel']) && isset($_POST['libelle']))
@@ -200,9 +200,9 @@
 		
 <!----   ICI LE FOOTER     --->
 		<footer>
-		<p>Site r&eacute;alis&eacute; par : Julien Deguilhem - Ma&iuml;lys Denis - S&eacute;bastien Gautheron - Johann Mitrail - Anthony Rossi - Colin Vidal <a href=\"http://www.univ-montp2.fr\"><img src=\"static/images/logo_um2.png\" align=\"right\" width=\"40\" height=\"40\"/></a></br> 
-		Cours de base de donn&eacute;es - professeur : Th&eacute;rese Libourel</br>
-		Projet : Th&eacute;saurus</p>
+			<p>Site r&eacute;alis&eacute; par : Julien Deguilhem - Ma&iuml;lys Denis - S&eacute;bastien Gautheron - Johann Mitrail - Anthony Rossi - Colin Vidal <a href="http://www.univ-montp2.fr/"><img src="static/images/logo_um2.png" align="right" width="40" height="40"/></a></br> 
+			Cours de base de donn&eacute;es - professeur : Th&eacute;rese Libourel</br>
+			Projet : Th&eacute;saurus</p>
 		</footer>
 
 </body>
