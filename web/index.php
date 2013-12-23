@@ -162,6 +162,10 @@
 					echo '</div>';
 					/* fin affichage page descripteur */
 				  }
+				  else
+				  {
+				    include("accueil.php");
+				  }
 
 				Tools::disconnect_db($db);
 			?>
