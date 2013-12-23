@@ -62,7 +62,15 @@ if (isset ($_GET['libelle']))
     /* affichage page descripteur */
     echo "<pre>";
     echo "<h1>Page du mot ".$desc->getLibelle()."</h1>";
+	/*
+	echo "<form class=\"form-search\" action=\"#\" method=\"post\">
+				<input type=\"text\" class=\"input-medium search-query\">
+				<input type=\"radio\" value=\"Vedette\">
+				<input type=\"radio\" value=\"Non vedette\" checked=\"checked\">
+				<button type=\"submit\" class=\"btn\">Ajout</button>
+			</form>";
     echo "\n";
+	*/
   
 	$relations=$desc->getRel();
 	$synonyme=array();
@@ -98,44 +106,45 @@ if (isset ($_GET['libelle']))
 				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
 				<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
 			</form>";
-	echo "\n";
+	echo "<hr/> \n";
 	for($j=0; $j<count($synonyme); $j++){
 		echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$synonyme[$j]].'/">'.$relations['LIBELLE_DESC'][$synonyme[$j]]."</a> ";
 	}
 
-	echo "\n <h3>Sp&eacute;cialisations</h3><hr/> ";
+	echo "\n <h3>Sp&eacute;cialisations</h3> ";
 	echo "<form class=\"form-search\" action=\"#\" method=\"post\">
 				<input type=\"hidden\" name=\"rel\" value=\"\" />
 				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
 				<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
 			</form>";
-	echo "\n";
+	echo "<hr/> \n";
 	for($j=0; $j<count($specialisation); $j++){
 		echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$specialisation[$j]].'/">'.$relations['LIBELLE_DESC'][$specialisation[$j]]."</a> ";
 	}
 
-	echo "\n <h3>G&eacute;n&eacute;ralisations</h3><hr/> ";
+	echo "\n <h3>G&eacute;n&eacute;ralisations</h3> ";
 	echo "<form class=\"form-search\" action=\"#\" method=\"post\">
 				<input type=\"hidden\" name=\"rel\" value=\"\" />
 				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
 				<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
 			</form>";
-	echo "\n";
+	echo "<hr/> \n";
 	for($j=0; $j<count($generalisation); $j++){
 		echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$generalisation[$j]].'/">'.$relations['LIBELLE_DESC'][$generalisation[$j]]."</a> ";
 	}
-
-	echo "\n <h3>Autres</h3><hr/> ";
+	
+	/*
+	echo "\n <h3>Autres</h3> ";
 	echo "<form class=\"form-search\" action=\"#\" method=\"post\">
 				<input type=\"hidden\" name=\"rel\" value=\"\"/>
 				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
 				<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
 			</form>";
-	echo "\n";
+	echo "<hr/> \n";
 	for($j=0; $j<count($autre); $j++){
 		echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$autre[$j]].'/">'.$relations['LIBELLE_DESC'][$autre[$j]]."</a> ";
 	}
-	
+	*/
 	echo "</pre>";	
 	/* fin affichage page descripteur */
     /* HTML TODO */
