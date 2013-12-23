@@ -85,8 +85,8 @@
 					$relations=$desc->getRel();
 					$tab_rel=array();
 
-					for($i=0; $i<=count($relations['LIBELLE_REL']); $i++){
-						for($j=0; $j<=count($tab_rel); $j++){
+					for($i=0; $i<count($relations['LIBELLE_REL']); ++$i){
+						for($j=0; $j<count($tab_rel); ++$j){
 							if(!($relations['LIBELLE_REL'][$i]==$tab_rel[$j])){
 								$tab_rel[$relations['LIBELLE_REL'][$i]]=array();
 								array_push($tab_rel, $relations['LIBELLE_REL'][$i]);
@@ -96,9 +96,9 @@
 								
 					}
 					
-					for($i=0; $i<=count($tab_rel); $i++){
+					for($i=0; $i<count($tab_rel); ++$i){
 						echo "<h3>".$tab_rel[$i]."</h3>";
-						for($j=0; $j<=count($tab_rel[$j]);$j++){
+						for($j=0; $j<count($tab_rel[$j]);++$j){
 							echo '<a href="/'.$relations['LIBELLE_DESC'][tab_rel[$i][$j]].'/">'.$relations['LIBELLE_DESC'][$tab_rel[$i][$j]]."</a> ";//attention affiche juste l'indice pas les mots de libelle_desc
 						}
 						echo '<form class=\"form-search\" action=\"\" method=\"post\">
