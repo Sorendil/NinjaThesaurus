@@ -4,8 +4,8 @@ echo "<div id=\"logo\">
 		</div>
 		<div id=\"form-recherche\">
 			<form class=\"form-search\" action=\"index.php\" method=\"get\">
-				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
-				<button type=\"submit\" class=\"btn\" size=\"200\">Recherche</button>
+				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\" size=\"200\">
+				<button type=\"submit\" class=\"btn\" >Recherche</button>
 			</form>
 		</div>
 		<div class=\"navbar navbar-left navbar-default menu\">
