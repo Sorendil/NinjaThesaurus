@@ -17,10 +17,9 @@ echo "<div id=\"logo\">
 		</div>
 		<div id=\"ajout\">
 					<form class=\"form-search\" action=\"/\" method=\"post\">
-							<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\" />
-							<br/>
+							<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\" /><button type=\"submit\" class=\"btn\" name=\"add\">Ajout Descripteur</button><br/>
 							<input type=\"checkbox\" name=\"vedette\" id=\"vedette\" /> <label for=\"vedette\">Vedette</label>
-							<button type=\"submit\" class=\"btn\" name=\"add\">Ajout Descripteur</button>
+							
 					</form>
 		</div>
 <div class=\"clearfix\"></div>"; 
