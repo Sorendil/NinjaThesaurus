@@ -12,15 +12,14 @@ echo "<div id=\"logo\">
 			<div class=\"navbar-collapse collapse\">
 				<ul class=\"nav navbar-nav\">
 					<li><a href=\"/\">Accueil</a></li>
-					<div id=\"ajout\">;
+				</ul>
+			</div>
+			<div id=\"ajout\">
 					<form class=\"form-search\" action=\"/\" method=\"post\">
 							<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\" />
 							<input type=\"checkbox\" name=\"vedette\" id=\"vedette\" /> <label for=\"vedette\">Vedette</label>
 							<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
 						</form>
-					</div>
-					<li><a href=\"/__ajout/\">Ajout Descripteur</a></li>
-				</ul>
 			</div>
 				
 </div>
