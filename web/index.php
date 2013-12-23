@@ -157,7 +157,7 @@ else if (isset($_GET['__ajout']))
 else if (isset ($_POST['libelle']) && isset($_POST['vedette']))
 {
   /* ajout descripteur exec */
-  $libelle = Tools::parse_libelle ($_GET['libelle']);
+  $libelle = Tools::parse_libelle ($_GET['libelle']);/* attention peuT etre post !*/
   try {
     $desc = new Descripteur ($db, $libelle);
     die ('descripteur ajoute'); /* HTML TODO */
