@@ -14,14 +14,13 @@ echo "<div id=\"logo\">
 					<li><a href=\"/\">Accueil</a></li>
 				</ul>
 			</div>
-			<div id=\"ajout\">
+		</div>
+		<div id=\"ajout\">
 					<form class=\"form-search\" action=\"/\" method=\"post\">
 							<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\" />
 							<input type=\"checkbox\" name=\"vedette\" id=\"vedette\" /> <label for=\"vedette\">Vedette</label>
-							<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
+							<button type=\"submit\" class=\"btn\" name=\"add\">Ajout Descripteur</button>
 						</form>
-			</div>
-				
-</div>
+		</div>
 <div class=\"clearfix\"></div>"; 
 ?>
