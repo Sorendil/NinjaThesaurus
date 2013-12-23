@@ -148,7 +148,6 @@ if (isset ($_GET['libelle']))
 	}
 	*/
 	echo "</pre>";	
-	include("footer.php");
 	/* fin affichage page descripteur */
   }
  
@@ -157,6 +156,12 @@ if (isset ($_GET['libelle']))
 else if (isset($_GET['__ajout']))
 {
   /* formulaire nouveau libelle */
+  echo "<h3>Ajoutes un descripteur :</h3>";
+  	echo "<form class=\"form-search\" action=\"#\" method=\"post\">
+				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
+				<input type=\"checkbox\" name=\"vedette\" id=\"vedette\" /> <label for=\"vedette\">Coches pour que ce descripteur soit vedette</label>
+				<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
+			</form>";
   /* HTML TODO */
 }
 else if (isset ($_POST['libelle']) && isset($_POST['vedette']))
@@ -166,9 +171,11 @@ else if (isset ($_POST['libelle']) && isset($_POST['vedette']))
   try {
     $desc = new Descripteur ($db, $libelle);
     die ('descripteur ajoute'); /* HTML TODO */
+	include("accueil.php");
   }
   catch (AlreadyExisting $e) {
     die ('descripteur deja existant'); /* HTML TODO */
+	include("accueil.php");
   }
 }
 else
