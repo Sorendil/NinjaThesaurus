@@ -99,7 +99,7 @@ if (isset ($_GET['libelle']))
 			
 		}
 	}
-	echo "<h3>Synonymes</h3> ";
+	echo "<h3>Synonymes</h3> \n";
 	
 	echo "<form class=\"form-search\" action=\"#\" method=\"post\">
 				<input type=\"hidden\" name=\"rel\" value=\"\" />
@@ -111,7 +111,7 @@ if (isset ($_GET['libelle']))
 		echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$synonyme[$j]].'/">'.$relations['LIBELLE_DESC'][$synonyme[$j]]."</a> ";
 	}
 
-	echo "\n <h3>Sp&eacute;cialisations</h3> ";
+	echo "\n <h3>Sp&eacute;cialisations</h3> \n";
 	echo "<form class=\"form-search\" action=\"#\" method=\"post\">
 				<input type=\"hidden\" name=\"rel\" value=\"\" />
 				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
@@ -122,7 +122,7 @@ if (isset ($_GET['libelle']))
 		echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$specialisation[$j]].'/">'.$relations['LIBELLE_DESC'][$specialisation[$j]]."</a> ";
 	}
 
-	echo "\n <h3>G&eacute;n&eacute;ralisations</h3> ";
+	echo "\n <h3>G&eacute;n&eacute;ralisations</h3> \n";
 	echo "<form class=\"form-search\" action=\"#\" method=\"post\">
 				<input type=\"hidden\" name=\"rel\" value=\"\" />
 				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
