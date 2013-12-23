@@ -12,7 +12,7 @@ echo "<div id=\"logo\">
 			<div class=\"navbar-collapse collapse\">
 				<ul class=\"nav navbar-nav\">
 					<li><a href=\"index.php\">Accueil</a></li>
-					<li><a href=\"index.php/__ajout/\">Ajout Descripteur</a></li>
+					<li><a href=\"http://cvidal.org:81/__ajout/\">Ajout Descripteur</a></li>
 				</ul>
 			</div>
 				
