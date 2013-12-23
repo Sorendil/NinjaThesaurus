@@ -101,11 +101,13 @@ if (isset ($_GET['libelle']))
 	}
 
 	echo "\n <h3>Synonymes</h3> ";
-	echo "<div id=\"form-recherche\"><form class=\"form-search\" action=\"#\" method=\"post\">
+	echo "</pre>";
+	echo "<form class=\"form-search\" action=\"#\" method=\"post\">
 				<input type=\"hidden\" name=\"rel\" value=\"\" />
 				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
 				<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
-			</form></div>";
+			</form>";
+	echo "<pre>";
 	echo "<hr/> \n";
 	for($j=0; $j<count($synonyme); $j++){
 		echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$synonyme[$j]].'/">'.$relations['LIBELLE_DESC'][$synonyme[$j]]."</a> ";
