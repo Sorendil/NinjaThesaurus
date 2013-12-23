@@ -108,7 +108,7 @@ if (isset ($_GET['libelle']))
 	echo "<h3>Synonymes</h3>";
 	
 		for($j=0; $j<count($synonyme); $j++){
-		echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$synonyme[$j]].'/">'.$relations['LIBELLE_DESC'][$synonyme[$j]]."</a> ";
+		echo '<a href="/'.$relations['LIBELLE_DESC'][$synonyme[$j]].'/">'.$relations['LIBELLE_DESC'][$synonyme[$j]]."</a> ";
 	}
 	echo "<form class=\"form-search\" action=\"\" method=\"post\">
 				<input type=\"hidden\" name=\"rel\" value=\"\" />
@@ -118,7 +118,7 @@ if (isset ($_GET['libelle']))
 /*<!----   affichage spécialisation     --->*/
 	echo "<h3>Sp&eacute;cialisations</h3>";
 		for($j=0; $j<count($specialisation); $j++){
-		echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$specialisation[$j]].'/">'.$relations['LIBELLE_DESC'][$specialisation[$j]]."</a> ";
+		echo '<a href="/'.$relations['LIBELLE_DESC'][$specialisation[$j]].'/">'.$relations['LIBELLE_DESC'][$specialisation[$j]]."</a> ";
 	}
 	echo "<form class=\"form-search\" action=\"\" method=\"post\">
 				<input type=\"hidden\" name=\"rel\" value=\"\" />
@@ -128,7 +128,7 @@ if (isset ($_GET['libelle']))
 /*<!----   affichage généralisation     --->*/
 	echo "<h3>G&eacute;n&eacute;ralisations</h3> ";
 		for($j=0; $j<count($generalisation); $j++){
-		echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$generalisation[$j]].'/">'.$relations['LIBELLE_DESC'][$generalisation[$j]]."</a> ";
+		echo '<a href="/'.$relations['LIBELLE_DESC'][$generalisation[$j]].'/">'.$relations['LIBELLE_DESC'][$generalisation[$j]]."</a> ";
 	}
 	echo "<form class=\"form-search\" action=\"\" method=\"post\">
 				<input type=\"hidden\" name=\"rel\" value=\"\" />
