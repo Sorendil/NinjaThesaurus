@@ -99,9 +99,9 @@ if (isset ($_GET['libelle']))
 			
 		}
 	}
-
-	echo "\n <h3>Synonymes</h3> ";
 	echo "</pre>";
+	echo "<h3>Synonymes</h3> ";
+	
 	echo "<form class=\"form-search\" action=\"#\" method=\"post\">
 				<input type=\"hidden\" name=\"rel\" value=\"\" />
 				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
