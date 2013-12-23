@@ -44,7 +44,7 @@
 				  catch (NotFoundException $e) {
 					echo '<center><b><font color="red" size="2"> D&eacute;sol&eacute;, le descripteur que vous recherchez est inexistant </font></b></center>'; 
 					include 'accueil.php';
-					//include("footer.php");
+					include("footer.php");
 					exit();
 				  }
 				  if (isset($_POST['rel']) && isset($_POST['libelle']))
