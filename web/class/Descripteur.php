@@ -8,21 +8,20 @@ class Descripteur
   {
     if (isset($vedette))
     {
-      if (($vedette != 1) && ($vedette != 0))
-      {
-        throw new WrongArgsException();
-      }
-      else
-      {
-        $query = oci_parse ($db, 'insert into descripteurs values (:lib,:vedette)');
-        oci_bind_by_name ($query, ":lib", $libelle);
-        oci_bind_by_name ($query, ":vedette", $vedette); 
-        oci_execute ($query);
-
-        if (oci_error ($db))
-          throw new AlreadyExistingException();
-      }
+      $vedette = 1;
     }
+    else
+    {
+      $vedette = 0;
+    }
+    $query = oci_parse ($db, 'insert into descripteurs values (:lib,:vedette)');
+    oci_bind_by_name ($query, ":lib", $libelle);
+    oci_bind_by_name ($query, ":vedette", $vedette); 
+    oci_execute ($query);
+
+    if (oci_error ($db))
+      throw new AlreadyExistingException();
+  }
 
     else
     {
