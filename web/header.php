@@ -11,7 +11,8 @@ echo "<div id=\"logo\">
 		<div class=\"navbar navbar-left navbar-default menu\">
 			<div class=\"navbar-collapse collapse\">
 				<ul class=\"nav navbar-nav\">
-					<li class=\"active\"><a href=\"index.php\">Accueil</a></li>
+					<li><a href=\"index.php\">Accueil</a></li>
+					<li><a href=\"index.php/__ajout/\">Ajout Descripteur</a></li>
 				</ul>
 			</div>
 				
