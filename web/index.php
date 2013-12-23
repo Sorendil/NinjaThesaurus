@@ -48,7 +48,7 @@ if (isset ($_GET['libelle']))
   if (isset($_POST['add']) && isset($_POST['rel']) && isset($_POST['libelle']))
   {
     /* ajout relation */
-    if ($desc->addRel(Tools::parse_libelle($_POST['rel']), $_POST['rel'])){
+    if ($desc->addRel(Tools::parse_libelle($_POST['libelle']), $_POST['rel'])){
 		echo '<center><b><font color="green" size="2"> F&eacute;licitations, votre relation a bien &eacute;t&eacute; ajout&eacute;e &agrave; la base de donn&eacute;es</font></b></center>';
 		exit();
 	}
@@ -62,19 +62,6 @@ if (isset ($_GET['libelle']))
     /* affichage page descripteur */
     echo "<pre>";
     echo "<h1>Page du mot ".$desc->getLibelle()."</h1>";
-	/*formulaire d'ajout d'une relation au libellé courrant*/
-	/* partie en test */
-	/*echo "	<form class=\"form-search\" action=\"index.php\" method=\"get\">
-				<select name=\"rel\" size=\"2\">
-				<option>est une sp&eacute;cialisation de 
-				<option>est une g&eacute;n&eacute;ralisation de
-				<option>est un synonyme de
-				</select>
-				<input type=\"text\" name=\"rel\" class=\"input-medium search-query\">
-				<button type=\"submit\" class=\"btn\" name=\"add\" >Ajouter</button>
-			</form>"
-			*/
-	/* fin de partie en test */
     echo "\n";
   
 	$relations=$desc->getRel();
@@ -112,7 +99,7 @@ if (isset ($_GET['libelle']))
 
 	echo "\n <h3>Sp&eacute;cialisations</h3><hr/> \n";
 	for($j=0; $j<count($specialisation); $j++){
-		echo '<a href="cvidal.org:81/'.$relations['LIBELLE_DESC'][$specialisation[$j]].'">'.$relations['LIBELLE_DESC'][$specialisation[$j]]."</a> ";
+		echo '<a href="cvidal.org:81/'.$relations['LIBELLE_DESC'][$specialisation[$j]].'/">'.$relations['LIBELLE_DESC'][$specialisation[$j]]."</a> ";
 	}
 
 	echo "\n <h3>G&eacute;n&eacute;ralisations</h3><hr/> \n";
@@ -134,7 +121,7 @@ if (isset ($_GET['libelle']))
 }
 else if (isset($_GET['__ajout']))
 {
-  /* from nouveau libelle */
+  /* formulaire nouveau libelle */
   /* HTML TODO */
 }
 else if (isset ($_POST['libelle']) && isset($_POST['vedette']))
