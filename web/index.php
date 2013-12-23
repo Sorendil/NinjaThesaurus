@@ -43,7 +43,7 @@
 				  }
 				  catch (NotFoundException $e) {
 					echo '<center><b><font color="red" size="2"> D&eacute;sol&eacute;, le descripteur que vous recherchez est inexistant </font></b></center>'; 
-					include 'accueil.php';
+					include ('accueil.php');
 					include("footer.php");
 					exit();
 				  }
@@ -52,12 +52,14 @@
 					/* ajout relation */
 					if ($desc->addRel(Tools::parse_libelle($_POST['libelle']), $_POST['rel'])){
 						echo '<center><b><font color="green" size="2"> F&eacute;licitations, votre relation a bien &eacute;t&eacute; ajout&eacute;e &agrave; la base de donn&eacute;es</font></b></center>';
-						include("footer.php");
+					include ('accueil.php');
+					include("footer.php");
 						exit();
 					}
 					else{
 						echo '<center><b><font color="red" size="2"> Erreur, votre relation n\' a pas pu &ecirc;tre ajout&eacute;e &agrave; la base de donn&eacute;es </font></b></center>';
-						include("footer.php"); 
+					include ('accueil.php');
+					include("footer.php");
 						exit();
 					}
 				  }
