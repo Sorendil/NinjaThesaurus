@@ -19,9 +19,5 @@ echo '<div id="presentation">
 			Dans notre th&eacute;saurus sur les animaux, il y a trois types de liens : synonymes, g&eacute;n&eacute;ralisation et sp&eacute;cialisation.<br>
 
 			Vous pouvez rechercher un mot dans la barre de recherche et consulter les mots qui sont li&eacute;s &agrave; sa d&eacute;finition, ajouter un synonyme, un p&egrave;re ou un fils &agrave; ce mot.
-		</div>
-		</div>
-		<div id="animals"></div>
-		<div id="trees"></div>
-	</div>';
+		</div>';
 ?>
