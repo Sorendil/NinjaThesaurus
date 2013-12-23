@@ -170,7 +170,7 @@ else if (isset($_GET['__ajout']))
 }
 else if (isset ($_POST['libelle']))
 {
-  die ($_POST['libelle']. "....".$_POST['vedette']));
+  die ($_POST['libelle']. "....".$_POST['vedette']);
   /* ajout descripteur exec */
   $libelle = Tools::parse_libelle ($_POST['libelle']);
   try {
