@@ -102,11 +102,11 @@ if (isset ($_GET['libelle']))
 	echo "</pre>";
 	echo "<h3>Synonymes</h3> ";
 	
-	echo "<div id=\"form-recherche\"><form class=\"form-search\" action=\"#\" method=\"post\">
+	echo "<form class=\"form-search\" action=\"#\" method=\"post\">
 				<input type=\"hidden\" name=\"rel\" value=\"\" />
 				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
 				<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
-			</form></div>";
+			</form>";
 	echo "<pre>";
 	echo "<hr/> \n";
 	for($j=0; $j<count($synonyme); $j++){
