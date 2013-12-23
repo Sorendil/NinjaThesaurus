@@ -108,7 +108,7 @@ if (isset ($_GET['libelle']))
 				<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
 			</form>";
 	echo "<pre>";
-	echo "<hr/> \n";
+	echo "\n";
 	for($j=0; $j<count($synonyme); $j++){
 		echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$synonyme[$j]].'/">'.$relations['LIBELLE_DESC'][$synonyme[$j]]."</a> ";
 	}
@@ -119,7 +119,7 @@ if (isset ($_GET['libelle']))
 				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
 				<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
 			</form>";
-	echo "<hr/> \n";
+	echo " \n";
 	for($j=0; $j<count($specialisation); $j++){
 		echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$specialisation[$j]].'/">'.$relations['LIBELLE_DESC'][$specialisation[$j]]."</a> ";
 	}
@@ -130,7 +130,7 @@ if (isset ($_GET['libelle']))
 				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
 				<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
 			</form>";
-	echo "<hr/> \n";
+	echo " \n";
 	for($j=0; $j<count($generalisation); $j++){
 		echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$generalisation[$j]].'/">'.$relations['LIBELLE_DESC'][$generalisation[$j]]."</a> ";
 	}
