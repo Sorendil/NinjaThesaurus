@@ -5,7 +5,7 @@ echo "<div id=\"logo\">
 		<div id=\"form-recherche\">
 			<form class=\"form-search\" action=\"index.php\" method=\"get\">
 				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
-				<button type=\"submit\" class=\"btn\">Recherche</button>
+				<button type=\"submit\" class=\"btn\" rows=\"12\">Recherche</button>
 			</form>
 		</div>
 		<div class=\"navbar navbar-left navbar-default menu\">
@@ -17,7 +17,8 @@ echo "<div id=\"logo\">
 		</div>
 		<div id=\"ajout\">
 					<form class=\"form-search\" action=\"/\" method=\"post\">
-							<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\" /><button type=\"submit\" class=\"btn\" name=\"add\">Ajout Descripteur</button><br/>
+							<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\" />
+							<button type=\"submit\" class=\"btn\" name=\"add\">Ajout Descripteur</button><br/>
 							<input type=\"checkbox\" name=\"vedette\" id=\"vedette\" /> <label for=\"vedette\">Vedette</label>
 							
 					</form>
