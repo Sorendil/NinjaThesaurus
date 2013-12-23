@@ -63,8 +63,25 @@
 						exit();
 					}
 				  }
-				  else
+				  else if (isset ($_POST['libelle']))
 				  {
+				   /* ajout descripteur exec */
+				   $libelle = Tools::parse_libelle ($_POST['libelle']);
+				   try {
+					 $vedette=0;
+					 if (isset($_POST['vedette']))
+					   $vedette=1;
+					 $desc = new Descripteur ($db, $libelle, $vedette);
+					 include("accueil.php");
+					 include("footer.php");
+					 die ('descripteur ajoute'); /* HTML TODO */
+				   }
+				   catch (AlreadyExisting $e) {
+					 include("accueil.php");
+					 include("footer.php");
+					 die ('descripteur deja existant'); /* HTML TODO */
+				   }
+				  }
 					/* affichage page descripteur */
 					echo '<div id="descripteur">';
 					echo "<pre>";
@@ -145,37 +162,6 @@
 					echo '</div>';
 					/* fin affichage page descripteur */
 				  }
-				 
-				  
-				}
-				else if (isset($_GET['__ajout']))
-				{
-					/* formulaire nouveau libelle */
-				  /* HTML TODO */
-				}
-				else if (isset ($_POST['libelle']))
-				{
-				  /* ajout descripteur exec */
-				  $libelle = Tools::parse_libelle ($_POST['libelle']);
-				  try {
-					$vedette=0;
-					if (isset($_POST['vedette']))
-					  $vedette=1;
-					$desc = new Descripteur ($db, $libelle, $vedette);
-					include("accueil.php");
-					include("footer.php");
-					die ('descripteur ajoute'); /* HTML TODO */
-				  }
-				  catch (AlreadyExisting $e) {
-					include("accueil.php");
-					include("footer.php");
-					die ('descripteur deja existant'); /* HTML TODO */
-				  }
-				}
-				else
-				{
-				include("accueil.php");
-				}
 
 				Tools::disconnect_db($db);
 			?>
