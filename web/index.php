@@ -31,7 +31,7 @@
 				if (!$db){
 					echo '<center><b><font color="red" size="2"> La connexion avec la base de donn�es a �chou�. R�essayez ult�rieurement. </font></b></center>'; 
 					include 'accueil.php';
-					include("footer.php");
+					/*include("footer.php");*/
 					exit();
 					}
 				if (isset ($_POST['libelle']))
@@ -44,14 +44,16 @@
 					   $vedette=1;
 					 $desc = new Descripteur ($db, $libelle, $vedette);
 					 echo '<center><b><font color="green" size="2"> Le déscripteur a bien été ajouté.</font></b></center>';
-					 include("accueil.php");
-					 include("footer.php");
+					 include("accueil.php");?>
+					 <div id="animals"></div>
+		             <div id="trees"></div>
+					 <?php include("footer.php");
 					 exit();
 				   }
 				   catch (AlreadyExisting $e) {
 					 echo '<center><b><font color="red" size="2"> Déscripteur déjà existant.</font></b></center>';
 					 include("accueil.php");
-					 include("footer.php");
+					/* include("footer.php");*/
 					 exit();
 				   }
 				}
@@ -64,7 +66,7 @@
 				  catch (NotFoundException $e) {
 					echo '<center><b><font color="red" size="2"> D&eacute;sol&eacute;, le descripteur que vous recherchez est inexistant </font></b></center>'; 
 					include ('accueil.php');
-					include("footer.php");
+					/*include("footer.php");*/
 					exit();
 				  }
 				  if (isset($_POST['rel']) && isset($_POST['libelle']))
@@ -73,13 +75,13 @@
 					if ($desc->addRel(Tools::parse_libelle($_POST['libelle']), $_POST['rel'])){
 						echo '<center><b><font color="green" size="2"> F&eacute;licitations, votre relation a bien &eacute;t&eacute; ajout&eacute;e &agrave; la base de donn&eacute;es</font></b></center>';
 					include ('accueil.php');
-					include("footer.php");
+					/*include("footer.php");*/
 						exit();
 					}
 					else{
 						echo '<center><b><font color="red" size="2"> Erreur, votre relation n\' a pas pu &ecirc;tre ajout&eacute;e &agrave; la base de donn&eacute;es </font></b></center>';
 					include ('accueil.php');
-					include("footer.php");
+					/*include("footer.php");*/
 						exit();
 					}
 				  }
