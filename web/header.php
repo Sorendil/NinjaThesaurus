@@ -1,6 +1,6 @@
 <?php		
 echo "<div id=\"logo\">
-			<a href= \"#\"><img src=\"static/images/logo.png\" /></a>
+			<a href= \"#\"><img src=\"/static/images/logo.png\" /></a>
 		</div>
 		<div id=\"form-recherche\">
 			<form class=\"form-search\" action=\"index.php\" method=\"get\">

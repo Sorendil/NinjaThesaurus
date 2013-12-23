@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Animal Thesaurus</title>
-  <link rel="stylesheet" href="static/css/style.css">
-  <link rel="stylesheet" href="static/css/bootstrap.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/bootstrap.css">
 </head>
 <body>
 	<div id="global-content">
