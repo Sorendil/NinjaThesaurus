@@ -4,7 +4,7 @@ echo "<div id=\"logo\">
 		</div>
 		<div id=\"form-recherche\">
 			<form class=\"form-search\" action=\"index.php\" method=\"get\">
-				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\" size=\"15\">
+				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\" size=\"25\">
 				<button type=\"submit\" class=\"btn\" >Recherche</button>
 			</form>
 		</div>
