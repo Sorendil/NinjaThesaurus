@@ -160,7 +160,7 @@ else if (isset($_GET['__ajout']))
   /* formulaire nouveau libelle */
   echo '<div id="ajout">';
   echo "<h3>Ajoutes un descripteur :</h3>";
-  	echo "<form class=\"form-search\" action=\"#\" method=\"post\">
+  	echo "<form class=\"form-search\" action=\"/\" method=\"post\">
 				<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
 				<input type=\"checkbox\" name=\"vedette\" id=\"vedette\" /> <label for=\"vedette\">Coches pour que ce descripteur soit vedette</label>
 				<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
