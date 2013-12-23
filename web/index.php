@@ -43,14 +43,16 @@
 					 if (isset($_POST['vedette']))
 					   $vedette=1;
 					 $desc = new Descripteur ($db, $libelle, $vedette);
+					 echo '<center><b><font color="green" size="2"> Le déscripteur a bien été ajouté.</font></b></center>';
 					 include("accueil.php");
 					 include("footer.php");
-					 die ('descripteur ajoute'); /* HTML TODO */
+					 exit();
 				   }
 				   catch (AlreadyExisting $e) {
+					 echo '<center><b><font color="red" size="2"> Déscripteur déjà existant.</font></b></center>';
 					 include("accueil.php");
 					 include("footer.php");
-					 die ('descripteur deja existant'); /* HTML TODO */
+					 exit();
 				   }
 				}
 				if (isset ($_GET['libelle']))
