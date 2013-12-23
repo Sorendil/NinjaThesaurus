@@ -67,15 +67,6 @@
 					echo '<div id="descripteur">';
 					echo "<pre>";
 					echo "<h1>Page du mot : ".$desc->getLibelle()."</h1>";
-					/*
-					echo "<form class=\"form-search\" action=\"#\" method=\"post\">
-								<input type=\"text\" class=\"input-medium search-query\">
-								<input type=\"radio\" value=\"Vedette\">
-								<input type=\"radio\" value=\"Non vedette\" checked=\"checked\">
-								<button type=\"submit\" class=\"btn\">Ajout</button>
-							</form>";
-					echo "\n";
-					*/
 				  
 					$relations=$desc->getRel();
 					$synonyme=array();
@@ -158,14 +149,6 @@
 				else if (isset($_GET['__ajout']))
 				{
 					/* formulaire nouveau libelle */
-					echo '<div id="ajout">';
-					echo "<h3>Ajouter un descripteur :</h3>";
-					echo "<form class=\"form-search\" action=\"/\" method=\"post\">
-							<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\" />
-							<input type=\"checkbox\" name=\"vedette\" id=\"vedette\" /> <label for=\"vedette\">Cocher pour que ce descripteur soit vedette</label>
-							<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
-						</form>";
-					echo '</div>';
 				  /* HTML TODO */
 				}
 				else if (isset ($_POST['libelle']))
