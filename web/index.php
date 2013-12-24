@@ -83,32 +83,36 @@
 					echo "<h1>Page du mot : ".$desc->getLibelle()."</h1>";
 				  
 					$relations=$desc->getRel();
-					echo "\n".print_r($desc->getRel());
+					//echo "\n".print_r($desc->getRel());
 					$tab_rel=array();
-					echo "1";
+					
 					for($i=0; $i<count($relations['LIBELLE_REL']); $i++){
-						echo "2";
-						echo "taille".count($tab_rel);
-						echo "existe:".array_search($relations['LIBELLE_REL'][$i], $tab_rel);
+					
 						if((array_search($relations['LIBELLE_REL'][$i], $tab_rel))===false){
+						
 							$tab_rel[$relations['LIBELLE_REL'][$i]]=array();
 							
 						}								
+						
 						array_push($tab_rel[$relations['LIBELLE_REL'][$i]], $i);		
 					}
-					echo "\n".print_r($tab_rel);
-					echo "5";
+				
 					foreach($tab_rel as $key => $value){
+					
 						echo "<h3>".$key."</h3>";
+						
 						for($j=0; $j<count($tab_rel[$key]); $j++){
+						
 							echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$tab_rel[$key][$j]].'/" >'.$relations['LIBELLE_DESC'][$tab_rel[$key][$j]].'</a> ';
 						}
+						
 						echo '<form class=\"form-search\" action=\"\" method=\"post\">
 								<input type=hidden name=rel value='.$key.' />
 								<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
 								<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
 							</form>';
 					}
+					
 					echo "</pre>";
 					echo '</div>';
 					/* fin affichage page descripteur */
