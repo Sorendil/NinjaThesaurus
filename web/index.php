@@ -89,7 +89,7 @@
 					for($i=0; $i<count($relations['LIBELLE_REL']); $i++){
 						echo "2";
 						echo "taille".count($tab_rel);
-						foreach($tab_rel as $eky => $value){
+						foreach($tab_rel as $key => $value){
 							echo "3";
 							if((count($tab_rel)==0) ||($relations['LIBELLE_REL'][$i]!=$key)){
 								echo "4";
