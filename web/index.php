@@ -98,8 +98,8 @@
 					}
 					echo "\n".print_r($tab_rel);
 					echo "5";
-					foreach($tab_rel as $value){
-						echo "<h3>".$value."</h3>";
+					foreach($tab_rel as $key => $value){
+						echo "<h3>".$key."</h3>";
 						/*for($j=0; $j<count($tab_rel[$i]); $j++){
 							echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$tab_rel[$i][$j]].'/" '.$relations['LIBELLE_DESC'][$tab_rel[$i][$j]].'</a> ';//attention affiche juste l'indice pas les mots de libelle_desc
 						}
