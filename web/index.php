@@ -42,17 +42,28 @@
 					 if (isset($_POST['vedette']))
 					   $vedette=1;
 					 $desc = new Descripteur ($db, $libelle, $vedette);
-					 echo '<center><b><font color="green" size="2"> Le déscripteur a bien été ajouté.</font></b></center>';
+					 echo '<center><b><font color="green" size="2"> Le descripteur a bien été ajouté.</font></b></center>';
 					goto redirection;
 					 exit();
 				   }
 				   catch (AlreadyExisting $e) {
-					 echo '<center><b><font color="red" size="2"> Déscripteur déjà existant.</font></b></center>';
+					 echo '<center><b><font color="red" size="2"> Le descripteur que vous tentez d\'ajouter existe déjà.</font></b></center>';
 					goto redirection;
 					 exit();
 				   }
 				}
-				if (isset($_POST['rel']) && isset($_POST['libelle']))
+				if (isset ($_GET['libelle']))
+				{
+				  $adr_libelle = Tools::parse_libelle ($_GET['libelle']);
+				  try {
+					$desc = new Descripteur ($db, $adr_libelle);
+				  }
+				  catch (NotFoundException $e) {
+					echo '<center><b><font color="red" size="2"> D&eacute;sol&eacute;, le descripteur que vous recherchez est inexistant </font></b></center>';
+					goto redirection;
+					exit();
+				  }
+				  if (isset($_POST['rel']) && isset($_POST['libelle']))
 				  {
 					/* ajout relation */
 					if ($desc->addRel(Tools::parse_libelle($_POST['libelle']), $_POST['rel'])){
@@ -66,18 +77,6 @@
 						exit();
 					}
 				  }
-				if (isset ($_GET['libelle']))
-				{
-				  $adr_libelle = Tools::parse_libelle ($_GET['libelle']);
-				  try {
-					$desc = new Descripteur ($db, $adr_libelle);
-				  }
-				  catch (NotFoundException $e) {
-					echo '<center><b><font color="red" size="2"> D&eacute;sol&eacute;, le descripteur que vous recherchez est inexistant </font></b></center>';
-					goto redirection;
-					exit();
-				  }
-				  
 					/* affichage page descripteur */
 					echo '<div id="descripteur">';
 					echo "<pre>";
@@ -110,7 +109,7 @@
 						echo '<form class="form-search" action="index.php" method="post">
 								<input type=hidden name=rel value='.$key.' />
 								<input type="text" name="libelle" class="input-medium search-query">
-								<button type="submit" class="btn" >Ajout</button>
+								<button type="submit" class="btn" name="add">Ajout</button>
 							</form>';
 					}
 					
