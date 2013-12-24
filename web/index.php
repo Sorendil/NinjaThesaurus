@@ -92,24 +92,15 @@
 						echo "existe:".array_search($relations['LIBELLE_REL'][$i], $tab_rel);
 						if((array_search($relations['LIBELLE_REL'][$i], $tab_rel))===false){
 							$tab_rel[$relations['LIBELLE_REL'][$i]]=array();
-							//break;
-						}
-						/*for($j=0; $j<(count($tab_rel)+1); $j++){
-						echo "3";
-							if((count($tab_rel)==0) ||($relations['LIBELLE_REL'][$i]!=$tab_rel[$j])){
-								echo "4";
-								$tab_rel[$relations['LIBELLE_REL'][$i]]=array();
-								break;
-							}
-						
-						}*/								
+							
+						}								
 						array_push($tab_rel[$relations['LIBELLE_REL'][$i]], $i);		
 					}
 					echo "\n".print_r($tab_rel);
 					echo "5";
-					/*for($i=0; $i<count($tab_rel); $i++){
+					foreach($tab_rel as $value){
 						echo "<h3>".$tab_rel[$i]."</h3>";
-						for($j=0; $j<count($tab_rel[$i]); $j++){
+						/*for($j=0; $j<count($tab_rel[$i]); $j++){
 							echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$tab_rel[$i][$j]].'/" '.$relations['LIBELLE_DESC'][$tab_rel[$i][$j]].'</a> ';//attention affiche juste l'indice pas les mots de libelle_desc
 						}
 						echo '<form class=\"form-search\" action=\"\" method=\"post\">
@@ -117,8 +108,8 @@
 								<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
 								<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
 							</form>';
-					}
-					*/
+					}*/
+					
 					echo "</pre>";
 					echo '</div>';
 					/* fin affichage page descripteur */
