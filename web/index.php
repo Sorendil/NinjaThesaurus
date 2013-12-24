@@ -91,7 +91,7 @@
 						echo "taille".count($tab_rel);
 						for($j=0; $j<(count($tab_rel)+1); $j++){
 						echo "3";
-							if(!($relations['LIBELLE_REL'][$i]==$tab_rel[$j])){
+							if($relations['LIBELLE_REL'][$i]!=$tab_rel[$j]){
 								echo "4";
 								$tab_rel[$relations['LIBELLE_REL'][$i]]=array();
 								array_push($tab_rel, $relations['LIBELLE_REL'][$i]);
