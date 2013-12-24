@@ -91,7 +91,7 @@
 						echo "taille".count($tab_rel);
 						for($j=0; $j<(count($tab_rel)+1); $j++){
 						echo "3";
-							if($relations['LIBELLE_REL'][$i]!=$tab_rel[$j]){
+							if((count($tab_rel)==0)||($relations['LIBELLE_REL'][$i]!=$tab_rel[$j]){
 								echo "4";
 								$tab_rel[$relations['LIBELLE_REL'][$i]]=array();
 								array_push($tab_rel, $relations['LIBELLE_REL'][$i]);
@@ -102,9 +102,9 @@
 								
 					}
 					echo "5";
-					for($i=0; $i<count($tab_rel); ++$i){
+					for($i=0; $i<count($tab_rel); $i++){
 						echo "<h3>".$tab_rel[$i]."</h3>";
-						for($j=0; $j<count($tab_rel[$i]);++$j){
+						for($j=0; $j<count($tab_rel[$i]); $j++){
 							echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$tab_rel[$i][$j]].'/">'.$relations['LIBELLE_DESC'][$tab_rel[$i][$j]].'</a> ';//attention affiche juste l'indice pas les mots de libelle_desc
 						}
 						echo '<form class=\"form-search\" action=\"\" method=\"post\">
