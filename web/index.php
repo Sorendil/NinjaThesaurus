@@ -90,7 +90,7 @@
 						echo "2";
 						echo "taille".count($tab_rel);
 						echo "existe:".array_search($relations['LIBELLE_REL'][$i], $tab_rel);
-						if(!(array_search($relations['LIBELLE_REL'][$i], $tab_rel))){
+						if((array_search($relations['LIBELLE_REL'][$i], $tab_rel))===false){
 							$tab_rel[$relations['LIBELLE_REL'][$i]]=array();
 							break;
 						}
