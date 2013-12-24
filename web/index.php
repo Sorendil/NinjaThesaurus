@@ -106,7 +106,7 @@
 							echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$tab_rel[$key][$j]].'/" >'.$relations['LIBELLE_DESC'][$tab_rel[$key][$j]].'</a> ';
 						}
 						
-						echo '<form class=\"form-search\" action=\"\" method=\"post\">
+						echo '<form class=\"form-search\" action=\"index.php\" method=\"post\">
 								<input type=hidden name=rel value='.$key.' />
 								<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
 								<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
