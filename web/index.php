@@ -95,7 +95,9 @@
 								echo "4";
 								$tab_rel[$relations['LIBELLE_REL'][$i]]=array();
 								array_push($tab_rel, $relations['LIBELLE_REL'][$i]);
+								echo "taille".count($tab_rel);
 								array_push($tab_rel[$relations['LIBELLE_REL'][$i]], $i);
+								echo "taille".count($tab_rel);
 								break;
 							}
 						}								
