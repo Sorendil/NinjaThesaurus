@@ -91,15 +91,10 @@
 						echo "taille".count($tab_rel);
 						for($j=0; $j<(count($tab_rel)+1); $j++){
 						echo "3";
-							if((count($tab_rel)==0)||($relations['LIBELLE_REL'][$i]!=$tab_rel[$j])){
+							if((count($tab_rel)==0) or ($relations['LIBELLE_REL'][$i]!=$tab_rel[$j])){
 								echo "4";
-								echo "taille".count($tab_rel);
 								$tab_rel[$relations['LIBELLE_REL'][$i]]=array();
-								echo "taille".count($tab_rel);
-								//array_push($tab_rel, $relations['LIBELLE_REL'][$i]);
-								//echo "taille".count($tab_rel);
 								array_push($tab_rel[$relations['LIBELLE_REL'][$i]], $i);
-								echo "taille".count($tab_rel);
 								break;
 							}
 						}								
