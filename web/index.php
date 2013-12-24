@@ -92,7 +92,7 @@
 						echo "existe:".array_search($relations['LIBELLE_REL'][$i], $tab_rel);
 						if((array_search($relations['LIBELLE_REL'][$i], $tab_rel))===false){
 							$tab_rel[$relations['LIBELLE_REL'][$i]]=array();
-							break;
+							//break;
 						}
 						/*for($j=0; $j<(count($tab_rel)+1); $j++){
 						echo "3";
