@@ -105,10 +105,10 @@
 					for($i=0; $i<count($tab_rel); ++$i){
 						echo "<h3>".$tab_rel[$i]."</h3>";
 						for($j=0; $j<count($tab_rel[$i]);++$j){
-							echo '<a href="/'.$relations['LIBELLE_DESC'][$tab_rel[$i][$j]].'/">'.$relations['LIBELLE_DESC'][$tab_rel[$i][$j]]."</a> ";//attention affiche juste l'indice pas les mots de libelle_desc
+							echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$tab_rel[$i][$j]].'/">'.$relations['LIBELLE_DESC'][$tab_rel[$i][$j]].'</a> ';//attention affiche juste l'indice pas les mots de libelle_desc
 						}
 						echo '<form class=\"form-search\" action=\"\" method=\"post\">
-								<input type=\"hidden\" name=\"rel\" value=\"'.$tab_rel[$i].'\" />
+								<input type=\"hidden\" name=\"rel\" value='.$tab_rel[$i].' />
 								<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
 								<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
 							</form>';
