@@ -51,7 +51,8 @@
 					goto redirection;
 					 exit();
 				   }
-				    if (isset($_POST['rel']) && isset($_POST['libelle']))
+				}
+				if (isset($_POST['rel']) && isset($_POST['libelle']))
 				  {
 					/* ajout relation */
 					if ($desc->addRel(Tools::parse_libelle($_POST['libelle']), $_POST['rel'])){
@@ -65,7 +66,6 @@
 						exit();
 					}
 				  }
-				}
 				if (isset ($_GET['libelle']))
 				{
 				  $adr_libelle = Tools::parse_libelle ($_GET['libelle']);
@@ -77,7 +77,7 @@
 					goto redirection;
 					exit();
 				  }
-				 
+				  
 					/* affichage page descripteur */
 					echo '<div id="descripteur">';
 					echo "<pre>";
@@ -107,10 +107,10 @@
 							echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$tab_rel[$key][$j]].'/" >'.$relations['LIBELLE_DESC'][$tab_rel[$key][$j]].'</a> ';
 						}
 						
-						echo '<form class=\"form-search\" action=\"index.php\" method=\"post\">
+						echo '<form class="form-search" action="index.php" method="post">
 								<input type=hidden name=rel value='.$key.' />
-								<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
-								<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
+								<input type="text" name="libelle" class="input-medium search-query">
+								<button type="submit" class="btn" >Ajout</button>
 							</form>';
 					}
 					
