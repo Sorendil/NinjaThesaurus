@@ -84,10 +84,13 @@
 				  
 					$relations=$desc->getRel();
 					$tab_rel=array();
-
+					echo "1";
 					for($i=0; $i<count($relations['LIBELLE_REL']); ++$i){
+						echo "2";
 						for($j=0; $j<count($tab_rel); ++$j){
+						echo "3";
 							if(!($relations['LIBELLE_REL'][$i]==$tab_rel[$j])){
+								echo "4";
 								$tab_rel[$relations['LIBELLE_REL'][$i]]=array();
 								array_push($tab_rel, $relations['LIBELLE_REL'][$i]);
 								array_push($tab_rel[$relations['LIBELLE_REL'][$i]], $i);
@@ -95,7 +98,7 @@
 						}								
 								
 					}
-					
+					echo "5";
 					for($i=0; $i<count($tab_rel); ++$i){
 						echo "<h3>".$tab_rel[$i]."</h3>";
 						for($j=0; $j<count($tab_rel[$j]);++$j){
