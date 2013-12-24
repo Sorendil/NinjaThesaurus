@@ -51,19 +51,7 @@
 					goto redirection;
 					 exit();
 				   }
-				}
-				if (isset ($_GET['libelle']))
-				{
-				  $adr_libelle = Tools::parse_libelle ($_GET['libelle']);
-				  try {
-					$desc = new Descripteur ($db, $adr_libelle);
-				  }
-				  catch (NotFoundException $e) {
-					echo '<center><b><font color="red" size="2"> D&eacute;sol&eacute;, le descripteur que vous recherchez est inexistant </font></b></center>';
-					goto redirection;
-					exit();
-				  }
-				  if (isset($_POST['rel']) && isset($_POST['libelle']))
+				    if (isset($_POST['rel']) && isset($_POST['libelle']))
 				  {
 					/* ajout relation */
 					if ($desc->addRel(Tools::parse_libelle($_POST['libelle']), $_POST['rel'])){
@@ -77,6 +65,19 @@
 						exit();
 					}
 				  }
+				}
+				if (isset ($_GET['libelle']))
+				{
+				  $adr_libelle = Tools::parse_libelle ($_GET['libelle']);
+				  try {
+					$desc = new Descripteur ($db, $adr_libelle);
+				  }
+				  catch (NotFoundException $e) {
+					echo '<center><b><font color="red" size="2"> D&eacute;sol&eacute;, le descripteur que vous recherchez est inexistant </font></b></center>';
+					goto redirection;
+					exit();
+				  }
+				 
 					/* affichage page descripteur */
 					echo '<div id="descripteur">';
 					echo "<pre>";
@@ -116,7 +117,7 @@
 					echo "</pre>";
 					echo '</div>';
 					/* fin affichage page descripteur */
-				 }
+				}
 				 else
 				 {
 					 redirection:
