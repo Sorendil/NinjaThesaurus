@@ -108,8 +108,8 @@
 								<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
 								<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
 							</form>';
-					}*/
-					
+					*/
+					}
 					echo "</pre>";
 					echo '</div>';
 					/* fin affichage page descripteur */
