@@ -93,7 +93,7 @@
 						echo "3";
 							if((count($tab_rel)==0) ||($relations['LIBELLE_REL'][$i]!=$tab_rel[$j])){
 								echo "4";
-								$tab_rel[$j => $relations['LIBELLE_REL'][$i]]=array();
+								$tab_rel["$j" => "$relations['LIBELLE_REL'][$i]"]=array();
 								array_push($tab_rel[$relations['LIBELLE_REL'][$i]], $i);
 								break;
 							}
