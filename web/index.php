@@ -96,6 +96,7 @@
 								$tab_rel[$relations['LIBELLE_REL'][$i]]=array();
 								array_push($tab_rel, $relations['LIBELLE_REL'][$i]);
 								array_push($tab_rel[$relations['LIBELLE_REL'][$i]], $i);
+								break;
 							}
 						}								
 								
