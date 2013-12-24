@@ -103,7 +103,8 @@
 						}
 						echo '<form class=\"form-search\" action=\"\" method=\"post\">
 								<input type=\"hidden\" name=\"rel\" value=\"'.$tab_rel[$i].'\" />
-								<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\"><button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
+								<input type=\"text\" name=\"libelle\" class=\"input-medium search-query\">
+								<button type=\"submit\" class=\"btn\" name=\"add\">Ajout</button>
 							</form>';
 					}
 					
