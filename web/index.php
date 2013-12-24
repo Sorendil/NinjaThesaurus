@@ -89,16 +89,20 @@
 					for($i=0; $i<count($relations['LIBELLE_REL']); $i++){
 						echo "2";
 						echo "taille".count($tab_rel);
-						for($j=0; $j<(count($tab_rel)+1); $j++){
+						if(!(array_search($relations['LIBELLE_REL'][$i], $tab_rel))){
+							$tab_rel[$relations['LIBELLE_REL'][$i]]=array();
+							break;
+						}
+						/*for($j=0; $j<(count($tab_rel)+1); $j++){
 						echo "3";
 							if((count($tab_rel)==0) ||($relations['LIBELLE_REL'][$i]!=$tab_rel[$j])){
 								echo "4";
 								$tab_rel[$relations['LIBELLE_REL'][$i]]=array();
-								array_push($tab_rel[$relations['LIBELLE_REL'][$i]], $i);
 								break;
 							}
-						}								
-								
+						
+						}*/								
+					array_push($tab_rel[$relations['LIBELLE_REL'][$i]], $i);		
 					}
 					echo "\n".print_r($tab_rel);
 					echo "5";
