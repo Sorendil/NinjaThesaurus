@@ -83,7 +83,7 @@
 					echo "<h1>Page du mot : ".$desc->getLibelle()."</h1>";
 				  
 					$relations=$desc->getRel();
-					echo $desc->getRel();
+					echo $relations;
 					$tab_rel=array();
 					echo "1";
 					for($i=0; $i<count($relations['LIBELLE_REL']); ++$i){
