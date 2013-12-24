@@ -83,6 +83,7 @@
 					echo "<h1>Page du mot : ".$desc->getLibelle()."</h1>";
 				  
 					$relations=$desc->getRel();
+					echo $desc->getRel();
 					$tab_rel=array();
 					echo "1";
 					for($i=0; $i<count($relations['LIBELLE_REL']); ++$i){
@@ -101,7 +102,7 @@
 					echo "5";
 					for($i=0; $i<count($tab_rel); ++$i){
 						echo "<h3>".$tab_rel[$i]."</h3>";
-						for($j=0; $j<count($tab_rel[$j]);++$j){
+						for($j=0; $j<count($tab_rel[$i]);++$j){
 							echo '<a href="/'.$relations['LIBELLE_DESC'][$tab_rel[$i][$j]].'/">'.$relations['LIBELLE_DESC'][$tab_rel[$i][$j]]."</a> ";//attention affiche juste l'indice pas les mots de libelle_desc
 						}
 						echo '<form class=\"form-search\" action=\"\" method=\"post\">
