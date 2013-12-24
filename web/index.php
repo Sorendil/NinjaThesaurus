@@ -101,7 +101,8 @@
 					foreach($tab_rel as $key => $value){
 						echo "<h3>".$key."</h3>";
 						for($j=0; $j<count($tab_rel[$key]); $j++){
-							echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$tab_rel[$key][$j]].'/" '.$relations['LIBELLE_DESC'][$tab_rel[$key][$j]].'</a> ';//attention affiche juste l'indice pas les mots de libelle_desc
+							//echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$tab_rel[$key][$j]].'/" '.$relations['LIBELLE_DESC'][$tab_rel[$key][$j]].'</a> ';//attention affiche juste l'indice pas les mots de libelle_desc
+							echo $relations['LIBELLE_DESC'][$tab_rel[$key][$j]];
 						}
 						echo '<form class=\"form-search\" action=\"\" method=\"post\">
 								<input type=hidden name=rel value='.$key.' />
