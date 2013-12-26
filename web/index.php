@@ -109,7 +109,7 @@
 							echo '<a href="/'.$relations['LIBELLE_DESC'][$tab_rel[$key][$j]].'/" >'.$relations['LIBELLE_DESC'][$tab_rel[$key][$j]].'</a> ';
 						}
 						
-						echo '<form class="form-search" action="" method="post">
+						echo '<form class="form-search" action="/'.$desc->getLibelle().'/" method="post">
 								<input type=hidden name=rel value='.$key.' />
 								<input type="text" name="libelle" class="input-medium search-query">
 								<button type="submit" class="btn" name="add">Ajout</button>
