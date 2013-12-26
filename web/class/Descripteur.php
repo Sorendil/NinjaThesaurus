@@ -76,7 +76,7 @@ class Descripteur
     oci_bind_by_name ($query, ":rel", $rel_lib);
     oci_execute ($query);
     
-    if (oci_error ($this->db)===false)
+    if (is_array(oci_error($this->db)))
       return true;
     return false;
   }
