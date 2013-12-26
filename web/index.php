@@ -91,14 +91,13 @@
 					
 					for($i=0; $i<count($relations['LIBELLE_REL']); $i++){
 					
-						if((array_search($relations['LIBELLE_REL'][$i], $tab_rel))===false){
+						//if((array_search($relations['LIBELLE_REL'][$i], $tab_rel))===false){
 						
-							$tab_rel[$relations['LIBELLE_REL'][$i]]=array();
+						//	$tab_rel[$relations['LIBELLE_REL'][$i]]=array();
 							
-						}								
+						//}								
 						
-						$tab_rel[$relations['LIBELLE_REL'][$i]]=array($i);
-						
+						array_push($tab_rel[$relations['LIBELLE_REL'][$i]], $i);		
 					}
 					
 					print_r($tab_rel);
