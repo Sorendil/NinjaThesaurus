@@ -133,6 +133,7 @@
 								</form>';
 
 							}
+					}
 					
 					echo "</pre>";
 					echo '</div>';
