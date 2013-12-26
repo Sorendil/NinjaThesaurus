@@ -102,7 +102,7 @@
 					
 					foreach($tab_rel as $key => $value){
 					
-						echo "<h3>".ucfirst($key)."</h3><hr color=#454136 />";
+						echo "<h3>".ucfirst($key)."</h3>";
 						
 						for($j=0; $j<count($tab_rel[$key]); $j++){
 						
