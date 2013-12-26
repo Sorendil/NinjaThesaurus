@@ -97,7 +97,7 @@
 							
 						}								
 						
-						$tab_rel[$relations['LIBELLE_REL'][$i]]= $i;		
+						$tab_rel[$relations['LIBELLE_REL'][$i]][]=$i;		
 					}
 					
 					print_r($tab_rel);
