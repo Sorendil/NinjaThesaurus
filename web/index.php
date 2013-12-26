@@ -120,8 +120,6 @@
 					//affichage des types de relations vides : juste le nom et le formulaire apparaissent
 					foreach ($all_libelle_rel['LIBELLE'] as $value){
 							
-							echo $key;
-							
 							if(array_search($value, array_keys($tab_rel))===false){
 							
 								echo "<h3>".ucfirst($value)."</h3>";
