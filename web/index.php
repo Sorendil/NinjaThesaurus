@@ -85,7 +85,7 @@
      $relations=$desc->getRel();
      echo "<pre>";
      print_r($relations);
-     echp "</pre>";
+     echo "</pre>";
 					//echo "\n".print_r($desc->getRel());
 					$tab_rel=array();
 					
