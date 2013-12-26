@@ -116,14 +116,14 @@
 
 					}
 					//affichage des types de relations vides : juste le nom et le formulaire apparaissent
-					foreach ($all_libelle_rel['LIBELLE'] as $key){
+					foreach ($all_libelle_rel['LIBELLE'] as $value){
 					
-						if(array_search($all_libelle_rel['LIBELLE'][$key], $tab_rel) === false){
+						if(array_search($value, $tab_rel) === false){
 						
-							echo "<h3>".ucfirst($key)."</h3>";
+							echo "<h3>".ucfirst($value)."</h3>";
 							
 							echo '<form class="form-search" action="/'.$desc->getLibelle().'/" method="post">
-								<input type=hidden name=rel value='.$key.' />
+								<input type=hidden name=rel value='.$value.' />
 								<input type="text" name="libelle" class="input-medium search-query">
 								<button type="submit" class="btn" name="add">Ajout</button>
 							</form>';
