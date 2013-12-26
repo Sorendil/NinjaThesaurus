@@ -66,7 +66,7 @@
 				  if (isset($_POST['rel']) && isset($_POST['libelle']))
 				  {
 					/* ajout relation */
-					if ($desc->addRel(Tools::parse_libelle($_POST['libelle']), $_POST['rel'])){
+					if ($desc->addRel(Tools::parse_libelle($_POST['libelle']), $_POST['rel']) === true){
 						echo '<center><b><font color="green" size="2"> F&eacute;licitations, votre relation a bien &eacute;t&eacute; ajout&eacute;e &agrave; la base de donn&eacute;es</font></b></center>';
 					goto redirection;
 						exit();
