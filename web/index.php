@@ -89,11 +89,7 @@
 					 print_r($relations);
 					 echo "</pre>";
 					*/
-					$all_libelle_rel=Tools::getLibelleRel($db);
-					//print_r($all_libelle_rel);
-					$test_lib_rel=array_merge($relations['LIBELLE_REL'], $all_libelle_rel);
-					print_r($test_lib_rel);
-					
+					$all_libelle_rel=Tools::getLibelleRel($db);//récupération de toutes les types de relations de la bdd	
 					$tab_rel=array();
 					
 					for($i=0; $i<count($relations['LIBELLE_REL']); $i++){							
@@ -102,10 +98,8 @@
 						
 					}
 					
-					//print_r($tab_rel);
-					
 					foreach($tab_rel as $key => $value){
-					
+						
 						echo "<h3>".ucfirst($key)."</h3>";
 						
 						for($j=0; $j<count($tab_rel[$key]); $j++){
@@ -118,6 +112,23 @@
 								<input type="text" name="libelle" class="input-medium search-query">
 								<button type="submit" class="btn" name="add">Ajout</button>
 							</form>';
+							
+
+					}
+					//affichage des types de relations vides : juste le nom et le formulaire apparaissent
+					foreach ($all_libelle_rel['LIBELLE'] as $key){
+					
+						if(array_search($all_libelle_rel['LIBELLE'][$key], $tab_rel) === false){
+						
+							echo "<h3>".ucfirst($key)."</h3>";
+							
+							echo '<form class="form-search" action="/'.$desc->getLibelle().'/" method="post">
+								<input type=hidden name=rel value='.$key.' />
+								<input type="text" name="libelle" class="input-medium search-query">
+								<button type="submit" class="btn" name="add">Ajout</button>
+							</form>';
+
+						}
 					}
 					
 					echo "</pre>";
