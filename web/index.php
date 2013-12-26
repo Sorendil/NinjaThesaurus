@@ -114,18 +114,19 @@
 							</form>';
 						
 						foreach ($all_libelle_rel['LIBELLE'] as $lib_rel){
-					
-						if($lib_rel!=$key){
-						
-							echo "<h3>".ucfirst($lib_rel)."</h3>";
+							echo $lib_rel;
+							echo $key;
+							if($lib_rel!=$key){
 							
-							echo '<form class="form-search" action="/'.$desc->getLibelle().'/" method="post">
-								<input type=hidden name=rel value='.$lib_rel.' />
-								<input type="text" name="libelle" class="input-medium search-query">
-								<button type="submit" class="btn" name="add">Ajout</button>
-							</form>';
+								echo "<h3>".ucfirst($lib_rel)."</h3>";
+								
+								echo '<form class="form-search" action="/'.$desc->getLibelle().'/" method="post">
+									<input type=hidden name=rel value='.$lib_rel.' />
+									<input type="text" name="libelle" class="input-medium search-query">
+									<button type="submit" class="btn" name="add">Ajout</button>
+								</form>';
 
-						}
+							}
 					}
 
 					}
