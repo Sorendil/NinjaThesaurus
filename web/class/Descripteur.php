@@ -74,10 +74,15 @@ class Descripteur
     oci_bind_by_name ($query, ":lib1", $this->libelle);
     oci_bind_by_name ($query, ":lib2", $dest_lib);
     oci_bind_by_name ($query, ":rel", $rel_lib);
-    oci_execute ($query);
     
+    if (!oci_execute ($query))
+      return FALSE;
+    return TRUE;
+
+   /* 
     if (is_array(oci_error($this->db)))
       return TRUE;
     return FALSE;
+    */
   }
 }
