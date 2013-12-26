@@ -77,7 +77,7 @@ class Descripteur
     oci_execute ($query);
     
     if (is_array(oci_error($this->db)))
-      return true;
-    return false;
+      return TRUE;
+    return FALSE;
   }
 }
