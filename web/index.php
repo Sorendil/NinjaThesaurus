@@ -90,7 +90,9 @@
 					 echo "</pre>";
 					*/
 					$all_libelle_rel=Tools::getLibelleRel($db);
-					print_r($all_libelle_rel);
+					//print_r($all_libelle_rel);
+					$test_lib_rel=array_merge($relations[$relations['LIBELLE_REL'], $all_libelle_rel);
+					print_r($test_lib_rel);
 					
 					$tab_rel=array();
 					
