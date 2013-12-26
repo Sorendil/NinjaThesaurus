@@ -80,27 +80,24 @@
 					/* affichage page descripteur */
 					echo '<div id="descripteur">';
 					echo "<pre>";
-					echo "<h1>Page du mot : ".$desc->getLibelle()."</h1>";
-				  
+					echo "<h1>Page du mot : ".ucfirst($desc->getLibelle())."</h1>";
+					
+					/*
 					 $relations=$desc->getRel();
 					 echo "<pre>";
 					 print_r($relations);
 					 echo "</pre>";
+					*/
 					
 					$tab_rel=array();
 					
-					for($i=0; $i<count($relations['LIBELLE_REL']); $i++){
-					
-						//if((array_search($relations['LIBELLE_REL'][$i], $tab_rel))===false){
-						
-						//	$tab_rel[$relations['LIBELLE_REL'][$i]]=array();
-							
-						//}								
+					for($i=0; $i<count($relations['LIBELLE_REL']); $i++){							
 						
 						$tab_rel[$relations['LIBELLE_REL'][$i]][]=$i;		
+						
 					}
 					
-					print_r($tab_rel);
+					//print_r($tab_rel);
 					
 					foreach($tab_rel as $key => $value){
 					
