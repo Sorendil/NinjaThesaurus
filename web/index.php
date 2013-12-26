@@ -33,7 +33,7 @@
 					goto redirection;
 					exit();
 					}
-				if (isset ($_POST['libelle']))
+				if (isset ($_POST['libelle']) && !isset($_POST['rel']))
 				{
 				   /* ajout descripteur exec */
 				   $libelle = Tools::parse_libelle ($_POST['libelle']);
