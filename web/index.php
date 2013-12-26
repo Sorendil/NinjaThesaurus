@@ -82,11 +82,11 @@
 					echo "<pre>";
 					echo "<h1>Page du mot : ".$desc->getLibelle()."</h1>";
 				  
-     $relations=$desc->getRel();
-     echo "<pre>";
-     print_r($relations);
-     echo "</pre>";
-					//echo "\n".print_r($desc->getRel());
+					 $relations=$desc->getRel();
+					 echo "<pre>";
+					 print_r($relations);
+					 echo "</pre>";
+					
 					$tab_rel=array();
 					
 					for($i=0; $i<count($relations['LIBELLE_REL']); $i++){
@@ -99,7 +99,9 @@
 						
 						array_push($tab_rel[$relations['LIBELLE_REL'][$i]], $i);		
 					}
-				
+					
+					print_r($tab_rel);
+					
 					foreach($tab_rel as $key => $value){
 					
 						echo "<h3>".$key."</h3>";
