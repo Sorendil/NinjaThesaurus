@@ -82,7 +82,10 @@
 					echo "<pre>";
 					echo "<h1>Page du mot : ".$desc->getLibelle()."</h1>";
 				  
-					$relations=$desc->getRel();
+     $relations=$desc->getRel();
+     echo "<pre>";
+     print_r($relations);
+     echp "</pre>";
 					//echo "\n".print_r($desc->getRel());
 					$tab_rel=array();
 					
@@ -103,10 +106,10 @@
 						
 						for($j=0; $j<count($tab_rel[$key]); $j++){
 						
-							echo '<a href="http://cvidal.org:81/'.$relations['LIBELLE_DESC'][$tab_rel[$key][$j]].'/" >'.$relations['LIBELLE_DESC'][$tab_rel[$key][$j]].'</a> ';
+							echo '<a href="/'.$relations['LIBELLE_DESC'][$tab_rel[$key][$j]].'/" >'.$relations['LIBELLE_DESC'][$tab_rel[$key][$j]].'</a> ';
 						}
 						
-						echo '<form class="form-search" action="index.php" method="post">
+						echo '<form class="form-search" action="" method="post">
 								<input type=hidden name=rel value='.$key.' />
 								<input type="text" name="libelle" class="input-medium search-query">
 								<button type="submit" class="btn" name="add">Ajout</button>
