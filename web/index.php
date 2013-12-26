@@ -80,7 +80,7 @@
 					/* affichage page descripteur */
 					echo '<div id="descripteur">';
 					echo "<pre>";
-					echo "<h1>Page du mot : ".ucfirst($desc->getLibelle())."</h1>";
+					echo "<h1>Page du mot : ".$desc->getLibelle()."</h1>";
 				
 					$relations=$desc->getRel();
 					 
@@ -102,7 +102,7 @@
 					
 					foreach($tab_rel as $key => $value){
 					
-						echo "<h3>".$key."</h3>";
+						echo "<h3>".ucfirst($key)."</h3>";
 						
 						for($j=0; $j<count($tab_rel[$key]); $j++){
 						
