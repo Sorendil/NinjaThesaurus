@@ -116,7 +116,7 @@
 						
 					}
 
-					}
+					
 					//affichage des types de relations vides : juste le nom et le formulaire apparaissent
 					foreach ($all_libelle_rel['LIBELLE'] as $value){
 							
