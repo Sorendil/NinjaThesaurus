@@ -81,9 +81,10 @@
 					echo '<div id="descripteur">';
 					echo "<pre>";
 					echo "<h1>Page du mot : ".ucfirst($desc->getLibelle())."</h1>";
-					
+				
+					$relations=$desc->getRel();
+					 
 					/*
-					 $relations=$desc->getRel();
 					 echo "<pre>";
 					 print_r($relations);
 					 echo "</pre>";
