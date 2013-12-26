@@ -29,7 +29,7 @@
 				$db = Tools::connect_db();
 
 				if (!$db){
-					echo '<center><b><font color="red" size="2"> La connexion avec la base de donn�es a �chou�. R�essayez ult�rieurement. </font></b></center>'; 
+					echo '<center><b><font color="red" size="2"> La connexion avec la base de données a échoué. Réessayez ultérieurement. </font></b></center>'; 
 					goto redirection;
 					exit();
 					}
@@ -102,7 +102,7 @@
 					
 					foreach($tab_rel as $key => $value){
 					
-						echo "<h3>".ucfirst($key)."</h3>";
+						echo "<h3>".ucfirst($key)."</h3><hr color=#454136 />";
 						
 						for($j=0; $j<count($tab_rel[$key]); $j++){
 						
