@@ -89,6 +89,8 @@
 					 print_r($relations);
 					 echo "</pre>";
 					*/
+					$all_libelle_rel=getLibelleRel($db);
+					print_r($all_libelle_rel);
 					
 					$tab_rel=array();
 					

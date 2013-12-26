@@ -19,4 +19,13 @@ class Tools
   {
     oci_close ($db);
   }
+  
+  static function getLibelleRel($db)
+  {
+	$query = oci_parse($db, "select libelle from types_relations");
+	oci_execute ($query);
+	$nres=oci_fetch_all($query, $res);
+	return $res;
+  }
+  
 }
