@@ -82,7 +82,7 @@
 					echo "<pre>";
 					echo "<h1>Page du mot : ".$desc->getLibelle()."</h1>";
 					
-					if($desc->getVedette()==0){
+					if($desc->getVedette()){
 					$isvedette="oui";}
 					else{
 					$isvedette="non";}
