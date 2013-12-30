@@ -59,7 +59,7 @@ Pour le projet, nous avons commencé par analyser le sujet. Nous avons confronter
 
 Une fois l'analyse terminée, nous avons décidé de nous répartir les tâches selon les envies de chacun et les besoins du projet.
 
-Anthony est responsable du site web qui sera donc l'interface de notre thésaurus. Colin prend en charge la mise en place  du serveur et de la base de données  afin de pouvoir entamer le projet. Sébastien  s'occupe des diagrammes de classes et  d'utilisation. Johann et Maïlys sont responsables de tout ce qui est rédaction du rapport, organisation du projet et résumé des réunions.
+Anthony est responsables du site web qui sera donc l'interface de notre thésaurus. Colin prend en charge la mise en place  du serveur et de la base de données  afin de pouvoir entamer le projet. Sébastien  s'occupe des diagrammes de classes et  d'utilisation. Johann et Maïlys sont responsables de tout ce qui est rédaction du rapport, organisation du projet et résumé des réunions.
 
 \section{Conception}
 %Diagramme de classe à insérer
@@ -81,6 +81,26 @@ Dans le contexte de gestion de projet, nous avons utilisé le service fourni par 
 
 
 \section{Implémentation}
+
+\subsection{Base de Données}
+Nous avons implémenté le schéma UML précédent sur une base Oracle.
+Nous avons crée les trois types et finalement trois tables correspondant aux classes Descripteur, Relations et Type\_relation.
+De plus, nous avons décidé de faire intervenir des Trigger PL/SQL afin que la base de données reste stable et sans erreur :
+\begin{description}
+  \item[CHK\_MATCH\_RELATION :]  Vérifie que la relation crée suit le schéma, c'est à dire qu'une relation synonymes doit comportée au moins un terme vedette, généralisation 2 termes vedettes et spécialisation 2 termes vedettes, sinon renvoie une erreur et ne crée pas la relation.
+  \item[CHK\_UNIQUE\_RELATION :]  Vérifie que la relation à créer n'est pas déjà existante, sinon ne crée pas la relation et renvoie un message.
+\end{description} 
+
+Pour le moment, notre table\_relations ne comportent que trois libelles : Synonyme, Généralisation et Spécialisation du mot courant.
+
+\subsection{Interface Web}
+
+
+Notre interface web comporte deux pages principales:
+\begin{description}
+  \item[L'accueil :] une zone de recherche de descripteur, une zone d'ajout de descripteur vedette ou non, et une zone de présentation du projet.
+  \item[L'affichage du descripteur courant :] une zone de recherche de descripteur, une zone d'ajout de descripteur vedette ou non, une zone d'affichage des relations du descripteur courant et pour chacune des relations une zone d'ajout de relation à ce même descripteur.
+\end{description} 
 
 \section{Conclusion}
 \subsection{Difficultés rencontrées}
