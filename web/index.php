@@ -84,8 +84,12 @@
 					
 					if($desc->getVedette()==1){
 					$isvedette="oui";}
-					else{
+					else if($desc->getVedette()==0){
 					$isvedette="non";}
+					else if ($desc->getVedette()==null){
+					$isvedette="null";}
+					else {
+					$isvedette="autre";}
 					echo "Vedette : ".$isvedette;
 				
 					$relations=$desc->getRel();
