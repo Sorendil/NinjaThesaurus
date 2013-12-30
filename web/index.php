@@ -81,6 +81,7 @@
 					echo '<div id="descripteur">';
 					echo "<pre>";
 					echo "<h1>Page du mot : ".$desc->getLibelle()."</h1>";
+					echo "Vedette : ".$desc->getVedette();
 				
 					$relations=$desc->getRel();
 					 
