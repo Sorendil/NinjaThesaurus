@@ -81,7 +81,12 @@
 					echo '<div id="descripteur">';
 					echo "<pre>";
 					echo "<h1>Page du mot : ".$desc->getLibelle()."</h1>";
-					echo "Vedette : ".$desc->getVedette();
+					
+					if($desc->getVedette()==0){
+					$isvedette="oui";}
+					else{
+					$isvedette="non";}
+					echo "Vedette : ".$isvedette;
 				
 					$relations=$desc->getRel();
 					 
