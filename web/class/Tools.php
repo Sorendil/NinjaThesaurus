@@ -12,7 +12,7 @@ class Tools
   static function connect_db()
   {
     include './config_db.php';
-    return oci_connect ($login, $password, $host);
+    return oci_connect ($login, $password, $host, 'AL32UTF8');
   }
 
   static function disconnect_db($db)
