@@ -45,7 +45,7 @@ class Descripteur
 
     $this->db = $db;
     $this->libelle = $libelle;
-    $this->vedette = $vedette;
+    $this->vedette = $res['VEDETTE'][0];
   }
 
   public function getLibelle ()
