@@ -70,7 +70,20 @@ Le modèle est intéressant dans notre situation puisque léger à mettre en ?uvre :
 De plus, la contrainte d'utiliser l'objet relationnel pose différents problèmes au niveau du stockage des données. Il n'est pas possible d'intégrer dans des tables imbriquées les n?uds que contiennent un n?ud père (relation de spécialisation) car cela rendrait la recherche d'un terme vedette très complexe (il faudrait parcourir chaque branche de l'arbre à partir de la racine, sans index possible). L'utilisation de références d'objet s'avère alors utile, mais le problème de suppression de n?uds se pose alors : il n'est pas possible sous Oracle d'avoir une suppression automatique d'un tuple étant référencé dans un autre tuple qu'on supprime, contrairement au relationnel, où les clés étrangères et l'option FOREIGN KEY permet d'assurer cette fonction. On serait alors obligé d'avoir recourt à des déclencheurs particulièrement pénibles à mettre en ?uvre (et sujet à être modifié si l'on rajoute de nouvelles relations).
 
 \subsection{Modèle sous forme de graphe orienté (ou réseau lexical)}
+Afin de trouver un palliatif aux problèmes d souplesse que pose le modèle précédent, nous nous sommes inspirés de la vision des réseaux lexicaux telle qu'on peut la retrouver sur JeuxDeMots. Il s'agit d'un graphe orienté, où les n?uds représentent des termes et les arcs des relations, valués et orientés. Dans le cadre du thésaurus, seule l'orientation de ces relations nous intéresse.
+
+L'intérêt de ce modèle est qu'il offre une souplesse extrême puisqu'on peut aisément manipuler toute sorte de relations entre tous les n?uds de la base de données, permettant de s'adapter facilement à de nombreux types de thésaurus. Du point de vue de l'implémentation, deux classes (une classe contenant les termes, une autre les relations) suffisent.
+
+Afin d'assurer des contraintes entre différentes relations (par exemple, le fait que la relation de synonymie puisse s'exprimer entre un descripteur vedette et un non vedette uniquement), nous avons décidé de concevoir une classe supplémentaire, qui répertorie l'ensemble des relations possibles du modèle, et qui indique par deux booléens si le terme source de la relation doit être vedette, et si le terme de destination de la relation doit l'être également. Cet ajout permet d'adapter le modèle à de nouveaux contextes (nouvelles relations, contraintes entre relations) sans modifier le schéma, simplement en ajoutant des tuples dans la classe répertoriant les relations.
+
+Cela nécessite un déclencheur assez lourd qui consiste lors de chaque ajout ou modification de relation à vérifier l'état des termes (vedettes ou non) avant d'effectuer la modification dans la base de données. Néanmoins, ce déclencheur n'a pas besoin d'être modifié ou adapté en fonction du contexte, ce qui est un atout vis à vis du modèle précédent.
+
 \subsection{Modèle retenu}
+(todo)
+- second modèle retenu, bien que pas parfait car
+- exemple pbleme caisse voiture et caisse contenair
+- pbleme relation spécialisation/généralisation non explicite mais pas possible de faire mieux àcause de problemes de polysémie
+
 %Diagramme de classe à insérer
 %Diagramme de cas d'utilisation à insérer
 
