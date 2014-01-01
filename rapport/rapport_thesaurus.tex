@@ -19,9 +19,9 @@
 
 
 \section{Introduction}%Introduction ou Sujet
-Dans le cadre du Master 1 Informatique à l'Université Montpellier 2, nous avons été mené à réaliser un projet de groupe pour le cours de base de données avancées dirigé par Thérèse Libourel.
+Dans le cadre du Master 1 Informatique à l'Université Montpellier 2, nous avons été amenés à réaliser un projet de groupe pour le cours de base de données avancées dirigé par Thérèse Libourel.
 	
-Le projet proposé consiste à analyser et implémenter un vocabulaire partagé. Un vocabulaire partagé ou aussi appelé Thésaurus est une liste de termes organisées selon des liens qui les unissent. Les termes sont reliés entre eux par diverses relations comme la synonymie, la généralisation, la spécialisation, l'association...
+Le projet proposé consiste à analyser et implémenter un système de gestion de vocabulaire partagé. Un vocabulaire partagé, aussi appelé Thésaurus, est une liste de termes organisés selon des liens qui les unissent. Les termes sont reliés entre eux par diverses relations comme la synonymie, la généralisation, la spécialisation, l'association...
 	
 Le projet qui nous a été assigné " le thésaurus " est pertinent par rapport au sujet de la base de données parce qu'au final un thésaurus est un outil linguistique qui permet de voir les relations entre des concepts concernant un domaine de connaissance. Ainsi l'une de notre mission est de trouver la structure optimale qui mettra en avant les relations sémantiques et d'équivalence
 
@@ -61,7 +61,16 @@ Une fois l'analyse terminée, nous avons décidé de nous répartir les tâches selon
 
 Anthony est responsables du site web qui sera donc l'interface de notre thésaurus. Colin prend en charge la mise en place  du serveur et de la base de données  afin de pouvoir entamer le projet. Sébastien  s'occupe des diagrammes de classes et  d'utilisation. Johann et Maïlys sont responsables de tout ce qui est rédaction du rapport, organisation du projet et résumé des réunions.
 
-\section{Conception}
+\section{Modélisation}
+\subsection{Modèle sous forme d'arbre}
+Dans un contexte de thésaurus traitant des animaux, notre première approche fût de concevoir un modèle objet relationnel qui prennent en compte par sa conception (c'est à dire sans avoir recours à des contraintes particulières) la notion de hiérarchie entre les termes, illustrant implicitement les relations de généralisations et spécialisations entre des termes vedettes. Afin d'illustrer d'autres aspects relationnels entre les termes, nous pouvons ajouter des relations au travers de nouvelles classes, comme l'illustre la classe de Synonymie, qui regrouperait alors des termes non vedettes.
+
+Le modèle est intéressant dans notre situation puisque léger à mettre en ?uvre : pas besoin d'utiliser de triggers ou de contraintes complexes pour assurer l'intégrité de la base. En revanche il en est pas moins extrêmement statique, et très spécialisé. On peut imaginer des domaines où une relation de hiérarchie n'est pas nécessaire, où encore un domaine où l'héritage multiple est indispensable, ce que ne peux fournir ce modèle. Par ailleurs, l'ajout de différents types de relations est relativement pénible, puisqu'il impose de modifier le modèle, et probablement les autres couches du programme.
+
+De plus, la contrainte d'utiliser l'objet relationnel pose différents problèmes au niveau du stockage des données. Il n'est pas possible d'intégrer dans des tables imbriquées les n?uds que contiennent un n?ud père (relation de spécialisation) car cela rendrait la recherche d'un terme vedette très complexe (il faudrait parcourir chaque branche de l'arbre à partir de la racine, sans index possible). L'utilisation de références d'objet s'avère alors utile, mais le problème de suppression de n?uds se pose alors : il n'est pas possible sous Oracle d'avoir une suppression automatique d'un tuple étant référencé dans un autre tuple qu'on supprime, contrairement au relationnel, où les clés étrangères et l'option FOREIGN KEY permet d'assurer cette fonction. On serait alors obligé d'avoir recourt à des déclencheurs particulièrement pénibles à mettre en ?uvre (et sujet à être modifié si l'on rajoute de nouvelles relations).
+
+\subsection{Modèle sous forme de graphe orienté (ou réseau lexical)}
+\subsection{Modèle retenu}
 %Diagramme de classe à insérer
 %Diagramme de cas d'utilisation à insérer
 
