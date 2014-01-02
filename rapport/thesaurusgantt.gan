@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2013-10-14" view-index="0" gantt-divider-location="353" resource-divider-location="300" version="2.0" locale="fr">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2013-10-07" view-index="0" gantt-divider-location="1" resource-divider-location="300" version="2.0" locale="fr">
     <description/>
-    <view zooming-state="default:7" id="gantt-chart">
-        <field id="tpd3" name="Nom" width="57" order="0"/>
-        <field id="tpd4" name="Date de début" width="21" order="1"/>
-        <field id="tpd5" name="Date de fin" width="21" order="2"/>
+    <view zooming-state="default:6" id="gantt-chart">
+        <field id="tpd3" name="Nom" width="33" order="0"/>
+        <field id="tpd4" name="Date de début" width="33" order="1"/>
+        <field id="tpd5" name="Date de fin" width="33" order="2"/>
         <option id="taskLabelUp" value="name"/>
         <option id="taskLabelDown" value=""/>
         <option id="taskLabelLeft" value=""/>
     </view>
     <view id="resource-table">
-        <field id="0" name="Nom" width="52" order="0"/>
-        <field id="1" name="Rôle par défaut" width="47" order="1"/>
+        <field id="0" name="Nom" width="50" order="0"/>
+        <field id="1" name="Rôle par défaut" width="49" order="1"/>
     </view>
     <!-- -->
     <calendars>
@@ -45,9 +45,8 @@
         <task id="14" name="conception interface web" color="#ff6600" meeting="false" start="2013-11-25" duration="6" complete="0" expand="true"/>
         <task id="20" name="élaboration de la structure du programme" color="#ff6600" meeting="false" start="2013-11-25" duration="6" complete="0" expand="true"/>
         <task id="26" name="conception du schéma objet relationnel" color="#ff6600" meeting="false" start="2013-12-02" duration="23" complete="0" expand="true"/>
-        <task id="28" name="implantation du schéma à la base et au site web" color="#ff6600" meeting="false" start="2014-01-01" duration="9" complete="0" expand="true"/>
-        <task id="24" name="tests" color="#ff6600" meeting="false" start="2014-01-02" duration="8" complete="0" expand="true"/>
-        <task id="18" name="rédaction rapport" color="#ff6600" meeting="false" start="2013-11-18" duration="41" complete="0" expand="true"/>
+        <task id="24" name="tests" color="#ff6600" meeting="false" start="2014-01-02" duration="5" complete="0" expand="true"/>
+        <task id="18" name="rédaction rapport" color="#ff6600" meeting="false" start="2013-11-18" duration="36" complete="0" expand="true"/>
     </tasks>
     <resources/>
     <allocations/>
@@ -62,9 +61,9 @@
         <displaycolumn property-id="tpd9" order="-1" width="75" visible="false"/>
         <displaycolumn property-id="tpd8" order="-1" width="75" visible="false"/>
         <displaycolumn property-id="tpd0" order="-1" width="75" visible="false"/>
-        <displaycolumn property-id="tpd3" order="0" width="199" visible="true"/>
-        <displaycolumn property-id="tpd4" order="1" width="75" visible="true"/>
-        <displaycolumn property-id="tpd5" order="2" width="75" visible="true"/>
+        <displaycolumn property-id="tpd3" order="0" width="15" visible="true"/>
+        <displaycolumn property-id="tpd4" order="1" width="15" visible="true"/>
+        <displaycolumn property-id="tpd5" order="2" width="15" visible="true"/>
     </taskdisplaycolumns>
     <previous/>
     <roles roleset-name="Default"/>
