@@ -7,9 +7,9 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \title{Projet Base de Données Avancées - Thésaurus}
-\author{J. Deguilhem, M. Denis, S. Gautheron , J. Mitrail, A. Rossi, C. Vidal \\Master 1 Informatique - Université Montpellier 2}
+\author{Julien Deguilhem, Maïlys Denis, Sébastien Gautheron,\\ Johan Mitrail, Anthony Rossi, Colin Vidal \\ \small Master 1 Informatique - Université Montpellier 2\\}
 \usepackage[absolute]{textpos}
-
+\date{}
 \begin{document}
 \maketitle{}
 \thispagestyle{empty}
@@ -113,15 +113,14 @@ Dans le contexte de gestion de projet, nous avons utilisé le service fourni par 
 \section{Implémentation}
 
 \subsection{Base de Données}
-Nous avons implémenté le schéma UML précédent sur une base Oracle.
-Nous avons crée les trois types et finalement trois tables correspondant aux classes Descripteur, Relations et Type\_relation.
-De plus, nous avons décidé de faire intervenir des Trigger PL/SQL afin que la base de données reste stable et sans erreur :
+Nous avons implémenté en objet relationnel le schéma UML correspondant au modèle sous forme de graphe orienté.
+De plus, on a implémenté des Trigger PL/SQL afin que la base de données reste cohérente en fonctions des contraintes imposés entre les relations (définies dans la table types\_relations) :
 \begin{description}
-  \item[CHK\_MATCH\_RELATION :]  Vérifie que la relation crée suit le schéma, c'est à dire qu'une relation synonymes doit comportée au moins un terme vedette, généralisation 2 termes vedettes et spécialisation 2 termes vedettes, sinon renvoie une erreur et ne crée pas la relation.
-  \item[CHK\_UNIQUE\_RELATION :]  Vérifie que la relation à créer n'est pas déjà existante, sinon ne crée pas la relation et renvoie un message.
+  \item[CHK\_MATCH\_RELATION :]  Assure que l'état (vedette ou non vedette) du descripteur source et destination de la relation correspondent bien à l'état du descripteur source et destination imposé par le type de relation choisi.
+  \item[CHK\_UNIQUE\_RELATION :]  Vérifie que la relation à créer n'est pas déjà existante (étant donné qu'il est impossible de placer une contrainte d'unicité sur des références).
 \end{description} 
 
-Pour le moment, notre table\_relations ne comportent que trois libelles : Synonyme, Généralisation et Spécialisation du mot courant mais d'autres relations pourront être aisement ajoutées par la suite car le diagramme de classe et l'infrastructure web ont été pensé ainsi.
+À l'heure actuelle, la table types\_relations ne comportent que trois tuples correspondant à trois types de relations possibles : Synonyme, Généralisation et Spécialisation du mot courant. D'autres relations peuvent être aisément ajoutées par la suite car le diagramme de classe et l'infrastructure web ont été pensé ainsi.
 
 \subsection{Interface Web}
 L'interface web communique avec notre base Oracle grâce au module OCI.
