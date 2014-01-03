@@ -85,4 +85,16 @@ class Descripteur
     return FALSE;
     */
   }
+
+  public function delRel ($dest_lib, $rel_lib)
+  {
+    $query = oci_parse ($this->db, 'delete from relations where ref_src=(select ref(d1) from descripteurs d1 where libelle=:lib1) and ref_dst=(select ref(d2) from descripteurs d2 where libelle=:lib2) and ref_type=(select ref(t) from types_relations where libelle=:type)');
+    oci_bind_by_name ($query, ":lib1", $this->libelle);
+    oci_bind_by_name ($query, ":lib2", $dest_lib);
+    oci_bind_by_name ($query, ":type", $rel_lib);
+
+    if (!oci_execute ($query))
+      return FALSE;
+    return TRUE;
+  }
 }
