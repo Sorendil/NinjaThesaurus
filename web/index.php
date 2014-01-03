@@ -64,19 +64,19 @@
 					exit();
 				  }
 				  if (isset($_POST['rel']) && isset($_POST['libelle']))
-				  {
-					/* ajout relation */
-					if ($desc->addRel(Tools::parse_libelle($_POST['libelle']), $_POST['rel'])){
-						echo '<center><b><font color="green" size="2"> F&eacute;licitations, votre relation a bien &eacute;t&eacute; ajout&eacute;e &agrave; la base de donn&eacute;es</font></b></center>';
-					goto redirection;
-						exit();
-					}
-					else{
-						echo '<center><b><font color="red" size="2"> Erreur, votre relation n\' a pas pu &ecirc;tre ajout&eacute;e &agrave; la base de donn&eacute;es </font></b></center>';
-					goto redirection;
-						exit();
-					}
-				  }
+      {
+        /* ajout relation */
+        if ($desc->addRel(Tools::parse_libelle($_POST['libelle']), $_POST['rel'])){
+          echo '<center><b><font color="green" size="2"> F&eacute;licitations, votre relation a bien &eacute;t&eacute; ajout&eacute;e &agrave; la base de donn&eacute;es</font></b></center>';
+          goto redirection;
+          exit();
+        }
+        else{
+          echo '<center><b><font color="red" size="2"> Erreur, votre relation n\' a pas pu &ecirc;tre ajout&eacute;e &agrave; la base de donn&eacute;es </font></b></center>';
+          goto redirection;
+          exit();
+        }
+      }
 					/* affichage page descripteur */
 					echo '<div id="descripteur">';
 					echo "<pre>";
@@ -102,11 +102,11 @@
 					$all_libelle_rel=Tools::getLibelleRel($db);//récupération de toutes les types de relations de la bdd	
 					$tab_rel=array();
 					
-					for($i=0; $i<count($relations['LIBELLE_REL']); $i++){							
-						
-						$tab_rel[$relations['LIBELLE_REL'][$i]][]=$i;		
-						
-					}
+     for($i=0; $i<count($relations['LIBELLE_REL']); $i++){							
+
+       $tab_rel[$relations['LIBELLE_REL'][$i]][]=$i;		
+
+     }
 					
 					foreach($tab_rel as $key => $value){
 						
