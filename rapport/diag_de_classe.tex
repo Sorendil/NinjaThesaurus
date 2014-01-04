@@ -1,0 +1,61 @@
+\documentclass[10pt]{article}
+\usepackage{pgf, tikz, pdflscape, geometry}
+\usetikzlibrary{arrows}
+\pagestyle{empty}
+\geometry{ hmargin=2.5cm, vmargin=3cm}
+\begin{document}
+\begin{landscape}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(2.4,-6.94) rectangle (19.34,6.33);
+\draw (4.14,5.45) node[anchor=north west] {Descripteur};
+\draw (3.06,2.4) node[anchor=north west] {getRelation()};
+\draw (3.04,1.69) node[anchor=north west] {addRelation()};
+\draw (3.01,4.2) node[anchor=north west] {libelle {unique}};
+\draw (2.56,6.03)-- (8.06,6.03);
+\draw (2.56,6.03)-- (2.56,4.53);
+\draw (8.06,6.03)-- (8.06,4.53);
+\draw (2.56,4.53)-- (8.06,4.53);
+\draw (2.56,2.76)-- (2.56,0.86);
+\draw (8.06,2.76)-- (8.06,0.86);
+\draw (2.56,0.86)-- (8.06,0.86);
+\draw (2.56,2.76)-- (8.06,2.76);
+\draw (2.56,4.53)-- (2.56,2.76);
+\draw (8.06,4.53)-- (8.06,2.76);
+\draw (13.61,6.07)-- (19.11,6.07);
+\draw (13.61,6.07)-- (13.61,4.57);
+\draw (19.11,6.07)-- (19.11,4.57);
+\draw (13.61,4.57)-- (19.11,4.57);
+\draw (13.61,3.07)-- (13.61,0.89);
+\draw (19.11,3.07)-- (19.11,0.89);
+\draw (13.61,0.89)-- (19.11,0.89);
+\draw (13.61,4.57)-- (13.61,3.07);
+\draw (19.11,4.57)-- (19.11,3.07);
+\draw (15.7,5.47) node[anchor=north west] {Relation};
+\draw (8.06,3.65)-- (13.61,3.65);
+\draw (8.06,2.05)-- (13.61,2.05);
+\draw (12.26,3.45) node[anchor=north west] {ref\_dest};
+\draw (12.37,1.94) node[anchor=north west] {ref\_src};
+\draw (8.29,3.45) node[anchor=north west] {1};
+\draw (8.29,1.91) node[anchor=north west] {1};
+\draw (9.76,-2.06) node[anchor=north west] {Type\_Relation};
+\draw (8.53,-3.4) node[anchor=north west] {libelle {unique}};
+\draw (8.08,-1.47)-- (13.58,-1.47);
+\draw (8.08,-1.47)-- (8.08,-2.97);
+\draw (13.58,-1.47)-- (13.58,-2.97);
+\draw (8.08,-2.97)-- (13.58,-2.97);
+\draw (8.08,-5.7)-- (8.08,-6.65);
+\draw (13.58,-5.7)-- (13.58,-6.65);
+\draw (8.08,-6.65)-- (13.58,-6.65);
+\draw (8.08,-5.7)-- (13.58,-5.7);
+\draw (8.08,-2.97)-- (8.08,-5.7);
+\draw (13.58,-2.97)-- (13.58,-5.7);
+\draw (16.63,0.89)-- (16.63,-3.95);
+\draw (16.63,-3.95)-- (13.58,-3.95);
+\draw (8.48,-4.08) node[anchor=north west] {srcVedette : boolean};
+\draw (8.51,-4.79) node[anchor=north west] {destVedette : boolean};
+\draw (17.06,0.66) node[anchor=north west] {ref\_type};
+\draw (3.01,3.54) node[anchor=north west] {vedette : boolean};
+\draw (13.84,-4.32) node[anchor=north west] {1};
+\end{tikzpicture}
+\end{landscape}
+\end{document}
