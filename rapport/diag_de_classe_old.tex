@@ -1,0 +1,92 @@
+\documentclass[10pt]{article}
+\usepackage{pgf, tikz, pdflscape, geometry}
+\usetikzlibrary{arrows}
+\pagestyle{empty}
+\geometry{ hmargin=2.5cm, vmargin=3cm}
+\begin{document}
+\begin{landscape}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-3.28,-9.33) rectangle (17.57,6.44);
+\fill[fill=black,fill opacity=1.0] (7.4,-3.1) -- (7.1,-3.4) -- (7.4,-3.7) -- (7.7,-3.4) -- cycle;
+\fill[fill=black,fill opacity=1.0] (10.54,-6.38) -- (10.24,-6.68) -- (10.54,-6.98) -- (10.84,-6.68) -- cycle;
+\fill[fill=black,fill opacity=1.0] (15.82,-5.91) -- (15.57,-5.41) -- (16.07,-5.41) -- cycle;
+\fill[fill=black,fill opacity=1.0] (11.61,-8.9) -- (11.61,-8.4) -- (12.11,-8.65) -- cycle;
+\fill[fill=black,fill opacity=1.0] (4.05,0.85) -- (3.49,0.73) -- (3.77,0.44) -- cycle;
+\fill[fill=black,fill opacity=1.0] (6.74,0.85) -- (7.03,0.45) -- (7.28,0.73) -- cycle;
+\draw (3.85,5.77) node[anchor=north west] {\textless\textless abstract \textgreater\textgreater};
+\draw (4.15,5.21) node[anchor=north west] {Descripteur};
+\draw (3.04,2.66) node[anchor=north west] {modifierLibelle()};
+\draw (3.07,1.97) node[anchor=north west] {supprimer() \{abstract\}};
+\draw (3.02,4.27) node[anchor=north west] {libelle \{unique\}};
+\draw (-0.8,-1.62) node[anchor=north west] {DNormal};
+\draw (-2.25,-4.41) node[anchor=north west] {supprimer()};
+\draw (7.78,-1.16)-- (13.28,-1.16);
+\draw (7.78,-1.16)-- (7.78,-2.66);
+\draw (13.28,-1.16)-- (13.28,-2.66);
+\draw (7.78,-2.66)-- (13.28,-2.66);
+\draw (9.66,-1.67) node[anchor=north west] {DVedette};
+\draw (7.78,-4.16)-- (7.78,-6.35);
+\draw (13.28,-4.16)-- (13.28,-6.35);
+\draw (7.78,-6.35)-- (13.28,-6.35);
+\draw (7.78,-4.16)-- (13.28,-4.16);
+\draw (7.78,-2.66)-- (7.78,-4.16);
+\draw (13.28,-2.66)-- (13.28,-4.16);
+\draw (8.13,-4.41) node[anchor=north west] {creerSynonyme() -\textgreater Normal};
+\draw (8.15,-4.99) node[anchor=north west] {creerFils()  -\textgreater Vedette};
+\draw (8.13,-5.64) node[anchor=north west] {supprimer()};
+\draw (2.56,6.03)-- (8.06,6.03);
+\draw (2.56,6.03)-- (2.56,4.53);
+\draw (8.06,6.03)-- (8.06,4.53);
+\draw (2.56,4.53)-- (8.06,4.53);
+\draw (2.56,3.03)-- (2.56,0.85);
+\draw (8.06,3.03)-- (8.06,0.85);
+\draw (2.56,0.85)-- (8.06,0.85);
+\draw (2.56,3.03)-- (8.06,3.03);
+\draw (2.56,4.53)-- (2.56,3.03);
+\draw (8.06,4.53)-- (8.06,3.03);
+\draw (-2.78,-1.14)-- (2.72,-1.14);
+\draw (-2.78,-1.14)-- (-2.78,-2.64);
+\draw (2.72,-1.14)-- (2.72,-2.64);
+\draw (-2.78,-2.64)-- (2.72,-2.64);
+\draw (-2.78,-4.14)-- (-2.78,-6.32);
+\draw (2.72,-4.14)-- (2.72,-6.32);
+\draw (-2.78,-6.32)-- (2.72,-6.32);
+\draw (-2.78,-4.14)-- (2.72,-4.14);
+\draw (-2.78,-2.64)-- (-2.78,-4.14);
+\draw (2.72,-2.64)-- (2.72,-4.14);
+\draw (7.4,-3.1)-- (7.1,-3.4);
+\draw (7.1,-3.4)-- (7.4,-3.7);
+\draw (7.4,-3.7)-- (7.7,-3.4);
+\draw (7.7,-3.4)-- (7.4,-3.1);
+\draw (7.1,-3.4)-- (2.72,-3.4);
+\draw (0.41,-1.14)-- (4.05,0.85);
+\draw (10.54,-6.38)-- (10.24,-6.68);
+\draw (10.24,-6.68)-- (10.54,-6.98);
+\draw (10.54,-6.98)-- (10.84,-6.68);
+\draw (10.84,-6.68)-- (10.54,-6.38);
+\draw (13.28,-3.35)-- (15.12,-3.35);
+\draw (15.12,-3.35)-- (15.12,-8.11);
+\draw (15.12,-8.11)-- (10.54,-8.11);
+\draw (10.54,-8.11)-- (10.54,-6.98);
+\draw (15.82,-5.91)-- (15.57,-5.41);
+\draw (15.57,-5.41)-- (16.07,-5.41);
+\draw (16.07,-5.41)-- (15.82,-5.91);
+\draw (15.39,-6.12) node[anchor=north west] {a pour pere};
+\draw (11.61,-8.9)-- (11.61,-8.4);
+\draw (11.61,-8.4)-- (12.11,-8.65);
+\draw (12.11,-8.65)-- (11.61,-8.9);
+\draw (12.46,-8.5) node[anchor=north west] {a pour fils};
+\draw (2.91,-2.91) node[anchor=north west] {*};
+\draw (4.2,-2.77) node[anchor=north west] {synonyme};
+\draw (13.59,-2.88) node[anchor=north west] {*};
+\draw (10.06,-6.84) node[anchor=north west] {1};
+\draw (6.74,0.85)-- (9.78,-1.16);
+\draw (4.05,0.85)-- (3.49,0.73);
+\draw (3.49,0.73)-- (3.77,0.44);
+\draw (3.77,0.44)-- (4.05,0.85);
+\draw (6.74,0.85)-- (7.03,0.45);
+\draw (7.03,0.45)-- (7.28,0.73);
+\draw (7.28,0.73)-- (6.74,0.85);
+\end{tikzpicture}
+\end{landscape}
+\end{document}
