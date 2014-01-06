@@ -126,11 +126,11 @@ De plus, on a implémenté des Trigger PL/SQL afin que la base de données reste co
 À l'heure actuelle, la table types\_relations ne comportent que trois tuples correspondant à trois types de relations possibles : Synonyme, Généralisation et Spécialisation du mot courant. D'autres relations peuvent être aisément ajoutées par la suite car le diagramme de classe et l'infrastructure web ont été pensé ainsi.
 
 \subsection{Application web}
-Nous avons donc créés une application web en PHP pour l'utilisation et la gestion des données. Nous avons utiliser le module PHP OCI pour communiquer avec la base de données Oracle.
+Nous avons donc crée une application web en PHP pour l'utilisation et la gestion des données. Nous avons utilisé le module PHP OCI pour communiquer avec la base de données Oracle.
 
 Afin de garder une approche objet, les accès à la base de données par l'application se font au travers d'envois de messages à des objets de type \emph{Descripteur} appelant des méthodes dédiées (ajout de relations, par exemple), et facilitant l'intégration de l'interface utilisateur.
 
-Par ailleurs, dans un but de simplification d'URL, nous avons utilisé le module de réécriture d'adresse d'Apache. Ainsi, au lieu de passer des paramètres de types GET sous forme d'une syntaxe lourde pour l'utilisateur (par exemple \emph{http://domain.tld/index.php?libelle=chat}), l'utilisateur peut accéder à un libelle en tapant directement la chaine \emph{http://domain.tld/chat/} après le nom de domaine.
+Par ailleurs, dans un but de simplification d'URL, nous avons utilisé le module de réécriture d'adresse d'Apache. Ainsi, au lieu de passer des paramètres de type GET sous forme d'une syntaxe lourde pour l'utilisateur (par exemple \emph{http://domain.tld/index.php?libelle=chat}), l'utilisateur peut accéder à un libelle en tapant directement la chaine de l'animal recherché après le nom de domaine soit \emph{http://domain.tld/chat/}.
 
 \subsection{Interface utilisateur}
 Notre interface web comporte deux pages principales:
@@ -155,6 +155,7 @@ Cependant, nous l'avons repensé car l'idée de la génération d'un arbre n'est pas
 \subsection{Résultats}
 A l'issue de ce projet, nous avons réussi à implémenter une base de données objet relationnel et un site web.
 Cette implémentation nous permet de rechercher un mot, ajouter un mot et des relations et obtenir la liste des relations qu'il possède.
-Cependant, nous aurions aimé inclure des zones d'édition et de suppression des descripteurs, des relations et des types de relations.
+Cependant, par manque de temps, nous aurions aimé inclure des zones d'édition et de suppression des descripteurs, des relations et des types de relations mais aussi améliorer l'affichage des erreurs lancées par les Triggers lors d'un ajout ambigu de descripteur ou de relation.
+ 
 
 \end{document}
