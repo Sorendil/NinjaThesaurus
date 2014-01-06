@@ -66,7 +66,7 @@ Anthony Rossi est responsable du design qui sera donc l'interface de notre thésa
 \section{Modélisation}
 \subsection{Modèle sous forme d'arbre}
 %Diagramme de classe numéro 1
-\includegraphics[width=16cm, trim = 3cm 3cm 3cm 1cm, clip=true]{diag_de_classe.pdf}
+\includegraphics[width=16cm, trim = 3cm 3cm 3cm 1cm, clip=true]{diag_de_classe_old.pdf}
 
 Dans un contexte de thésaurus traitant des animaux, notre première approche fût de concevoir un modèle objet relationnel qui prenne en compte par sa conception (c'est à dire sans avoir recours à des contraintes particulières) la notion de hiérarchie entre les termes, illustrant implicitement les relations de généralisations et spécialisations entre des termes vedettes. Afin d'illustrer d'autres aspects relationnels entre les termes, nous pouvons ajouter des relations au travers de nouvelles classes, comme l'illustre la classe de Synonymie, qui regrouperait alors des termes non vedettes.
 
@@ -75,6 +75,9 @@ Le modèle est intéressant dans notre situation puisque léger à mettre en oeuvre 
 De plus, la contrainte d'utiliser l'objet relationnel pose différents problèmes au niveau du stockage des données. Il n'est pas possible d'intégrer dans des tables imbriquées les noeuds que contiennent un noeud père (relation de spécialisation) car cela rendrait la recherche d'un terme vedette très complexe (il faudrait parcourir chaque branche de l'arbre à partir de la racine, sans index possible). L'utilisation de références d'objet s'avère alors utile, mais le problème de suppression de noeuds se pose alors : il n'est pas possible sous Oracle d'avoir une suppression automatique d'un tuple étant référencé dans un autre tuple qu'on supprime, contrairement au relationnel, où les clés étrangères et l'option FOREIGN KEY permet d'assurer cette fonction. On serait alors obligé d'avoir recourt à des déclencheurs particulièrement pénibles à mettre en oeuvre (et sujet à être modifié si l'on rajoute de nouvelles relations).
 
 \subsection{Modèle sous forme de graphe orienté (ou réseau lexical)}
+
+\includegraphics[width=16cm, trim = 3cm 5cm 3cm 1cm, clip=true]{diag_de_classe.pdf}
+
 Afin de trouver un palliatif aux problèmes de souplesse que pose le modèle précédent, nous nous sommes inspirés de la vision des réseaux lexicaux telle qu'on peut la retrouver sur JeuxDeMots\footnote{http://www.jeuxdemots.org réalisé par Mathieu Lafourcade}. Il s'agit d'un graphe orienté, où les noeuds représentent des termes et les arcs des relations, valués et orientés. Dans le cadre du thésaurus, seule l'orientation de ces relations nous intéresse : une relation de type spécialisation entre \emph{A} $\rightarrow$ \emph{B} est dite \emph{sortante} de \emph{A}, et entrante de \emph{B}. 
 
 L'intérêt de ce modèle est qu'il offre une souplesse extrême puisqu'on peut aisément manipuler toute sorte de relations entre tous les noeuds de la base de données, permettant de s'adapter facilement à de nombreux types de thésaurus. Du point de vue de l'implémentation, deux classes (une classe contenant les termes, une autre les relations) suffisent.
