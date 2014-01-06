@@ -122,10 +122,14 @@ De plus, on a implémenté des Trigger PL/SQL afin que la base de données reste co
 
 À l'heure actuelle, la table types\_relations ne comportent que trois tuples correspondant à trois types de relations possibles : Synonyme, Généralisation et Spécialisation du mot courant. D'autres relations peuvent être aisément ajoutées par la suite car le diagramme de classe et l'infrastructure web ont été pensé ainsi.
 
-\subsection{Interface Web}
-L'interface web communique avec notre base Oracle grâce au module OCI.
-L'interface web a été codé à l'aide de HTML et CSS côté client et PHP côté serveur.
+\subsection{Application web}
+Nous avons donc créés une application web en PHP pour l'utilisation et la gestion des données. Nous avons utiliser le module PHP OCI pour communiquer avec la base de données Oracle.
 
+Afin de garder une approche objet, les accès à la base de données par l'application se font au travers d'envois de messages à des objets de type \emph{Descripteur} appelant des méthodes dédiées (ajout de relations, par exemple), et facilitant l'intégration de l'interface utilisateur.
+
+Par ailleurs, dans un but de simplification d'URL, nous avons utilisé le module de réécriture d'adresse d'Apache. Ainsi, au lieu de passer des paramètres de types GET sous forme d'une syntaxe lourde pour l'utilisateur (par exemple \emph{http://domain.tld/index.php?libelle=chat}), l'utilisateur peut accéder à un libelle en tapant directement la chaine \emph{http://domain.tld/chat/} après le nom de domaine.
+
+\subsection{Interface utilisateur}
 Notre interface web comporte deux pages principales:
 \begin{description}
   \item[L'accueil] une zone de recherche de descripteur, une zone d'ajout de descripteur vedette ou non, et une zone de présentation du projet.
@@ -137,9 +141,8 @@ Plus de détails sur les différentes zones du site :
 \item[Zone d'affichage d'un descripteur]Cette zone comprend la liste des types de relations et des mots reliés au descripteur recherché. A chaque type de relation existe une zone d'ajout de relation, c'est à dire que l'on peut ajouter un mot qui aura cette relation avec le descripteur courant. Il est indiqué si le mot recherché est vedette ou non.
 \item[Zone d'ajout de relation]Dans ce formulaire, l'utilisateur peut ajouter une relation au descripteur recherché. Chaque type de relation est composé d'un formulaire d'ajout de relation. On doit donc renseigner le descripteur au bon formulaire concernant le type de relation que nous voulons ajouté. Si l'ajout d'une relation compromet le bon usage de la base, un message d'erreur déclenché par un Trigger apparaitra. Si l'ajout d'une relation comprend un mot qui n'a pas encore été déjà ajouter dans la base de données, un message d'erreur apparait, c'est pourquoi il faut impérativement ajouter le terme voulu grâce à la zone d'ajout de descripteur avant d'ajouter une quelconque relation.
 \item[Zone d'ajout de descripteur]Ce formulaire permet d'ajouter un descripteur à la base. On doit préciser si le descripteur à ajouter est vedette ou non. Si le descripteur est déjà existant, un message d'erreur déclenché par un Trigger apparaitra.
-
-
 \end{description}
+
 \section{Conclusion}
 \subsection{Difficultés rencontrées}
 Nous avons rencontré quelques difficultés concernant la phase d'analyse du sujet en particulier l'élaboration du diagramme de classe. Notre premier diagramme de classe était fait en sorte que l'on puisse créer une hiérarchie de mots sous forme d'arbre mais aussi une liste de synonyme. 
