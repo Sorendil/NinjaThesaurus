@@ -25,7 +25,7 @@ Dans le cadre du Master 1 Informatique à l'Université Montpellier 2, nous avons 
 	
 Le projet proposé consiste à analyser et implémenter un système de gestion de vocabulaire partagé. Un vocabulaire partagé, aussi appelé Thésaurus, est une liste de termes organisés selon des liens qui les unissent. Les termes sont reliés entre eux par diverses relations comme la synonymie, la généralisation, la spécialisation, l'association...
 	
-Le projet qui nous a été assigné " le thésaurus " est pertinent par rapport au sujet de la base de données parce qu'au final un thésaurus est un outil linguistique qui permet de voir les relations entre des concepts concernant un domaine de connaissance. Ainsi l'une de notre mission est de trouver la structure optimale qui mettra en avant les relations sémantiques et d'équivalence
+Le projet qui nous a été assigné, "le thésaurus", est pertinent par rapport au sujet de la base de données parce qu'au final un thésaurus est un outil linguistique qui permet de voir les relations entre des concepts concernant un domaine de connaissance. Ainsi l'une de notre mission est de trouver la structure optimale qui mettra en avant les relations sémantiques et d'équivalence.
 
 L'équipe de projet est constitué de six étudiants : Julien Deguilhem, Maïlys Denis, Sébastien Gautheron, Johann Mitrail, Anthony Rossi et Colin Vidal.
 
@@ -49,7 +49,7 @@ De plus, l'utilisateur aura la possibilité d'ajouter, d'éditer ou de supprimer d
 \subsection{Fiabilité}
 L'application avertit l'utilisateur dans le cas où le mot recherché n'est pas dans la base de données et après l'ajout, la suppression ou l'édition d'un mot.
 
-Lors d'ajout(de suppression et d'édition) de relations à un mot, l'application est en mesure de refuser si la relation compromet le bon fonctionnement de la base de données.
+Lors de l'ajout, de la suppression ou de l'édition de relations à un mot, l'application est en mesure de refuser si la modification compromet le bon fonctionnement de la base de données.
  
 
 
@@ -89,9 +89,9 @@ Cela nécessite un déclencheur assez lourd qui consiste lors de chaque ajout ou m
 \subsection{Modèle retenu}
 En raison de sa souplesse face à différentes situations (non nécessité de modifié le schéma en case de modification du modèle, déclencheurs qui n'ont pas besoins d'être spécialisés), nous avons décidé de retenir le second modèle.
 
-Nous voyons cependant des limites à ce modèle sur deux plans. Premièrement, dans le cas d'un thésaurus très vastes, on pourrait imaginer que deux termes ont la même étiquette, et que l'un soit vedette alors que l'autre ne l'est pas. L'étiquette étant la clé primaire d'un terme, cela est impossible. Ce problème peut par exemple se produire dans un thésaurus où \emph{caisse} est un synonyme de \emph{auto-mobile}, et où \emph{caisse} serait un descripteur vedette pour illustrer le concept de \emph{conteneur}. Ce type de problème pourrait être résolu par l'adoption comme clé primaire de l'étiquette et du booléen vedette sur un descripteur.
+Nous voyons cependant des limites à ce modèle sur deux plans. Premièrement, dans le cas d'un thésaurus très vaste, on pourrait imaginer que deux termes ont la même étiquette, et que l'un soit vedette alors que l'autre ne l'est pas. L'étiquette étant la clé primaire d'un terme, cela est impossible. Ce problème peut par exemple se produire dans un thésaurus où \emph{caisse} est un synonyme de \emph{auto-mobile}, et où \emph{caisse} serait un descripteur vedette pour illustrer le concept de \emph{conteneur}. Ce type de problème pourrait être résolu par l'adoption comme clé primaire de l'étiquette et du booléen vedette sur un descripteur.
 
-Par ailleurs, si le premier modèle permettait d'exprimer les relations de généralisation/spécialisation de manière synchrone (c'est à dire que si on ajoutait \emph{chat} comme spécialisation de \emph{félin}, ce dernier aurait automatiquement la relation de généralisation vers \emph{chat}), ce qui est impossible dans le modèle que nous avons choisi, car il nécessiterai du code spécifique (donc moins de souplesse), et aussi parce qu'il pourrait poser des problèmes de polysémie suivant les thésaurus : \emph{chat} représente l'animal et la discussion instantanée. Si on ajoute une relation de généralisation vers \emph{félin}, il est impossible d'y ajouter automatiquement une relation de spécialisation de \emph{félin} vers \emph{chat}, puisque ce dernier peut représenter aussi la discussion instantanée. Ce serait sémantiquement faux. Cependant, bien que ça ne résolve pas complètement le problème, les relations ayant un sens (entrantes ou sortantes), on peut tout de même naviguer entre les termes.
+Par ailleurs, si le premier modèle permettait d'exprimer les relations de généralisation/spécialisation de manière synchrone (c'est à dire que si on ajoutait \emph{chat} comme spécialisation de \emph{félin}, ce dernier aurait automatiquement la relation de généralisation vers \emph{chat}), ce qui est impossible dans le modèle que nous avons choisi, car il nécessiterait du code spécifique (donc moins de souplesse), et aussi parce qu'il pourrait poser des problèmes de polysémie suivant les thésaurus : \emph{chat} représente l'animal et la discussion instantanée. Si on ajoute une relation de généralisation vers \emph{félin}, il est impossible d'y ajouter automatiquement une relation de spécialisation de \emph{félin} vers \emph{chat}, puisque ce dernier peut représenter aussi la discussion instantanée. Ce serait sémantiquement faux. Cependant, bien que ça ne résolve pas complètement le problème, les relations ayant un sens (entrantes ou sortantes), on peut tout de même naviguer entre les termes.
 
 Cela assure tout de même un bon compromis entre souplesse d'utilisation et complexité du modèle.
 
@@ -128,9 +128,9 @@ De plus, on a implémenté des Trigger PL/SQL afin que la base de données reste co
 \subsection{Application web}
 Nous avons donc crée une application web en PHP pour l'utilisation et la gestion des données. Nous avons utilisé le module PHP OCI pour communiquer avec la base de données Oracle.
 
-Afin de garder une approche objet, les accès à la base de données par l'application se font au travers d'envois de messages à des objets de type \emph{Descripteur} appelant des méthodes dédiées (ajout de relations, par exemple), et facilitant l'intégration de l'interface utilisateur.
+Afin de garder une approche objet, les accès à la base de données par l'application se font au travers d'envois de messages à des objets de type \emph{Descripteur} appelant des méthodes dédiées (ajout de relations, par exemple) et facilitant l'intégration de l'interface utilisateur.
 
-Par ailleurs, dans un but de simplification d'URL, nous avons utilisé le module de réécriture d'adresse d'Apache. Ainsi, au lieu de passer des paramètres de type GET sous forme d'une syntaxe lourde pour l'utilisateur (par exemple \emph{http://domain.tld/index.php?libelle=chat}), l'utilisateur peut accéder à un libelle en tapant directement la chaine de l'animal recherché après le nom de domaine soit \emph{http://domain.tld/chat/}.
+Par ailleurs, dans un but de simplification d'URL, nous avons utilisé le module de réécriture d'adresse d'Apache. Ainsi, au lieu de passer des paramètres de type GET sous forme d'une syntaxe lourde pour l'utilisateur (par exemple \emph{http://domain.tld/index.php?libelle=chat}), l'utilisateur peut accéder à un libellé en tapant directement la chaine de caractères de l'animal recherché après le nom de domaine soit \emph{http://domain.tld/chat/}.
 
 \subsection{Interface utilisateur}
 Notre interface web comporte deux pages principales:
@@ -140,10 +140,10 @@ Notre interface web comporte deux pages principales:
 \end{description} 
 Plus de détails sur les différentes zones du site :
 \begin{description}
-\item[Zone de recherche de descripteur]Formulaire qui permet à l'utilisateur de rechercher un terme, après avoir cliqué sur le bouton "recherche", il obtiendra la zone d'affichage des relations du descripteur courant. Si le terme recherché n'est pas dans la base de données, l'utilisateur sera averti.
+\item[Zone de recherche de descripteur]Formulaire qui permet à l'utilisateur de rechercher un terme, après avoir cliqué sur le bouton "recherche", il obtiendra la zone d'affichage des relations du descripteur courant. Si le terme recherché n'est pas dans la base de données, l'utilisateur en sera averti.
 \item[Zone d'affichage d'un descripteur]Cette zone comprend la liste des types de relations et des mots reliés au descripteur recherché. A chaque type de relation existe une zone d'ajout de relation, c'est à dire que l'on peut ajouter un mot qui aura cette relation avec le descripteur courant. Il est indiqué si le mot recherché est vedette ou non.
 \item[Zone d'ajout de relation]Dans ce formulaire, l'utilisateur peut ajouter une relation au descripteur recherché. Chaque type de relation est composé d'un formulaire d'ajout de relation. On doit donc renseigner le descripteur au bon formulaire concernant le type de relation que nous voulons ajouté. Si l'ajout d'une relation compromet le bon usage de la base, un message d'erreur déclenché par un Trigger apparaitra. Si l'ajout d'une relation comprend un mot qui n'a pas encore été déjà ajouter dans la base de données, un message d'erreur apparait, c'est pourquoi il faut impérativement ajouter le terme voulu grâce à la zone d'ajout de descripteur avant d'ajouter une quelconque relation.
-\item[Zone d'ajout de descripteur]Ce formulaire permet d'ajouter un descripteur à la base. On doit préciser si le descripteur à ajouter est vedette ou non. Si le descripteur est déjà existant, un message d'erreur déclenché par un Trigger apparaitra.
+\item[Zone d'ajout de descripteur]Ce formulaire permet d'ajouter un descripteur à la base. On doit préciser si le descripteur à ajouter est vedette ou non. Si le descripteur est déjà existant, un message d'erreur déclenché par un Trigger apparaîtra.
 \end{description}
 
 \section{Conclusion}
