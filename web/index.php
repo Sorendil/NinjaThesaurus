@@ -94,11 +94,11 @@
 				
 					$relations=$desc->getRel();
 					 
-					/*
+					
 					 echo "<pre>";
 					 print_r($relations);
 					 echo "</pre>";
-					*/
+					
 					$all_libelle_rel=Tools::getLibelleRel($db);//récupération de toutes les types de relations de la bdd	
 					$tab_rel=array();
 					
