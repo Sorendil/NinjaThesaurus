@@ -114,7 +114,7 @@
 						
 						for($j=0; $j<count($tab_rel[$key]); $j++){
 							if($relations['SENS'][$tab_rel[$key][$j]]==0){
-								echo '<a href="/'.$relations['LIBELLE_DESC'][$tab_rel[$key][$j]].'/" >'.$relations['LIBELLE_DESC'][$tab_rel[$key][$j]].'</a> ';
+								echo '<a href="/'.$relations['LIBELLE_DESC'][$tab_rel[$key][$j]].'/" >'.$relations['LIBELLE_DESC'][$tab_rel[$key][$j]].'</a> , ';
 							}
 						}
 						
