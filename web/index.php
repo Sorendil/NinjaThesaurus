@@ -79,7 +79,7 @@
       }
 					/* affichage page descripteur */
 					echo '<div id="descripteur">';
-					echo "<pre>";
+					echo "<div>";
 					echo "<h1>Page du mot : ".$desc->getLibelle()."</h1>";
 					
 					if ($desc->getVedette()==null){
@@ -95,7 +95,7 @@
 					$relations=$desc->getRel();
 					 
 					/*
-					 echo "<pre>";
+					 echo "<div>";
 					 print_r($relations);
 					 echo "</pre>";
 					*/
