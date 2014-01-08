@@ -89,12 +89,12 @@ Une relation correspond à un 3-uplet descripteur source, descripteur destinatio
 \item \emph{caisse} (= voiture, non vedette)
 \item \emph{caisse} (= conteneur, vedette)
 \end{itemize}
-$\rightarrow$ contrainte d'unicité du couple libelle + état vedette
+$\rightarrow$ contrainte d'unicité du couple libellé + état vedette
 
 \item Relations antagonistes
 \begin{itemize}
 \item \emph{chat} spécialise \emph{félin}
-\item \emph{félin} ne généralise PAS \emph{chat}. Le faire est dangereux en cas de polysémie sur le mot \emph{chat} : mettre la relation de généralisation sur \emph{félin} ou \emph{discussion instantanée} ?
+\item \emph{félin} ne généralise PAS \emph{chat}. Le faire est dangereux en cas de polysémie sur le mot \emph{chat} : mettre la relation de généralisation sur \emph{chat (félin)} ou \emph{chat (discussion instantanée)} ?
 \end{itemize}
 $\rightarrow$ possibilité d'afficher les relations entrantes
 \end{itemize}
@@ -118,7 +118,7 @@ $\rightarrow$ possibilité d'afficher les relations entrantes
 \item Une relation associe deux descripteurs et un type de relation par les références des objets des tables Descripteurs et Type\_Relations (vue objet relationnelle)
 \item Déclencheurs (ajout/modification table Relations)
 \begin{itemize}
-\item unicité triplet réf. desc. source, réf. desc. destination, réf. type relation (impossible d'utiliser les références comme clé primaire)
+\item unicité 3-uplet réf. desc. source, réf. desc. destination, réf. type relation (impossible d'utiliser les références comme clé primaire)
 \item cohérence des associations en fonction du type de relation\\ (ex. relation de type \emph{Synonyme} doit avoir un descripteur source vedette et descripteur destination non vedette)
 \end{itemize}
 \end{itemize} 
