@@ -113,8 +113,9 @@
 						echo "<h3>".ucfirst($key)."</h3>";
 						
 						for($j=0; $j<count($tab_rel[$key]); $j++){
-						
-							echo '<a href="/'.$relations['LIBELLE_DESC'][$tab_rel[$key][$j]].'/" >'.$relations['LIBELLE_DESC'][$tab_rel[$key][$j]].'</a> ';
+							if($relations['SENS'][$tab_rel[$key][$j]]==0){
+								echo '<a href="/'.$relations['LIBELLE_DESC'][$tab_rel[$key][$j]].'/" >'.$relations['LIBELLE_DESC'][$tab_rel[$key][$j]].'</a> ';
+							}
 						}
 						
 						echo '<form class="form-search" action="/'.$desc->getLibelle().'/" method="post">
