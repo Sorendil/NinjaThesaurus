@@ -79,7 +79,7 @@
       }
 					/* affichage page descripteur */
 					echo '<div id="descripteur">';
-					echo "<pre>";
+					echo "<div>";
 					echo "<h1>Page du mot : ".$desc->getLibelle()."</h1>";
 					
 					if ($desc->getVedette()==null){
@@ -143,7 +143,7 @@
 							}
 					}
 					
-					echo "</pre>";
+					echo "</div>";
 					echo '</div>';
 					/* fin affichage page descripteur */
 				}
