@@ -95,7 +95,7 @@
 					$relations=$desc->getRel();
 					 
 					/*
-					 echo "<div>";
+					 echo "<pre>";
 					 print_r($relations);
 					 echo "</pre>";
 					*/
@@ -143,7 +143,7 @@
 							}
 					}
 					
-					echo "</pre>";
+					echo "</div>";
 					echo '</div>';
 					/* fin affichage page descripteur */
 				}
