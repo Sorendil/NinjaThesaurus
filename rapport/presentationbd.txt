@@ -1,0 +1,78 @@
+introduction : 
+	présentation des personnes du groupe.
+	présentation du contexte/thésaurus
+
+définition thésaurus : 
+
+organisation du projet :
+	organisation du groupe
+		svn : github
+		réunions tous les 15jours
+		contacts par mail
+		
+	répartition taches
+		
+		julien: implémentation web
+		colin: mise en place infrastructure + implémenation bdd + implémentation web...
+		seb: realisation des diagrammes de classes + auxiliaire
+		anthony: design du site web + chef de projet
+		johann:  rapport + auxiliaire
+		mailys: implémentation web + rédaction rapport
+	
+organisation technique
+	choix technique
+		infrastructure : vm kvm sur serveur personnel
+			os: GNU/Linux CentOS 6.4 
+		sgbd : oracle 11g
+		serveur web : Apache 2.2; programmation php + module OCI (oracle)
+		
+	
+modélisation:
+	diagramme de classe, le dernier !
+
+implémentation:
+	bdd : 
+		triggers : chk_match_relation - verifie que la relation suit bien le schéma imaginé
+						synonymes: 1 vedette au moins
+						gene: 2 vedettes
+						spé: 2 vedettes 
+					chk_unique_relation - vérifie que la relation a ajouté n'est pas déjà existante
+	web : 
+		classe descripteur : on crée un objet instance de cette classe des qu'on recherche et affiche ou ajoute un descripteur, a partir de cette classe on peut obtenir 
+							le libelle du descripteur, s'il est vedette ou non, lui ajouter une relation, et supprimer une relation.
+		classe exeptions : pour gérer les exceptions, renvoi des erreurs quand on tente d'ajouter un descripteur existant, qu'on recherche un descripteur non existant.
+		
+		utilisation du module de reecriture d'adresse d'Apache 
+		au lieu de passer des parametres de type GET sous forme d'une syntaxe lourde pour l'utilisateur
+		accès a un mot en tapant le nom de domaine et le nom rechercher dans l'url dans un but de simplification d'URL, nous avons 
+		
+	interface user : 
+		design : css + html
+		l'interface est composé de 2 pages principales : 
+			la premiere qui contient la présentation du projet.
+			
+			l'entete du site est composé : 
+				d'un bouton accueil
+				logo
+				champ de recherche d'un mot
+				champ de saisi d'un descripteur à intégrer dans la base et case a cocher "vedette"
+				
+			la seconde qui est la page d'affichage des relations d'un descripteur recherché
+				affiche le mot recherché
+				affiche s'il est vedette ou non
+				affiche tous les types de relations possibles de la base
+				affiche tous les descritpeurs qui lui sont liés en fonctions des types de relations
+					chaque descripteur issue d'une relation avec le descripteur courrant et cliquable et donc consultable de la meme maniere
+				champ de saisi d'un descripteur à lié au descripteur courant avec un type de relation
+					chaque type de relation possede un champ de saisi associé
+					avant d'ajouter une relation au descripteur courant il faut penser à l'ajouter dans l'entete de la page
+				
+conclusion : 
+	points positifs : 
+		ce qu'on a réussi à faire: implémenter une bdd avec un site web
+		ce que ca nous a apporté humainement: 
+	points négatifs : 
+		a cause du temps imparti : on aurait voulu faire des formulaires de suppression et d'édition pour les relations et les descripteurs
+									et corriger qq détails comme l'affichage, et les erreurs des triggers						
+	
+				
