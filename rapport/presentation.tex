@@ -32,19 +32,11 @@
 \frame{
 \frametitle{Introduction}
 \begin{itemize}
-\item Définition d'un thésaurus
-\item Organisation du groupe
+\item Organisation du projet
 \item Modélisation
 \item Implémentation
 \end{itemize}
 }
-
-
-\begin{frame}
-\frametitle{Qu'est ce qu'un thésaurus ?}
-trouver def pas trop pompeuse... ce diapo est vraiment utile ? peut-être plutot dire que le notre sera sur les animaux serait mieux 
-\end{frame}
-
 
 
 \begin{frame}
@@ -61,58 +53,50 @@ trouver def pas trop pompeuse... ce diapo est vraiment utile ? peut-être plutot
 \frametitle{Répartition des tâches}
 \begin{itemize}
 \item Julien : implémentation web
-\item Colin : infrastructure + modélisation + implémentation BDD
-\item Sébastien : réalisation de diagrammes
-\item Anthony : chef de projet + design site web
-\item Johann : rapport
-\item Maïlys : implémentation web  + rapport
+\item Colin : infrastructure, modélisation, implémentation BDD
+\item Sébastien : réalisation de diagrammes, aide
+\item Anthony : chef de projet, design site web
+\item Johann : rapport, aide
+\item Maïlys : implémentation web, rapport
 \end{itemize}
 \end{frame}
 
 
 \begin{frame}
 \frametitle{Modélisation}
-Deux modèles de stockage des données ont étés envisagés
-\begin{itemize}
-\item sous forme d'arbre
-\item sous forme de graphe orienté
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Modèle sous forme d'arbre}
 \begin{center}
-\includegraphics[width=8cm, trim = 0cm 2cm 2cm 2cm, clip=true]{diag_de_classe_old.pdf}
+\includegraphics[width=11.5cm, trim = 2cm 1cm 4cm 3cm]{diag_de_classe.pdf}
 \end{center}
-\begin{itemize}
-\item trop spécifique
-\item ne supporte pas l'héritage multiple
-\item opérations de suppression délicates en objet
-\end{itemize}
 \end{frame}
 
 
 \begin{frame}
 \frametitle{Modèle sous forme de graphe orienté}
-\begin{center}
-\includegraphics[width=12cm]{diag_de_classe.pdf}
-\end{center}
-\begin{itemize}
-\item trop spécifique
-\item ne supporte pas l'héritage multiple
-\item opérations de suppression délicates en objet
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Modèle sous forme de graphe orienté}
+Une relation correspond à un triplet descripteur source, descripteur destination, type relation
 \begin{itemize}
 \item très généraliste et souple à manipuler
-\item triggers pour assurer les contraintes de relations (vedette/non vedette)
+\item déclencheurs pour assurer les contraintes de relations (vedette/non vedette)
 \item risque de lenteur sur de gros volumes de données/insertions simultanées multiples
-\item une relation correspond à un triplet descripteur source, descripteur destination, type relation
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Limites conceptuelles}
+\begin{itemize}
+\item Polysémie
+\begin{itemize}
+\item \emph{caisse} (= voiture, non vedette)
+\item \emph{caisse} (= conteneur, vedette)
+\end{itemize}
+$\rightarrow$ contrainte d'unicité du couple libelle + état vedette
+
+\item Relations antagonistes
+\begin{itemize}
+\item \emph{chat} spécialise \emph{félin}
+\item \emph{félin} ne généralise PAS \emph{chat}. Le faire est dangereux en cas de polysémie sur le mot \emph{chat} : mettre la relation de généralisation sur \emph{félin} ou \emph{discussion instantanée} ?
+\end{itemize}
+$\rightarrow$ possibilité d'afficher les relations entrantes
 \end{itemize}
 \end{frame}
 
